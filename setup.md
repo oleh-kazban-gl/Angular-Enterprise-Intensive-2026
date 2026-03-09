@@ -6,7 +6,7 @@ This course uses the following tools:
 
 - Node.js
 - pnpm
-- Angular CLI
+- NX CLI
 - Git
 - Visual Studio Code (recommended)
 
@@ -116,3 +116,7 @@ If everything is configured correctly, Nx will open the dependency graph in your
 Your environment is now ready for the course.
 
 You can proceed with the first module.
+
+# Related repos
+
+- https://github.com/oleh-kazban-gl/TypeScript
