@@ -63,6 +63,9 @@ Verify installation:
   - Angular Language Service
   - ESLint
   - Prettier
+  - NX Console
+  - Jest/Vitest runner
+
 
 - MS Visual Studio
 - IDEA/WebStorm
