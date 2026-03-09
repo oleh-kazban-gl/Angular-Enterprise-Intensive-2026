@@ -115,5 +115,9 @@ pnpm install
 Start the development server:
 
 ```bash
-pnpm nx serve
+nx serve instaglam
+```
+
+```bash
+pnpm start
 ```
