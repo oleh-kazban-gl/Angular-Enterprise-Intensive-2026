@@ -2,12 +2,11 @@
 
 <section class="feed">
   <h1 class="feed-title">{{ title }}</h1>
-  <button mat-button (click)="addPosts()">Add posts</button>
 
   <div class="posts">
     @if (postRecords.length) {
       @for (post of postRecords; track post.id) {
-        <gl-card class="post-card" (click)="goToPost(post.id)">
+        <gl-card class="post-card">
           <div card-header class="post-header">
             <div class="avatar"></div>
             <div class="post-meta">
@@ -17,7 +16,14 @@
           </div>
 
           <div card-content class="post-body">
-            <img class="post-image" ngSrc="post.image" [alt]="`Photo by ${post.author}`" />
+            <img
+              class="post-image"
+              [ngSrc]="post.image"
+              width="1200"
+              height="800"
+              [alt]="`Photo by ${post.author}`"
+              (click)="goToPost(post.id)"
+            />
             <p>{{ post.caption }}</p>
           </div>
 

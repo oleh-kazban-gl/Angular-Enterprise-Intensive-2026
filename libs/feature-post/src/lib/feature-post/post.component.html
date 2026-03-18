@@ -12,7 +12,13 @@
       </div>
 
       <div card-content class="post-body">
-        <img class="post-image" ngSrc="post().image" [alt]="`Photo by ${postItem.author}`" />
+        <img
+          class="post-image"
+          [ngSrc]="postItem.image"
+          width="1200"
+          height="800"
+          [alt]="`Photo by ${postItem.author}`"
+        />
         <p>{{ postItem.caption }}</p>
       </div>
 

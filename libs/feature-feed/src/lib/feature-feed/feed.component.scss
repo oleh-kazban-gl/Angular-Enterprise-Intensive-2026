@@ -17,4 +17,13 @@
   .avatar {
     background-color: rgb(0, 0, 0, 0.1);
   }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+  }
 }
