@@ -18,7 +18,8 @@
       "@gl/feature-navmenu": ["libs/feature-navmenu/src/index.ts"],
       "@gl/feature-profile": ["libs/feature-profile/src/index.ts"],
       "@gl/feature-feed": ["libs/feature-feed/src/index.ts"],
-      "@gl/feature-not-found": ["libs/feature-not-found/src/index.ts"]
+      "@gl/feature-not-found": ["libs/feature-not-found/src/index.ts"],
+      "@gl/feature-post": ["libs/feature-post/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
