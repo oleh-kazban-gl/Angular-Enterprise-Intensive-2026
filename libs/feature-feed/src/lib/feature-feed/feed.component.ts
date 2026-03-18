@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 import { CardComponent } from '@gl/ui-components/card';
 
@@ -90,11 +90,13 @@ const posts: FeedPost[] = [
 
 @Component({
   selector: 'gl-feed',
-  imports: [CommonModule, MatCardModule, MatIconModule, MatButtonModule, CardComponent],
+  imports: [CommonModule, MatIconModule, MatButtonModule, CardComponent],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
 export class FeedComponent {
+  constructor(private readonly router: Router) {}
+
   protected readonly title = 'InstaGLam';
   protected readonly posts = signal<FeedPost[]>([]);
 
@@ -106,5 +108,9 @@ export class FeedComponent {
 
   addPosts(): void {
     this.posts.set(posts);
+  }
+
+  protected goToPost(postId: string): void {
+    this.router.navigate(['/posts', postId]);
   }
 }

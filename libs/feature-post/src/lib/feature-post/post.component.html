@@ -1,1 +1,37 @@
-<p>FeaturePost works!</p>
+<section class="post">
+  <ng-container *ngIf="post(); else missing">
+    <gl-card class="post-card">
+      <div card-header class="post-header">
+        <div class="avatar"></div>
+        <div class="post-meta">
+          <div class="post-author">{{ post().author }}</div>
+          <div class="post-time">{{ post().time }}</div>
+        </div>
+      </div>
+
+      <div card-content class="post-body">
+        <img class="post-image" [src]="post().image" [alt]="`Photo by ${post().author}`" />
+        <p>{{ post().caption }}</p>
+        <p *ngIf="post().likes && post().likes < 10">Likes: {{ post().likes }}</p>
+      </div>
+
+      <div card-footer class="post-actions">
+        <button mat-button (click)="like()">
+          <mat-icon>favorite_border</mat-icon>
+          Like
+        </button>
+        <button mat-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back
+        </button>
+      </div>
+    </gl-card>
+  </ng-container>
+
+  <ng-template #missing>
+    <div class="post-missing">
+      <p>Post not found.</p>
+      <button mat-button (click)="goBack()">Back to feed</button>
+    </div>
+  </ng-template>
+</section>
