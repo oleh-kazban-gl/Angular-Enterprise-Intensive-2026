@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
+import { CardComponent } from '@gl/ui-components/card';
+
 interface FeedPost {
   id: string;
   author: string;
@@ -88,7 +90,7 @@ const posts: FeedPost[] = [
 
 @Component({
   selector: 'gl-feed',
-  imports: [CommonModule, MatCardModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatIconModule, MatButtonModule, CardComponent],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
