@@ -317,4 +317,11 @@ export default [
       },
     },
   },
+  {
+    files: ['**/*.html'],
+    rules: {
+      '@angular-eslint/template/click-events-have-key-events': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+    },
+  },
 ];
