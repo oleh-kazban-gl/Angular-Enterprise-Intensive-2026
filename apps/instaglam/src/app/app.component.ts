@@ -6,7 +6,7 @@ import { NavmenuComponent } from '@gl/feature-navmenu';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterModule, NavmenuComponent],
-  selector: 'app-root',
+  selector: 'gl-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

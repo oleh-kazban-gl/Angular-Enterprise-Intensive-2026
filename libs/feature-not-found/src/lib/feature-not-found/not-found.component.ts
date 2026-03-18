@@ -6,9 +6,9 @@ import { CardComponent } from '@gl/ui-components/card';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'lib-not-found',
+  selector: 'gl-not-found',
   imports: [RouterModule, CardComponent, MatButtonModule],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss',
+  styleUrls: ['./not-found.component.scss'],
 })
 export class NotFoundComponent {}

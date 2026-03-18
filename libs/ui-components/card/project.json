@@ -2,7 +2,7 @@
   "name": "card",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ui-components/card/src",
-  "prefix": "lib",
+  "prefix": "gl",
   "projectType": "library",
   "tags": ["type:feature scope:ui-components"],
   "targets": {

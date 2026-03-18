@@ -2,7 +2,7 @@
   "name": "feature-not-found",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/feature-not-found/src",
-  "prefix": "lib",
+  "prefix": "gl",
   "projectType": "library",
   "tags": ["type:feature scope:error"],
   "targets": {
