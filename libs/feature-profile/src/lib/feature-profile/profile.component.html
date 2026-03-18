@@ -1,0 +1,32 @@
+<section class="profile">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="profile-avatar"></div>
+      <mat-card-title>Jane Doe</mat-card-title>
+      <mat-card-subtitle>janedoe</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.</p>
+
+      <div class="profile-stats">
+        <div>
+          <span class="stat">{{ stats.posts }}</span>
+          <span class="label">Posts</span>
+        </div>
+        <div>
+          <span class="stat">{{ stats.followers }}</span>
+          <span class="label">Followers</span>
+        </div>
+        <div>
+          <span class="stat">{{ stats.following }}</span>
+          <span class="label">Following</span>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Edit Profile</button>
+    </mat-card-actions>
+  </mat-card>
+</section>

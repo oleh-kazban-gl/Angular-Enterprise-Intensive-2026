@@ -1,0 +1,27 @@
+:host {
+  .profile {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .profile-avatar {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  .stat {
+    font-weight: 700;
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  .label {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.85rem;
+  }
+}

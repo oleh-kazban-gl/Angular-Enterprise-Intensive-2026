@@ -1,0 +1,42 @@
+@let postRecords = posts();
+
+<section class="feed">
+  <h1 class="feed-title">{{ title }}</h1>
+  <button mat-button (click)="addPosts()">Add posts</button>
+
+  <div class="posts">
+    @if (postRecords.length) {
+      @for (post of postRecords; track post.id) {
+        <mat-card class="post-card">
+          <mat-card-header>
+            <div mat-card-avatar class="avatar"></div>
+            <mat-card-title>{{ post.author }}</mat-card-title>
+            <mat-card-subtitle>{{ post.time }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <img mat-card-image [src]="post.image" [alt]="`Photo by ${post.author}`" />
+
+          <mat-card-content>
+            <p>{{ post.caption }}</p>
+            @if (post.likes && post.likes < 10) {
+              <p>Likes: {{ post.likes }}</p>
+            }
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-button (click)="likePost(post)">
+              <mat-icon>favorite_border</mat-icon>
+              Like
+            </button>
+            <button mat-button>
+              <mat-icon>chat_bubble_outline</mat-icon>
+              Comment
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    } @else {
+      <div>No posts yet :(</div>
+    }
+  </div>
+</section>

@@ -225,6 +225,14 @@ export default [
       eqeqeq: ['error', 'always'],
       'one-var': ['error', 'never'],
       'default-case': 'error',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "Decorator[expression.callee.name='Component'] Property[key.name='standalone'][value.value=true]",
+          message:
+            'In Angular 19+ has standalone components by default. The "standalone: true" property is no longer necessary and should be removed.',
+        },
+      ],
 
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-var-requires': 'off',
@@ -279,12 +287,12 @@ export default [
       '@typescript-eslint/consistent-type-definitions': 'off',
 
       '@angular-eslint/directive-class-suffix': 'off',
-      '@angular-eslint/component-class-suffix': 'off',
-      '@angular-eslint/no-empty-lifecycle-method': 'off',
+      '@angular-eslint/component-class-suffix': 'error',
+      '@angular-eslint/no-empty-lifecycle-method': 'error',
       '@angular-eslint/no-input-rename': 'off',
       '@angular-eslint/directive-selector': directiveSelectorRule,
       '@angular-eslint/component-selector': componentSelectorRule,
-      '@angular-eslint/prefer-standalone': 'off',
+      '@angular-eslint/prefer-standalone': 'error',
       '@angular-eslint/template/click-events-have-key-events': 'off',
       '@angular-eslint/template/interactive-supports-focus': 'off',
       '@angular-eslint/template/role-has-required-aria': 'off',
