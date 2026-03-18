@@ -24,7 +24,6 @@
     flex: 1;
     min-height: 0;
     overflow: auto;
-
     display: grid;
     place-items: start center;
   }
@@ -55,15 +54,15 @@
   }
 
   mat-nav-list a[mat-list-item]:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: rgb(0, 0, 0, 0.04);
     transform: translateY(-1px);
   }
 
   mat-nav-list a[mat-list-item].active {
-    background: rgba(0, 0, 0, 0.12);
+    background: rgb(0, 0, 0, 0.12);
   }
 
   mat-nav-list a[mat-list-item].active mat-icon {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgb(0, 0, 0, 0.8);
   }
 }
