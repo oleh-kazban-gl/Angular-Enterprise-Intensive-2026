@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -90,27 +90,22 @@ const posts: FeedPost[] = [
 
 @Component({
   selector: 'gl-feed',
-  imports: [CommonModule, MatIconModule, MatButtonModule, CardComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, NgOptimizedImage, MatIconModule, MatButtonModule, CardComponent],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
 export class FeedComponent {
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   protected readonly title = 'InstaGLam';
-  protected readonly posts = signal<FeedPost[]>([]);
-
-  protected trackByPost = (_index: number, post: FeedPost) => post.id;
-
-  likePost(post: FeedPost): void {
-    post.likes = (post.likes || 0) + 1;
-  }
-
-  addPosts(): void {
-    this.posts.set(posts);
-  }
+  protected readonly posts = signal<FeedPost[]>([...posts]);
 
   protected goToPost(postId: string): void {
     this.router.navigate(['/posts', postId]);
+  }
+
+  protected likePost(post: FeedPost): void {
+    post.likes = (post.likes || 0) + 1;
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'gl-navmenu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterModule, MatSidenavModule, MatIconModule, MatListModule, MatTooltipModule],
   templateUrl: './navmenu.component.html',
   styleUrl: './navmenu.component.scss',

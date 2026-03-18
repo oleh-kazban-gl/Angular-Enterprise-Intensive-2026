@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -90,21 +90,24 @@ const posts: FeedPost[] = [
 
 @Component({
   selector: 'gl-post',
-  standalone: true,
-  imports: [CommonModule, CardComponent, MatButtonModule, MatIconModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
 export class PostComponent {
-  protected readonly postId = signal<string | null>(null);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  protected readonly postId = input<string | null>();
   protected readonly post = computed(() => posts.find(p => p.id === this.postId()) ?? null);
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly router: Router
-  ) {
+  constructor() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.postId.set(id);
+
+    if (id) {
+      this.postId.set(id);
+    }
   }
 
   protected goBack() {
@@ -113,9 +116,11 @@ export class PostComponent {
 
   protected like() {
     const current = this.post();
+
     if (!current) {
       return;
     }
+
     current.likes = (current.likes || 0) + 1;
   }
 }
