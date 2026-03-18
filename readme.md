@@ -98,6 +98,10 @@ See the setup guide:
 
 SETUP.md
 
+See the NX commands:
+
+NX.md
+
 ---
 
 # Running the Project
@@ -111,8 +115,10 @@ pnpm install
 Start the development server:
 
 ```bash
-nx serve instaglam
+pnpm nx serve instaglam
 ```
+
+or
 
 ```bash
 pnpm start
