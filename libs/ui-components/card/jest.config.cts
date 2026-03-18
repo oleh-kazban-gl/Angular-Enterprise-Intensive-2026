@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'feature-feed',
-  preset: '../../jest.preset.js',
+  displayName: 'card',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/feature-feed',
+  coverageDirectory: '../../../coverage/libs/ui-components/card',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

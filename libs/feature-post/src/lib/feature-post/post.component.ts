@@ -1,8 +1,8 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CardComponent } from '@gl/ui-components/card';
 
@@ -89,23 +89,38 @@ const posts: FeedPost[] = [
 ];
 
 @Component({
-  selector: 'gl-feed',
+  selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage, MatIconModule, MatButtonModule, CardComponent],
-  templateUrl: './feed.component.html',
-  styleUrl: './feed.component.scss',
+  imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule],
+  templateUrl: './post.component.html',
+  styleUrl: './post.component.scss',
 })
-export class FeedComponent {
+export class PostComponent {
+  private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
 
-  protected readonly title = 'InstaGLam';
-  protected readonly posts = signal<FeedPost[]>([...posts]);
+  protected readonly postId = signal<string | null>(null);
+  protected readonly post = computed(() => posts.find(p => p.id === this.postId()) ?? null);
 
-  protected goToPost(postId: string): void {
-    this.router.navigate(['/posts', postId]);
+  constructor() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      this.postId.set(id);
+    }
   }
 
-  protected likePost(post: FeedPost): void {
-    post.likes = (post.likes || 0) + 1;
+  protected goBack() {
+    this.router.navigate(['/feed']);
+  }
+
+  protected like() {
+    const current = this.post();
+
+    if (!current) {
+      return;
+    }
+
+    current.likes = (current.likes || 0) + 1;
   }
 }

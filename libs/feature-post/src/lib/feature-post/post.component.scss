@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  padding: 16px;
+
+  .post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .post-card {
+    margin-bottom: 16px;
+  }
+
+  .post-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .post-author {
+    font-weight: 600;
+  }
+
+  .post-time {
+    font-size: 0.9rem;
+    color: rgb(0, 0, 0, 0.6);
+  }
+
+  .post-body {
+    display: grid;
+    gap: 12px;
+  }
+
+  .post-image {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .post-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  .post-missing {
+    text-align: center;
+  }
+}

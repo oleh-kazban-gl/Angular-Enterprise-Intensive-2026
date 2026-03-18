@@ -11,6 +11,10 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('@gl/feature-profile').then(m => m.ProfileComponent),
   },
   {
+    path: 'posts/:id',
+    loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
+  },
+  {
     path: 'not-found',
     loadComponent: () => import('@gl/feature-not-found').then(m => m.NotFoundComponent),
   },

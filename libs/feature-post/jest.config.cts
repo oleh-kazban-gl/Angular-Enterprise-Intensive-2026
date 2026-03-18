@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'feature-feed',
+  displayName: 'feature-post',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/feature-feed',
+  coverageDirectory: '../../coverage/libs/feature-post',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

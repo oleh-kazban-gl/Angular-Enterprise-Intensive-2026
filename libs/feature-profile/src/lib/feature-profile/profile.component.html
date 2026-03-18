@@ -1,12 +1,14 @@
 <section class="profile">
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar class="profile-avatar"></div>
-      <mat-card-title>Jane Doe</mat-card-title>
-      <mat-card-subtitle>janedoe</mat-card-subtitle>
-    </mat-card-header>
+  <gl-card>
+    <div card-header>
+      <div class="profile-avatar"></div>
+      <div>
+        <h2>Jane Doe</h2>
+        <p class="subtitle">janedoe</p>
+      </div>
+    </div>
 
-    <mat-card-content>
+    <div card-content>
       <p>Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.</p>
 
       <div class="profile-stats">
@@ -23,10 +25,10 @@
           <span class="label">Following</span>
         </div>
       </div>
-    </mat-card-content>
+    </div>
 
-    <mat-card-actions>
+    <div card-footer>
       <button mat-raised-button color="primary">Edit Profile</button>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+  </gl-card>
 </section>

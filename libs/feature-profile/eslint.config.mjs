@@ -6,12 +6,10 @@ export default [
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
   {
-    files: ['**/*.ts'],
-    rules: {},
-  },
-  {
     files: ['**/*.html'],
-    // Override or add rules here
-    rules: {},
+    rules: {
+      '@angular-eslint/template/click-events-have-key-events': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+    },
   },
 ];

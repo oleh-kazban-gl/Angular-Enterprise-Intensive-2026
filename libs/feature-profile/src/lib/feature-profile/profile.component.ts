@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+
+import { CardComponent } from '@gl/ui-components/card';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, CardComponent, MatButtonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

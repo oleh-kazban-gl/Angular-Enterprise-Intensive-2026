@@ -2,38 +2,42 @@
 
 <section class="feed">
   <h1 class="feed-title">{{ title }}</h1>
-  <button mat-button (click)="addPosts()">Add posts</button>
 
   <div class="posts">
     @if (postRecords.length) {
       @for (post of postRecords; track post.id) {
-        <mat-card class="post-card">
-          <mat-card-header>
-            <div mat-card-avatar class="avatar"></div>
-            <mat-card-title>{{ post.author }}</mat-card-title>
-            <mat-card-subtitle>{{ post.time }}</mat-card-subtitle>
-          </mat-card-header>
+        <gl-card class="post-card">
+          <div card-header class="post-header">
+            <div class="avatar"></div>
+            <div class="post-meta">
+              <div class="post-author">{{ post.author }}</div>
+              <div class="post-time">{{ post.time }}</div>
+            </div>
+          </div>
 
-          <img mat-card-image [src]="post.image" [alt]="`Photo by ${post.author}`" />
-
-          <mat-card-content>
+          <div card-content class="post-body">
+            <img
+              class="post-image"
+              [ngSrc]="post.image"
+              width="1200"
+              height="800"
+              [alt]="`Photo by ${post.author}`"
+              (click)="goToPost(post.id)"
+            />
             <p>{{ post.caption }}</p>
-            @if (post.likes && post.likes < 10) {
-              <p>Likes: {{ post.likes }}</p>
-            }
-          </mat-card-content>
+          </div>
 
-          <mat-card-actions>
-            <button mat-button (click)="likePost(post)">
+          <div card-footer class="post-actions">
+            <button mat-button (click)="likePost(post); $event.stopPropagation()">
               <mat-icon>favorite_border</mat-icon>
               Like
             </button>
-            <button mat-button>
+            <button mat-button (click)="$event.stopPropagation()">
               <mat-icon>chat_bubble_outline</mat-icon>
               Comment
             </button>
-          </mat-card-actions>
-        </mat-card>
+          </div>
+        </gl-card>
       }
     } @else {
       <div>No posts yet :(</div>
