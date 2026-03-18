@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'festure-feed',
+  displayName: 'feature-feed',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/festure-feed',
+  coverageDirectory: '../../coverage/libs/feature-feed',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
