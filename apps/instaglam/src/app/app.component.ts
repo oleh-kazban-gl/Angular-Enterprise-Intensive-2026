@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { NxWelcome } from './nx-welcome';
+import { NavmenuComponent } from '@gl/feature-navmenu';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule, NavmenuComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  protected title = 'instaglam';
-}
+export class AppComponent {}

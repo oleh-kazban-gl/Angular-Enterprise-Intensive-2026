@@ -21,51 +21,51 @@ Download the **LTS version** of Node.js:
 https://nodejs.org
 
 Recommended version:
-```Node.js 22+```
+`Node.js 22+`
 
 Verify installation:
-```node -v```
+`node -v`
 
 You should see something similar to:
-```v22.x.x```
+`v22.x.x`
 
 Verify NPM installation:
-```npm -v```
+`npm -v`
 
 You should see something similar to:
-```11.x.x```
+`11.x.x`
 
 # 2. Install pnpm
+
 This course uses pnpm as the package manager.
 Install it globally:
 
-```npm install -g pnpm```
+`npm install -g pnpm`
 
 Verify installation:
 
-```pnpm -v```
+`pnpm -v`
 
 # 3. Install Git
 
 Download Git:
 
-```https://git-scm.com```
+`https://git-scm.com`
 
 Verify installation:
 
-```git --version```
+`git --version`
 
 # 4. IDE
-- VS Code + Extensions ```https://code.visualstudio.com```
+
+- VS Code + Extensions `https://code.visualstudio.com`
 
   Recommended extensions:
-
   - Angular Language Service
   - ESLint
   - Prettier
   - NX Console
   - Jest/Vitest runner
-
 
 - MS Visual Studio
 - IDEA/WebStorm
@@ -74,30 +74,31 @@ Verify installation:
 
 Clone the repository:
 
-```git clone <repository-url>```
+`git clone <repository-url>`
 
 Navigate to the project folder:
 
-```cd <repository-folder>```
+`cd <repository-folder>`
 
 Install dependencies:
 
-```pnpm install```
+`pnpm install`
 
 # 6. Verify the Workspace
 
 Run:
 
-```pnpm nx graph```
+`pnpm nx graph`
 
 If everything is configured correctly, Nx will open the dependency graph in your browser.
 
 # 7. Troubleshooting
+
 - Node version issues
 
   Check Node version:
 
-  ```node -v```
+  `node -v`
 
   Upgrade if necessary.
 
@@ -109,8 +110,8 @@ If everything is configured correctly, Nx will open the dependency graph in your
 
   Try installing pnpm using:
 
-  ```sudo npm install -g pnpm```
- 
+  `sudo npm install -g pnpm`
+
 # You're Ready
 
 Your environment is now ready for the course.

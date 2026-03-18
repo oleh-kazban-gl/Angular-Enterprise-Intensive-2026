@@ -74,13 +74,11 @@ The project is organized as an **Nx workspace**, which allows us to structure th
 
 Typical workspace structure:
 
-
 - apps/
 - libs/
 - tools/
 - nx.json
 - tsconfig.base.json
-
 
 Applications act as entry points, while most of the functionality is implemented inside reusable libraries.
 
@@ -98,9 +96,7 @@ Required tools:
 
 See the setup guide:
 
-
 SETUP.md
-
 
 ---
 
