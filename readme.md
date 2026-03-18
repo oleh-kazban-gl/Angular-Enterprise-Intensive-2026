@@ -98,6 +98,10 @@ See the setup guide:
 
 SETUP.md
 
+See the NX commands:
+
+NX.md
+
 ---
 
 # Running the Project
