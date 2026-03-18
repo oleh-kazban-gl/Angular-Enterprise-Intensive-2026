@@ -1,11 +1,11 @@
-name: PR Lint
+name: PR Validation
 
 on:
   pull_request:
-    branches: [ main, master, develop ]
+    branches: [ main, master ]
 
 jobs:
-  lint:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,8 +13,8 @@ jobs:
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
-          with:
-            version: 9
+        with:
+          version: 9
 
       - uses: actions/setup-node@v4
         with:
@@ -23,4 +23,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm nx affected -t lint --base=origin/main
+      - name: Run Lint
+        run: pnpm nx affected -t lint --base=origin/master
+
+      - name: Run Build
+        run: pnpm nx affected -t build --base=origin/master
