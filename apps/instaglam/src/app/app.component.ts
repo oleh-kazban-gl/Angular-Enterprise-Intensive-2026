@@ -6,9 +6,7 @@ import { ThemeService } from '@gl/util-services';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterModule, NavmenuComponent],
-  selector: 'gl-root',
   selector: 'gl-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
