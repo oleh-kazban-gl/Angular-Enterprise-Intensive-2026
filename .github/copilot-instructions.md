@@ -41,3 +41,11 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+## Styles
+- Use BEM-style class names for all CSS/SCSS: .block__element--modifier for elements and modifiers.
+- Always nest BEM element and modifier classes inside their block selector using SCSS nesting (&__element, &--modifier).
+- Do not use flat or ambiguous class names; every class must follow the BEM convention and be nested accordingly.
+- When refactoring or creating new components, update both the SCSS and HTML to use BEM-style classes.
+- Use named CSS variables (e.g., --borderColor, --textColor, --linkColor, --tagColor, --activeColor, --disabledColor, --errorColor) for all color, border, and stateful styles.
+- Never use hardcoded color values or generic fallback tokens in component styles.
+- Reference these variables in all SCSS and component styles for consistency and easy theming.

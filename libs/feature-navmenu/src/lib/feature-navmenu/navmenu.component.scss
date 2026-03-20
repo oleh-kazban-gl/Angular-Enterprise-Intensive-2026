@@ -3,41 +3,52 @@
   width: 100%;
   height: 100%;
 
-  .nav-container {
-    height: 100%;
-  }
+  .nav {
+    &-container {
+      height: 100%;
+    }
 
-  .nav-sidenav {
-    width: 88px;
-    border-radius: 0;
-    overflow: hidden;
-  }
+    &-sidenav {
+      width: 88px;
+      border-radius: 0;
+      overflow: hidden;
+      background: var(--surface, #fff);
+      border-right: 1px solid var(--borderColor, #e4e6eb);
+      box-shadow: 2px 0 8px rgb(0, 0, 0, 0.04);
 
-  .nav-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+      &__body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
 
-  .nav-main {
-    padding: 16px;
-    flex: 1;
-    min-height: 0;
-    overflow: auto;
-    display: grid;
-    place-items: start center;
+      &__main {
+        flex: 1;
+      }
+
+      &__bottom {
+        margin-top: auto;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &-main {
+      padding: 16px;
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      place-items: start stretch;
+    }
   }
 
   mat-nav-list a[mat-list-item] {
     align-items: center;
-  }
-
-  mat-nav-list mat-icon {
-    font-size: 24px;
-    vertical-align: middle;
-  }
-
-  mat-nav-list a[mat-list-item] {
     justify-content: center;
     padding: 10px;
     width: 44px;
@@ -49,7 +60,9 @@
       transform 150ms ease;
   }
 
-  mat-nav-list a[mat-list-item] mat-icon {
+  mat-nav-list mat-icon {
+    font-size: 24px;
+    vertical-align: middle;
     margin: 0;
   }
 

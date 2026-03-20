@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: 24px;
+  color: var(--textColor);
+
+  .settings {
+    max-width: 640px;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    &__card-header {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--textMuted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    &__card-content {
+      padding: 0;
+    }
+
+    &__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    &__row-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    &__row-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--textColor);
+    }
+
+    &__row-desc {
+      font-size: 0.85rem;
+      color: var(--textMuted);
+    }
+  }
+}

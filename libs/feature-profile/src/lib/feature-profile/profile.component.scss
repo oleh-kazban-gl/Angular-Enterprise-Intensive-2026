@@ -2,34 +2,34 @@
   .profile {
     max-width: 640px;
     margin: 0 auto;
-  }
 
-  .profile-avatar {
-    background-color: rgb(0, 0, 0, 0.1);
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-  }
+    &-avatar {
+      background-color: rgb(0, 0, 0, 0.1);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
 
-  .subtitle {
-    margin: 0;
-    color: rgb(0, 0, 0, 0.6);
-  }
+    &-subtitle {
+      margin: 0;
+      color: rgb(0, 0, 0, 0.6);
+    }
 
-  .profile-stats {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
+    &-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+    }
 
-  .stat {
-    font-weight: 700;
-    display: block;
-    font-size: 1.2rem;
-  }
+    &-stat {
+      font-weight: 700;
+      display: block;
+      font-size: 1.2rem;
+    }
 
-  .label {
-    color: rgb(0, 0, 0, 0.6);
-    font-size: 0.85rem;
+    &-label {
+      color: rgb(0, 0, 0, 0.6);
+      font-size: 0.85rem;
+    }
   }
 }

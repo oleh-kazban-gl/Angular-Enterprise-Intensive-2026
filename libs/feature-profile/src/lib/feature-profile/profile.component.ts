@@ -12,9 +12,15 @@ import { CardComponent } from '@gl/ui-components/card';
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
+  protected readonly cardTestInput = 'Profile: this is test input for Card';
+
   protected stats = {
     posts: 34,
     followers: 1200,
     following: 368,
   };
+
+  protected onCardFooterClick(): void {
+    console.log('Profile received Card footer click event');
+  }
 }

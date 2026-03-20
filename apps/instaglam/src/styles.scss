@@ -5,7 +5,88 @@ body {
   height: 100%;
 }
 
+:root,
+[data-theme='light'] {
+  --avatarBg: rgb(0, 0, 0, 0.08);
+  --background: #f8f9fb;
+  --surface: #fff;
+  --textColor: #2c2f33;
+  --textMuted: #6c6f74;
+  --borderColor: #e4e6eb;
+  --accentColor: #8a3ffc;
+  --accentMuted: #a88cff;
+  --tagColor1: #ff7a59;
+  --tagColor2: #42c2ff;
+  --tagColor3: #6bde8e;
+  --tagColor4: #ffcb45;
+  --linkColor: #8a3ffc;
+  --activeColor: #42c2ff;
+  --disabledColor: #bdbdbd;
+  --errorColor: #ff5252;
+  --cardShadow: 0 1px 5px rgb(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] {
+  --avatarBg: rgb(255, 255, 255, 0.12);
+  --background: #0f1117;
+  --surface: #1a1d27;
+  --textColor: #f0f2f5;
+  --textMuted: #adb3bd;
+  --borderColor: #2e3140;
+  --accentColor: #a88cff;
+  --accentMuted: #8a3ffc;
+  --tagColor1: #ff7a59;
+  --tagColor2: #42c2ff;
+  --tagColor3: #6bde8e;
+  --tagColor4: #ffcb45;
+  --linkColor: #a88cff;
+  --activeColor: #42c2ff;
+  --disabledColor: #555;
+  --errorColor: #ff5252;
+  --cardShadow: 0 1px 5px rgb(0, 0, 0, 0.3);
+}
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+body,
+.app-root,
+.app-shell {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.gl-card,
+.feature-card,
+.post-card,
+.profile-card,
+.not-found-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.tag,
+.chip,
+.badge {
+  color: #fff;
+}
+
+.tag-1 {
+  background: var(--tag-1);
+}
+
+.tag-2 {
+  background: var(--tag-2);
+}
+
+.tag-3 {
+  background: var(--tag-3);
+}
+
+.tag-4 {
+  background: var(--tag-4);
 }

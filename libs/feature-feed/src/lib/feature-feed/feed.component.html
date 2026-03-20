@@ -6,7 +6,7 @@
   <div class="posts">
     @if (postRecords.length) {
       @for (post of postRecords; track post.id) {
-        <gl-card class="post-card">
+        <gl-card class="feed__card">
           <div card-header class="post-header">
             <div class="avatar"></div>
             <div class="post-meta">
@@ -17,7 +17,7 @@
 
           <div card-content class="post-body">
             <img
-              class="post-image"
+              class="feed__image"
               [ngSrc]="post.image"
               width="1200"
               height="800"

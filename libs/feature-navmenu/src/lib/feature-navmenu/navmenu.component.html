@@ -1,30 +1,58 @@
 <mat-sidenav-container class="nav-container">
   <mat-sidenav class="nav-sidenav" mode="side" opened role="navigation">
-    <mat-nav-list>
-      <a
-        mat-list-item
-        routerLink="/feed"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        matTooltip="Feed"
-        matTooltipPosition="right"
-        aria-label="Feed"
-      >
-        <mat-icon>home</mat-icon>
-      </a>
+    <div class="nav-sidenav__body">
+      <mat-nav-list class="nav-sidenav__main">
+        <a
+          mat-list-item
+          routerLink="/feed"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          matTooltip="Feed"
+          matTooltipPosition="right"
+          aria-label="Feed"
+        >
+          <mat-icon>home</mat-icon>
+        </a>
 
-      <a
-        mat-list-item
-        routerLink="/profile"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        matTooltip="Profile"
-        matTooltipPosition="right"
-        aria-label="Profile"
-      >
-        <mat-icon>person</mat-icon>
-      </a>
-    </mat-nav-list>
+        <a
+          mat-list-item
+          routerLink="/profile"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          matTooltip="Profile"
+          matTooltipPosition="right"
+          aria-label="Profile"
+        >
+          <mat-icon>person</mat-icon>
+        </a>
+
+        <a
+          mat-list-item
+          routerLink="/create-post"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          matTooltip="Create Post"
+          matTooltipPosition="right"
+          aria-label="Create Post"
+        >
+          <mat-icon>add_circle_outline</mat-icon>
+        </a>
+      </mat-nav-list>
+
+      <mat-nav-list class="nav-sidenav__bottom">
+        <a
+          mat-list-item
+          routerLink="/settings"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          matTooltip="Settings"
+          matTooltipPosition="right"
+          aria-label="Settings"
+        >
+          <mat-icon>settings</mat-icon>
+        </a>
+      </mat-nav-list>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="nav-content">

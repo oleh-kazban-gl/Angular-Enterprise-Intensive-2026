@@ -54,7 +54,6 @@ Core technologies include:
 - NgRx
 - Nx (monorepo tooling)
 - Angular Material
-- Flex Layout
 
 ---
 
