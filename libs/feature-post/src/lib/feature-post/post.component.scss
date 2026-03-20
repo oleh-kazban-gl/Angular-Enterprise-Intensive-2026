@@ -1,55 +1,67 @@
 :host {
   display: block;
   padding: 16px;
+  color: var(--text, #2c2f33);
 
   .post {
     max-width: 800px;
     margin: 0 auto;
-  }
 
-  .post-card {
-    margin-bottom: 16px;
-  }
+    &-card {
+      margin-bottom: 16px;
+      background: var(--surface, #fff);
+      border: 1px solid var(--borderColor, #e4e6eb);
+      box-shadow: var(--cardShadow, 0 1px 5px rgb(0, 0, 0, 0.04));
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-  .post-header {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
+    &-header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      background: inherit;
+    }
 
-  .post-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
+    &-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-  .post-author {
-    font-weight: 600;
-  }
+    &-author {
+      font-weight: 600;
+    }
 
-  .post-time {
-    font-size: 0.9rem;
-    color: rgb(0, 0, 0, 0.6);
-  }
+    &-time {
+      font-size: 0.9rem;
+      color: var(--textMuted, #6c6f74);
+    }
 
-  .post-body {
-    display: grid;
-    gap: 12px;
-  }
+    &-body {
+      display: grid;
+      gap: 12px;
+    }
 
-  .post-image {
-    width: 100%;
-    border-radius: 12px;
-    object-fit: cover;
-  }
+    &-image {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
-  .post-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-  }
+    &-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      background: inherit;
+    }
 
-  .post-missing {
-    text-align: center;
+    &-missing {
+      text-align: center;
+    }
   }
 }
