@@ -1,1 +1,21 @@
-<p>FeatureSettings works!</p>
+<section class="settings">
+  <h1 class="settings__title">Settings</h1>
+
+  <gl-card class="settings__card">
+    <div card-header class="settings__card-header">Appearance</div>
+
+    <div card-content class="settings__card-content">
+      <div class="settings__row">
+        <div class="settings__row-info">
+          <span class="settings__row-label">Dark theme</span>
+          <span class="settings__row-desc">Switch between light and dark appearance</span>
+        </div>
+        <mat-slide-toggle
+          [checked]="themeService.isDark()"
+          (change)="themeService.toggleTheme()"
+          aria-label="Toggle dark theme"
+        />
+      </div>
+    </div>
+  </gl-card>
+</section>

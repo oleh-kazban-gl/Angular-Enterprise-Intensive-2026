@@ -12,9 +12,9 @@
       width: 88px;
       border-radius: 0;
       overflow: hidden;
-      background: var(--surface, #ffffff);
+      background: var(--surface, #fff);
       border-right: 1px solid var(--borderColor, #e4e6eb);
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 2px 0 8px rgb(0, 0, 0, 0.04);
 
       &__body {
         display: flex;

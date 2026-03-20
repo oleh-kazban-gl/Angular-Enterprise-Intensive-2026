@@ -14,7 +14,19 @@ html {
   );
 }
 
+[data-theme='dark'] {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+        theme-type: dark,
+      ),
+    )
+  );
+}
+
 body {
-  background: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
+  background: var(--background);
+  color: var(--textColor);
 }

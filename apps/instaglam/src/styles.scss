@@ -5,7 +5,8 @@ body {
   height: 100%;
 }
 
-:root {
+:root,
+[data-theme='light'] {
   --avatarBg: rgb(0, 0, 0, 0.08);
   --background: #f8f9fb;
   --surface: #fff;
@@ -23,6 +24,26 @@ body {
   --disabledColor: #bdbdbd;
   --errorColor: #ff5252;
   --cardShadow: 0 1px 5px rgb(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] {
+  --avatarBg: rgb(255, 255, 255, 0.12);
+  --background: #0f1117;
+  --surface: #1a1d27;
+  --textColor: #f0f2f5;
+  --textMuted: #adb3bd;
+  --borderColor: #2e3140;
+  --accentColor: #a88cff;
+  --accentMuted: #8a3ffc;
+  --tagColor1: #ff7a59;
+  --tagColor2: #42c2ff;
+  --tagColor3: #6bde8e;
+  --tagColor4: #ffcb45;
+  --linkColor: #a88cff;
+  --activeColor: #42c2ff;
+  --disabledColor: #555;
+  --errorColor: #ff5252;
+  --cardShadow: 0 1px 5px rgb(0, 0, 0, 0.3);
 }
 
 body {
