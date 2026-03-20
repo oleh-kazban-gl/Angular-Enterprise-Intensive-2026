@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  padding: 24px;
+  color: var(--textColor, #2c2f33);
+
+  .create-post {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    &__card {
+      overflow: hidden;
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      padding: 0;
+    }
+
+    &__preview {
+      border-right: 1px solid var(--borderColor, #e4e6eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background, #f8f9fb);
+      min-height: 480px;
+    }
+
+    &__placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: var(--textMuted, #6c6f74);
+
+      mat-icon {
+        font-size: 64px;
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+    }
+
+    &__author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--avatarBg, rgba(0, 0, 0, 0.08));
+    }
+
+    &__username {
+      font-weight: 600;
+    }
+
+    &__caption {
+      width: 100%;
+      resize: none;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--textColor, #2c2f33);
+      background: transparent;
+      line-height: 1.5;
+    }
+
+    &__char-count {
+      font-size: 0.75rem;
+      color: var(--textMuted, #6c6f74);
+      text-align: right;
+    }
+
+    &__divider {
+      height: 1px;
+      background: var(--borderColor, #e4e6eb);
+    }
+
+    &__field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      &-label {
+        flex: 1;
+        font-size: 1rem;
+        color: var(--textColor, #2c2f33);
+      }
+
+      &-icon {
+        color: var(--textMuted, #6c6f74);
+      }
+
+      &-input {
+        display: none;
+      }
+    }
+  }
+}

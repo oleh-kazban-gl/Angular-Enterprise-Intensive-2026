@@ -12,6 +12,23 @@
       width: 88px;
       border-radius: 0;
       overflow: hidden;
+      background: var(--surface, #ffffff);
+      border-right: 1px solid var(--borderColor, #e4e6eb);
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+
+      &__body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      &__main {
+        flex: 1;
+      }
+
+      &__bottom {
+        margin-top: auto;
+      }
     }
 
     &-content {
@@ -26,7 +43,7 @@
       min-height: 0;
       overflow: auto;
       display: grid;
-      place-items: start center;
+      place-items: start stretch;
     }
   }
 

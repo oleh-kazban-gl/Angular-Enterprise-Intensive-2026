@@ -1,0 +1,59 @@
+<section class="create-post">
+  <h1 class="create-post__title">Create new post</h1>
+
+  <gl-card class="create-post__card">
+    <div card-header class="create-post__header">
+      <span>New Post</span>
+      <button mat-button color="primary" type="button">Share</button>
+    </div>
+
+    <div card-content class="create-post__body">
+      <!-- Left: image preview -->
+      <div class="create-post__preview">
+        <div class="create-post__placeholder">
+          <mat-icon>image</mat-icon>
+          <span>Select photo</span>
+        </div>
+      </div>
+
+      <!-- Right: post details -->
+      <div class="create-post__form">
+        <div class="create-post__author">
+          <div class="create-post__avatar"></div>
+          <span class="create-post__username">username</span>
+        </div>
+
+        <textarea
+          class="create-post__caption"
+          placeholder="Write a caption…"
+          maxlength="2200"
+          rows="8"
+          aria-label="Post caption"
+        ></textarea>
+
+        <div class="create-post__char-count">0 / 2,200</div>
+
+        <div class="create-post__divider"></div>
+
+        <label class="create-post__field">
+          <span class="create-post__field-label">Add location</span>
+          <mat-icon class="create-post__field-icon">location_on</mat-icon>
+          <input class="create-post__field-input" type="text" placeholder="Location" aria-label="Add location" />
+        </label>
+
+        <div class="create-post__divider"></div>
+
+        <label class="create-post__field">
+          <span class="create-post__field-label">Add collaborators</span>
+          <mat-icon class="create-post__field-icon">person_add</mat-icon>
+          <input
+            class="create-post__field-input"
+            type="text"
+            placeholder="Search people"
+            aria-label="Add collaborators"
+          />
+        </label>
+      </div>
+    </div>
+  </gl-card>
+</section>

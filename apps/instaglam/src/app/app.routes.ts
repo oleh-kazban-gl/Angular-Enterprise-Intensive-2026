@@ -15,6 +15,14 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
   },
   {
+    path: 'create-post',
+    loadComponent: () => import('@gl/feature-create-post').then(m => m.CreatePostComponent),
+  },
+  {
+    path: 'settings',
+    loadComponent: () => import('@gl/feature-settings').then(m => m.SettingsComponent),
+  },
+  {
     path: 'not-found',
     loadComponent: () => import('@gl/feature-not-found').then(m => m.NotFoundComponent),
   },

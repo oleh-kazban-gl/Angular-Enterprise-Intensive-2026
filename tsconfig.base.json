@@ -20,7 +20,9 @@
       "@gl/feature-feed": ["libs/feature-feed/src/index.ts"],
       "@gl/feature-not-found": ["libs/feature-not-found/src/index.ts"],
       "@gl/feature-post": ["libs/feature-post/src/index.ts"],
-      "@gl/ui-components/card": ["libs/ui-components/card/src/index.ts"]
+      "@gl/ui-components/card": ["libs/ui-components/card/src/index.ts"],
+      "@gl/feature-settings": ["libs/feature-settings/src/index.ts"],
+      "@gl/feature-create-post": ["libs/feature-create-post/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
