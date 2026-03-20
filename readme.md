@@ -9,6 +9,7 @@ The goal of this project is not to recreate a real product, but to provide a **c
 # Project Purpose
 
 The application simulates a simplified **social media feed platform** and is intentionally designed to demonstrate real-world frontend engineering concepts.
+<img width="1159" height="941" alt="image" src="https://github.com/user-attachments/assets/a1e8e43e-2b02-4df0-9111-a43e3bd51284" />
 
 Throughout the course we will incrementally implement and refine different parts of the application in order to explore:
 
