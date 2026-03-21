@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-import { AuthService } from '@gl/util-services';
+
 import { timer } from 'rxjs';
 
 import { LoadingComponent } from '@gl/ui-components/loading';
+import { AuthService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-sign-out',

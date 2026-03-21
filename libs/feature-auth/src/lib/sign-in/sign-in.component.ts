@@ -4,9 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '@gl/util-services';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { AuthService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-sign-in',
