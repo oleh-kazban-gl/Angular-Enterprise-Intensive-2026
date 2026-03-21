@@ -12,16 +12,19 @@ export class CookiesStorageService implements BaseStorageService {
     if (!match) {
       return null;
     }
+
+    const raw = decodeURIComponent(match.split('=')[1]);
+
     try {
-      return JSON.parse(decodeURIComponent(match.split('=')[1])) as T;
+      return JSON.parse(raw) as T;
     } catch {
-      return null;
+      return raw as unknown as T;
     }
   }
 
   setItem<T>(key: string, value: T): void {
-    const encoded = encodeURIComponent(JSON.stringify(value));
-    this.document.cookie = `${encodeURIComponent(key)}=${encoded};path=/;SameSite=Strict`;
+    const raw = typeof value === 'string' ? value : JSON.stringify(value);
+    this.document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(raw)};path=/;SameSite=Strict`;
   }
 
   removeItem(key: string): void {
