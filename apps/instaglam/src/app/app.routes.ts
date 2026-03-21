@@ -1,5 +1,7 @@
 import { Route } from '@angular/router';
 
+import { authGuard } from '@gl/util-services';
+
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'feed', pathMatch: 'full' },
   {
@@ -8,22 +10,27 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'feed',
+    canActivate: [authGuard],
     loadComponent: () => import('@gl/feature-feed').then(m => m.FeedComponent),
   },
   {
     path: 'profile',
+    canActivate: [authGuard],
     loadComponent: () => import('@gl/feature-profile').then(m => m.ProfileComponent),
   },
   {
     path: 'posts/:id',
+    canActivate: [authGuard],
     loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
   },
   {
     path: 'create-post',
+    canActivate: [authGuard],
     loadComponent: () => import('@gl/feature-create-post').then(m => m.CreatePostComponent),
   },
   {
     path: 'settings',
+    canActivate: [authGuard],
     loadComponent: () => import('@gl/feature-settings').then(m => m.SettingsComponent),
   },
   {

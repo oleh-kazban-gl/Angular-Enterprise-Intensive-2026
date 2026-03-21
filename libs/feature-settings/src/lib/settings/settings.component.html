@@ -18,4 +18,26 @@
       </div>
     </div>
   </gl-card>
+
+  <gl-card class="settings__card settings__card--account">
+    <div card-header class="settings__card-header">Account</div>
+
+    <div card-content class="settings__card-content">
+      <div class="settings__row">
+        <div class="settings__row-info">
+          <span class="settings__row-label">Sign out</span>
+          <span class="settings__row-desc">Sign out of your Instaglam account</span>
+        </div>
+        <a
+          mat-stroked-button
+          routerLink="/auth/sign-out"
+          class="settings__signout-btn"
+          aria-label="Sign out"
+        >
+          <mat-icon>logout</mat-icon>
+          Sign out
+        </a>
+      </div>
+    </div>
+  </gl-card>
 </section>

@@ -4,13 +4,21 @@
   color: var(--textColor);
 
   .settings {
-    max-width: 640px;
+    max-width: 40rem;
     margin: 0 auto;
 
     &__title {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
+    }
+
+    &__card {
+      margin-bottom: 1rem;
+
+      &--account {
+        margin-top: 1.5rem;
+      }
     }
 
     &__card-header {
@@ -48,6 +56,19 @@
     &__row-desc {
       font-size: 0.85rem;
       color: var(--textMuted);
+    }
+    &__signout-btn {
+      color: var(--errorColor);
+      border-color: var(--errorColor);
+      white-space: nowrap;
+      flex-shrink: 0;
+
+      mat-icon {
+        margin-right: 0.25rem;
+        font-size: 1.125rem;
+        width: 1.125rem;
+        height: 1.125rem;
+      }
     }
   }
 }
