@@ -1,1 +1,1 @@
-export * from './lib/feature-navmenu/navmenu.component';
+export * from './lib/navmenu/navmenu.component';

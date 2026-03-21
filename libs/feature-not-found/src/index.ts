@@ -1,1 +1,1 @@
-export * from './lib/feature-not-found/not-found.component';
+export * from './lib/not-found/not-found.component';
