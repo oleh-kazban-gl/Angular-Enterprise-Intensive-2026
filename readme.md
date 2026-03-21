@@ -1,5 +1,7 @@
 # Angular Enterprise Training Project
 
+[![CI](https://github.com/oleh-kazban-gl/Angular-Enterprise-Intensive-2026/actions/workflows/ci.yaml/badge.svg)](https://github.com/oleh-kazban-gl/Angular-Enterprise-Intensive-2026/actions/workflows/ci.yaml)
+
 This repository contains the training project used in the **Angular Enterprise Intensive Course**.
 
 The goal of this project is not to recreate a real product, but to provide a **controlled engineering sandbox** for learning Angular architecture and enterprise frontend practices.
