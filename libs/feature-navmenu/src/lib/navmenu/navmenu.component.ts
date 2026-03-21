@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
+
 import { map } from 'rxjs';
 
 @Component({
@@ -19,8 +20,7 @@ import { map } from 'rxjs';
 export class NavmenuComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
 
-  readonly isMobile = toSignal(
-    this.breakpointObserver.observe('(max-width: 767px)').pipe(map(r => r.matches)),
-    { initialValue: false }
-  );
+  readonly isMobile = toSignal(this.breakpointObserver.observe('(max-width: 767px)').pipe(map(r => r.matches)), {
+    initialValue: false,
+  });
 }
