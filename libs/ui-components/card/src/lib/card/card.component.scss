@@ -2,7 +2,7 @@
   display: block;
   background: var(--surface);
   color: var(--textColor);
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: var(--cardShadow);
   overflow: hidden;
   border: 1px solid var(--borderColor);
@@ -12,20 +12,20 @@
   /* layout wrapper only, no visual styles */
 
   &__header {
-    padding: 16px;
+    padding: 1rem;
     background: transparent;
   }
 
   &__content {
-    padding: 16px;
+    padding: 1rem;
     background: transparent;
     border-top: 1px solid var(--borderColor);
   }
 
   &__footer {
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     display: flex;
-    gap: 12px;
+    gap: 0.75rem;
     justify-content: flex-end;
     background: transparent;
     border-top: 1px solid var(--borderColor);

@@ -1,63 +1,109 @@
 <mat-sidenav-container class="nav-container">
-  <mat-sidenav class="nav-sidenav" mode="side" opened role="navigation">
-    <div class="nav-sidenav__body">
-      <mat-nav-list class="nav-sidenav__main">
+  @if (!isMobile()) {
+    <mat-sidenav class="nav-sidenav" mode="side" opened role="navigation">
+      <div class="nav-sidenav__body">
+        <mat-nav-list class="nav-sidenav__main">
+          <a
+            mat-list-item
+            routerLink="/feed"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            matTooltip="Feed"
+            matTooltipPosition="right"
+            aria-label="Feed"
+          >
+            <mat-icon>home</mat-icon>
+          </a>
+
+          <a
+            mat-list-item
+            routerLink="/profile"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            matTooltip="Profile"
+            matTooltipPosition="right"
+            aria-label="Profile"
+          >
+            <mat-icon>person</mat-icon>
+          </a>
+
+          <a
+            mat-list-item
+            routerLink="/create-post"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            matTooltip="Create Post"
+            matTooltipPosition="right"
+            aria-label="Create Post"
+          >
+            <mat-icon>add_circle_outline</mat-icon>
+          </a>
+        </mat-nav-list>
+
+        <mat-nav-list class="nav-sidenav__bottom">
+          <a
+            mat-list-item
+            routerLink="/settings"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            matTooltip="Settings"
+            matTooltipPosition="right"
+            aria-label="Settings"
+          >
+            <mat-icon>settings</mat-icon>
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+  }
+
+  <mat-sidenav-content class="nav-content">
+    <main class="nav-main" [class.nav-main--mobile]="isMobile()">
+      <ng-content></ng-content>
+    </main>
+
+    @if (isMobile()) {
+      <nav class="nav-bottom" role="navigation" aria-label="Main navigation">
         <a
-          mat-list-item
+          class="nav-bottom__item"
           routerLink="/feed"
-          routerLinkActive="active"
+          routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          matTooltip="Feed"
-          matTooltipPosition="right"
           aria-label="Feed"
         >
           <mat-icon>home</mat-icon>
         </a>
 
         <a
-          mat-list-item
+          class="nav-bottom__item"
           routerLink="/profile"
-          routerLinkActive="active"
+          routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          matTooltip="Profile"
-          matTooltipPosition="right"
           aria-label="Profile"
         >
           <mat-icon>person</mat-icon>
         </a>
 
         <a
-          mat-list-item
+          class="nav-bottom__item"
           routerLink="/create-post"
-          routerLinkActive="active"
+          routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          matTooltip="Create Post"
-          matTooltipPosition="right"
           aria-label="Create Post"
         >
           <mat-icon>add_circle_outline</mat-icon>
         </a>
-      </mat-nav-list>
 
-      <mat-nav-list class="nav-sidenav__bottom">
         <a
-          mat-list-item
+          class="nav-bottom__item"
           routerLink="/settings"
-          routerLinkActive="active"
+          routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          matTooltip="Settings"
-          matTooltipPosition="right"
           aria-label="Settings"
         >
           <mat-icon>settings</mat-icon>
         </a>
-      </mat-nav-list>
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="nav-content">
-    <main class="nav-main">
-      <ng-content></ng-content>
-    </main>
+      </nav>
+    }
   </mat-sidenav-content>
 </mat-sidenav-container>

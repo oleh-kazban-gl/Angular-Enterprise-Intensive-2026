@@ -1,6 +1,6 @@
 :host {
   display: block;
-  padding: 24px;
+  padding: 1.5rem;
   color: var(--textColor);
 
   .settings {
@@ -10,7 +10,7 @@
     &__title {
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
     }
 
     &__card-header {
@@ -29,14 +29,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px;
-      gap: 16px;
+      padding: 1rem;
+      gap: 1rem;
     }
 
     &__row-info {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 0.125rem;
     }
 
     &__row-label {
