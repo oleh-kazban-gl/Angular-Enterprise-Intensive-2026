@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 24px;
+
+  gl-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0 0 4px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--textColor);
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--textMuted);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__field {
+    width: 100%;
+  }
+
+  &__submit {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+  }
+
+  &__footer-text {
+    color: var(--textMuted);
+  }
+
+  &__footer-link {
+    color: var(--linkColor);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -3,6 +3,10 @@ import { Route } from '@angular/router';
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'feed', pathMatch: 'full' },
   {
+    path: 'auth',
+    loadChildren: () => import('@gl/feature-auth').then(m => m.authRoutes),
+  },
+  {
     path: 'feed',
     loadComponent: () => import('@gl/feature-feed').then(m => m.FeedComponent),
   },
