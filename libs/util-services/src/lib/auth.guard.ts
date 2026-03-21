@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-import { AuthService } from '@gl/util-services';
+import { AuthService } from './auth.service';
 
 /** Allows access only when authenticated. Redirects to /auth/sign-in otherwise. */
 export const authGuard: CanActivateFn = () => {

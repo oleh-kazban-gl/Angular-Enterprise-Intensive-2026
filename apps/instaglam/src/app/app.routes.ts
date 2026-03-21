@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { authGuard } from '@gl/feature-auth';
+import { authGuard } from '@gl/util-services';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'feed', pathMatch: 'full' },
