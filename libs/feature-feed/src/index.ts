@@ -1,1 +1,1 @@
-export * from './lib/feature-feed/feed.component';
+export * from './lib/feed/feed.component';
