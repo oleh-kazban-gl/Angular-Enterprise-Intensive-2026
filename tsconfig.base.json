@@ -23,7 +23,8 @@
       "@gl/ui-components/card": ["libs/ui-components/card/src/index.ts"],
       "@gl/feature-settings": ["libs/feature-settings/src/index.ts"],
       "@gl/feature-create-post": ["libs/feature-create-post/src/index.ts"],
-      "@gl/util-services": ["libs/util-services/src/index.ts"]
+      "@gl/util-services": ["libs/util-services/src/index.ts"],
+      "@gl/util-services/storage": ["libs/util-services/src/lib/storage/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
