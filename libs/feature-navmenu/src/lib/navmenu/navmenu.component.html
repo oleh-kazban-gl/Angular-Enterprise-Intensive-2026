@@ -5,12 +5,12 @@
         <mat-nav-list class="nav-sidenav__main">
           <a
             mat-list-item
-            routerLink="/feed"
+            routerLink="/posts"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            matTooltip="Feed"
+            matTooltip="Posts"
             matTooltipPosition="right"
-            aria-label="Feed"
+            aria-label="Posts"
           >
             <mat-icon>home</mat-icon>
           </a>
@@ -58,6 +58,11 @@
   }
 
   <mat-sidenav-content class="nav-content">
+    @if (pageTitle()) {
+      <header class="nav-header">
+        <h1 class="nav-header__title">{{ pageTitle() }}</h1>
+      </header>
+    }
     <main class="nav-main" [class.nav-main--mobile]="isMobile()">
       <ng-content></ng-content>
     </main>
@@ -66,10 +71,10 @@
       <nav class="nav-bottom" role="navigation" aria-label="Main navigation">
         <a
           class="nav-bottom__item"
-          routerLink="/feed"
+          routerLink="/posts"
           routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          aria-label="Feed"
+          aria-label="Posts"
         >
           <mat-icon>home</mat-icon>
         </a>

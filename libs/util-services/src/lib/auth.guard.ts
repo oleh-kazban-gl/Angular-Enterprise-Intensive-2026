@@ -9,8 +9,8 @@ export const authGuard: CanActivateFn = () => {
   return authService.isLoggedIn() ? true : inject(Router).createUrlTree(['/auth/sign-in']);
 };
 
-/** Allows access only when NOT authenticated. Redirects to /feed otherwise. */
+/** Allows access only when NOT authenticated. Redirects to /posts otherwise. */
 export const guestGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
-  return !authService.isLoggedIn() ? true : inject(Router).createUrlTree(['/feed']);
+  return !authService.isLoggedIn() ? true : inject(Router).createUrlTree(['/posts']);
 };

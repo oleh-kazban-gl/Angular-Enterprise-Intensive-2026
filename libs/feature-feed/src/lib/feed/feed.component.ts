@@ -109,7 +109,6 @@ const posts: FeedPost[] = [
 export class FeedComponent {
   private readonly router = inject(Router);
 
-  protected readonly title = 'InstaGLam';
   protected readonly posts = signal<FeedPost[]>([...posts]);
 
   protected goToPost(postId: string): void {
