@@ -29,6 +29,6 @@ export class SignInComponent {
       return;
     }
     this.authService.signIn();
-    this.router.navigate(['/feed']);
+    this.router.navigate(['/posts']);
   }
 }

@@ -1,8 +1,6 @@
 @let postRecords = posts();
 
 <section class="feed">
-  <h1 class="feed-title">{{ title }}</h1>
-
   <div class="posts">
     @if (postRecords.length) {
       @for (post of postRecords; track post.id) {

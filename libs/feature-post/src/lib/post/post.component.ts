@@ -122,7 +122,7 @@ export class PostComponent {
   }
 
   protected goBack() {
-    this.router.navigate(['/feed']);
+    this.router.navigate(['/posts']);
   }
 
   protected like() {

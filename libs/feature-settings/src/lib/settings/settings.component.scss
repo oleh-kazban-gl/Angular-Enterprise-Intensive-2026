@@ -7,12 +7,6 @@
     max-width: 40rem;
     margin: 0 auto;
 
-    &__title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
     &__card {
       margin-bottom: 1rem;
 
@@ -57,6 +51,7 @@
       font-size: 0.85rem;
       color: var(--textMuted);
     }
+
     &__signout-btn {
       color: var(--errorColor);
       border-color: var(--errorColor);
