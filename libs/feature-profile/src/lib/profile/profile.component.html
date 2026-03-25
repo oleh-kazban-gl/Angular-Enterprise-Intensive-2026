@@ -3,25 +3,25 @@
     <div card-header>
       <div class="profile-avatar"></div>
       <div>
-        <h2>Jane Doe</h2>
-        <p class="subtitle">janedoe</p>
+        <h2>{{ profile()?.name }}</h2>
+        <p class="subtitle">{{ profile()?.username }}</p>
       </div>
     </div>
 
     <div card-content>
-      <p>Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.</p>
+      <p>{{ profile()?.bio }}</p>
 
       <div class="profile-stats">
         <div>
-          <span class="stat">{{ stats.posts }}</span>
+          <span class="stat">{{ profile()?.posts }}</span>
           <span class="label">Posts</span>
         </div>
         <div>
-          <span class="stat">{{ stats.followers }}</span>
+          <span class="stat">{{ profile()?.followers }}</span>
           <span class="label">Followers</span>
         </div>
         <div>
-          <span class="stat">{{ stats.following }}</span>
+          <span class="stat">{{ profile()?.following }}</span>
           <span class="label">Following</span>
         </div>
       </div>

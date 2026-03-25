@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 import { CardComponent } from '@gl/ui-components/card';
+
+import { ProfileService } from './profile.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,16 +13,12 @@ import { CardComponent } from '@gl/ui-components/card';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
-export class ProfileComponent {
-  protected readonly cardTestInput = 'Profile: this is test input for Card';
+export class ProfileComponent implements OnInit {
+  private readonly profileService = inject(ProfileService);
 
-  protected stats = {
-    posts: 34,
-    followers: 1200,
-    following: 368,
-  };
+  protected readonly profile = this.profileService.profile;
 
-  protected onCardFooterClick(): void {
-    console.log('Profile received Card footer click event');
+  ngOnInit(): void {
+    this.profileService.getProfile();
   }
 }
