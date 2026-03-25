@@ -1,8 +1,8 @@
 <section class="create-post">
   <gl-card class="create-post__card">
     <div card-header class="create-post__header">
-      <span>New Post</span>
-      <button mat-button color="primary" type="button">Share</button>
+      <span>{{ 'createPost.title' | translate }}</span>
+      <button mat-button color="primary" type="button">{{ 'createPost.share' | translate }}</button>
     </div>
 
     <div card-content class="create-post__body">
@@ -10,7 +10,7 @@
       <div class="create-post__preview">
         <div class="create-post__placeholder">
           <mat-icon>image</mat-icon>
-          <span>Select photo</span>
+          <span>{{ 'createPost.selectPhoto' | translate }}</span>
         </div>
       </div>
 
@@ -23,10 +23,10 @@
 
         <textarea
           class="create-post__caption"
-          placeholder="Write a caption…"
+          [placeholder]="'createPost.captionPlaceholder' | translate"
           maxlength="2200"
           rows="8"
-          aria-label="Post caption"
+          [attr.aria-label]="'createPost.captionPlaceholder' | translate"
         ></textarea>
 
         <div class="create-post__char-count">0 / 2,200</div>
@@ -34,21 +34,26 @@
         <div class="create-post__divider"></div>
 
         <label class="create-post__field">
-          <span class="create-post__field-label">Add location</span>
+          <span class="create-post__field-label">{{ 'createPost.addLocation' | translate }}</span>
           <mat-icon class="create-post__field-icon">location_on</mat-icon>
-          <input class="create-post__field-input" type="text" placeholder="Location" aria-label="Add location" />
+          <input
+            class="create-post__field-input"
+            type="text"
+            [placeholder]="'createPost.locationPlaceholder' | translate"
+            [attr.aria-label]="'createPost.addLocation' | translate"
+          />
         </label>
 
         <div class="create-post__divider"></div>
 
         <label class="create-post__field">
-          <span class="create-post__field-label">Add collaborators</span>
+          <span class="create-post__field-label">{{ 'createPost.addCollaborators' | translate }}</span>
           <mat-icon class="create-post__field-icon">person_add</mat-icon>
           <input
             class="create-post__field-input"
             type="text"
-            placeholder="Search people"
-            aria-label="Add collaborators"
+            [placeholder]="'createPost.searchPeople' | translate"
+            [attr.aria-label]="'createPost.addCollaborators' | translate"
           />
         </label>
       </div>

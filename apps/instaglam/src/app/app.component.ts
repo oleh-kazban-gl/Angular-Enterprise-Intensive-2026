@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { NavmenuComponent } from '@gl/feature-navmenu';
-import { ThemeService } from '@gl/util-services';
+import { LanguageService, ThemeService } from '@gl/util-services';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,6 +12,7 @@ import { ThemeService } from '@gl/util-services';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  // Injecting ThemeService at root level ensures the effect runs from app startup
+  // Injecting at root level ensures effects run from app startup
   readonly themeService = inject(ThemeService);
+  readonly languageService = inject(LanguageService);
 }

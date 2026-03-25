@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { CardComponent } from '@gl/ui-components/card';
 
 const passwordMatchValidator: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
@@ -24,7 +26,15 @@ const passwordMatchValidator: ValidatorFn = (group: AbstractControl): Validation
 @Component({
   selector: 'gl-sign-up',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, RouterModule, CardComponent, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [
+    ReactiveFormsModule,
+    RouterModule,
+    CardComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    TranslatePipe,
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })

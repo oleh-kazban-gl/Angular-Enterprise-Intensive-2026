@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "posts": "Публікації",
+    "profile": "Профіль",
+    "createPost": "Створити публікацію",
+    "settings": "Налаштування"
+  },
+  "feed": {
+    "title": "Публікації",
+    "noPosts": "Поки що немає публікацій :(",
+    "like": "Подобається",
+    "comment": "Коментувати"
+  },
+  "post": {
+    "title": "Публікація",
+    "like": "Подобається",
+    "back": "Назад",
+    "notFound": "Публікацію не знайдено.",
+    "backToFeed": "Назад до стрічки"
+  },
+  "profile": {
+    "title": "Профіль",
+    "posts": "Публікації",
+    "followers": "Підписники",
+    "following": "Підписки",
+    "editProfile": "Редагувати профіль"
+  },
+  "settings": {
+    "title": "Налаштування",
+    "appearance": "Зовнішній вигляд",
+    "darkTheme": "Темна тема",
+    "darkThemeDesc": "Перемикання між світлим та темним виглядом",
+    "language": "Мова",
+    "languageLabel": "Мова застосунку",
+    "languageDesc": "Оберіть мову, яка використовується в застосунку",
+    "account": "Обліковий запис",
+    "signOut": "Вийти",
+    "signOutDesc": "Вийти з облікового запису Instaglam"
+  },
+  "notFound": {
+    "title": "Сторінку не знайдено",
+    "subtitle": "Ми не змогли знайти те, що ви шукали.",
+    "description": "Сторінка, до якої ви намагалися отримати доступ, не існує. Поверніться до стрічки, щоб продовжити.",
+    "goHome": "На головну"
+  },
+  "createPost": {
+    "title": "Нова публікація",
+    "share": "Поділитися",
+    "selectPhoto": "Вибрати фото",
+    "captionPlaceholder": "Напишіть підпис…",
+    "addLocation": "Додати місце",
+    "locationPlaceholder": "Місце",
+    "addCollaborators": "Додати співавторів",
+    "searchPeople": "Пошук людей"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Увійти",
+      "subtitle": "Ласкаво просимо назад до Instaglam",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "submit": "Увійти",
+      "noAccount": "Немає облікового запису?",
+      "signUpLink": "Зареєструватися",
+      "emailRequired": "Електронна пошта обов'язкова",
+      "emailInvalid": "Введіть дійсну адресу електронної пошти",
+      "passwordRequired": "Пароль обов'язковий"
+    },
+    "signUp": {
+      "title": "Зареєструватися",
+      "subtitle": "Створіть обліковий запис Instaglam",
+      "fullName": "Повне ім'я",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердіть пароль",
+      "submit": "Створити обліковий запис",
+      "hasAccount": "Вже є обліковий запис?",
+      "signInLink": "Увійти",
+      "fullNameRequired": "Повне ім'я обов'язкове",
+      "emailRequired": "Електронна пошта обов'язкова",
+      "emailInvalid": "Введіть дійсну адресу електронної пошти",
+      "passwordRequired": "Пароль обов'язковий",
+      "passwordMinLength": "Пароль має містити щонайменше 8 символів",
+      "confirmPasswordRequired": "Будь ласка, підтвердіть пароль",
+      "passwordMismatch": "Паролі не збігаються"
+    }
+  }
+}

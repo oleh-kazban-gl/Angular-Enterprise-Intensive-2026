@@ -1,16 +1,16 @@
 <section class="not-found">
   <gl-card>
     <div card-header>
-      <h2>Page not found</h2>
-      <p class="subtitle">We couldn’t find what you were looking for.</p>
+      <h2>{{ 'notFound.title' | translate }}</h2>
+      <p class="subtitle">{{ 'notFound.subtitle' | translate }}</p>
     </div>
 
     <div card-content>
-      <p>The page you tried to access does not exist. Try heading back to the feed to continue exploring.</p>
+      <p>{{ 'notFound.description' | translate }}</p>
     </div>
 
     <div card-footer>
-      <button mat-raised-button color="primary" routerLink="/posts">Go home</button>
+      <button mat-raised-button color="primary" routerLink="/posts">{{ 'notFound.goHome' | translate }}</button>
     </div>
   </gl-card>
 </section>

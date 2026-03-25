@@ -1,35 +1,23 @@
 <section class="sign-in">
   <gl-card>
     <div card-header class="sign-in__header">
-      <h1 class="sign-in__title">Sign In</h1>
-      <p class="sign-in__subtitle">Welcome back to Instaglam</p>
+      <h1 class="sign-in__title">{{ 'auth.signIn.title' | translate }}</h1>
+      <p class="sign-in__subtitle">{{ 'auth.signIn.subtitle' | translate }}</p>
     </div>
 
-    <form
-      card-content
-      class="sign-in__form"
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-      aria-label="Sign in form"
-    >
+    <form card-content class="sign-in__form" [formGroup]="form" (ngSubmit)="onSubmit()" aria-label="Sign in form">
       <mat-form-field class="sign-in__field" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="email"
-          formControlName="email"
-          autocomplete="email"
-          aria-required="true"
-        />
+        <mat-label>{{ 'auth.signIn.email' | translate }}</mat-label>
+        <input matInput type="email" formControlName="email" autocomplete="email" aria-required="true" />
         @if (form.controls.email.hasError('required') && form.controls.email.touched) {
-          <mat-error>Email is required</mat-error>
+          <mat-error>{{ 'auth.signIn.emailRequired' | translate }}</mat-error>
         } @else if (form.controls.email.hasError('email') && form.controls.email.touched) {
-          <mat-error>Enter a valid email address</mat-error>
+          <mat-error>{{ 'auth.signIn.emailInvalid' | translate }}</mat-error>
         }
       </mat-form-field>
 
       <mat-form-field class="sign-in__field" appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label>{{ 'auth.signIn.password' | translate }}</mat-label>
         <input
           matInput
           type="password"
@@ -38,23 +26,18 @@
           aria-required="true"
         />
         @if (form.controls.password.hasError('required') && form.controls.password.touched) {
-          <mat-error>Password is required</mat-error>
+          <mat-error>{{ 'auth.signIn.passwordRequired' | translate }}</mat-error>
         }
       </mat-form-field>
 
-      <button
-        mat-flat-button
-        type="submit"
-        class="sign-in__submit"
-        [disabled]="form.invalid"
-      >
-        Sign In
+      <button mat-flat-button type="submit" class="sign-in__submit" [disabled]="form.invalid">
+        {{ 'auth.signIn.submit' | translate }}
       </button>
     </form>
 
     <div card-footer class="sign-in__footer">
-      <span class="sign-in__footer-text">Don't have an account?</span>
-      <a routerLink="/auth/sign-up" class="sign-in__footer-link">Sign Up</a>
+      <span class="sign-in__footer-text">{{ 'auth.signIn.noAccount' | translate }}</span>
+      <a routerLink="/auth/sign-up" class="sign-in__footer-link">{{ 'auth.signIn.signUpLink' | translate }}</a>
     </div>
   </gl-card>
 </section>
