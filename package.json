@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve instaglam",
+    "start:api": "json-server --watch db.json --port 3333",
     "lint": "nx lint",
     "lint:affected": "nx affected:lint",
     "lint:styles": "npx stylelint \"**/*.scss\" --fix",
@@ -68,6 +69,7 @@
     "jest-environment-jsdom": "30.0.2",
     "jest-preset-angular": "16.0.0",
     "jest-util": "30.0.2",
+    "json-server": "1.0.0-beta.15",
     "jsonc-eslint-parser": "3.1.0",
     "lint-staged": "16.3.3",
     "nx": "22.5.4",
