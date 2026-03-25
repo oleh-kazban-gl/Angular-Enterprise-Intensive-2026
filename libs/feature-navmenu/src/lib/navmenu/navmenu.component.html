@@ -8,9 +8,9 @@
             routerLink="/posts"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            matTooltip="Posts"
+            [matTooltip]="'nav.posts' | translate"
             matTooltipPosition="right"
-            aria-label="Posts"
+            [attr.aria-label]="'nav.posts' | translate"
           >
             <mat-icon>home</mat-icon>
           </a>
@@ -20,9 +20,9 @@
             routerLink="/profile"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            matTooltip="Profile"
+            [matTooltip]="'nav.profile' | translate"
             matTooltipPosition="right"
-            aria-label="Profile"
+            [attr.aria-label]="'nav.profile' | translate"
           >
             <mat-icon>person</mat-icon>
           </a>
@@ -32,9 +32,9 @@
             routerLink="/create-post"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            matTooltip="Create Post"
+            [matTooltip]="'nav.createPost' | translate"
             matTooltipPosition="right"
-            aria-label="Create Post"
+            [attr.aria-label]="'nav.createPost' | translate"
           >
             <mat-icon>add_circle_outline</mat-icon>
           </a>
@@ -46,9 +46,9 @@
             routerLink="/settings"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            matTooltip="Settings"
+            [matTooltip]="'nav.settings' | translate"
             matTooltipPosition="right"
-            aria-label="Settings"
+            [attr.aria-label]="'nav.settings' | translate"
           >
             <mat-icon>settings</mat-icon>
           </a>
@@ -60,7 +60,7 @@
   <mat-sidenav-content class="nav-content">
     @if (pageTitle()) {
       <header class="nav-header">
-        <h1 class="nav-header__title">{{ pageTitle() }}</h1>
+        <h1 class="nav-header__title">{{ pageTitle() | translate }}</h1>
       </header>
     }
     <main class="nav-main" [class.nav-main--mobile]="isMobile()">
@@ -74,7 +74,7 @@
           routerLink="/posts"
           routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          aria-label="Posts"
+          [attr.aria-label]="'nav.posts' | translate"
         >
           <mat-icon>home</mat-icon>
         </a>
@@ -84,7 +84,7 @@
           routerLink="/profile"
           routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          aria-label="Profile"
+          [attr.aria-label]="'nav.profile' | translate"
         >
           <mat-icon>person</mat-icon>
         </a>
@@ -94,7 +94,7 @@
           routerLink="/create-post"
           routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          aria-label="Create Post"
+          [attr.aria-label]="'nav.createPost' | translate"
         >
           <mat-icon>add_circle_outline</mat-icon>
         </a>
@@ -104,7 +104,7 @@
           routerLink="/settings"
           routerLinkActive="nav-bottom__item--active"
           [routerLinkActiveOptions]="{ exact: true }"
-          aria-label="Settings"
+          [attr.aria-label]="'nav.settings' | translate"
         >
           <mat-icon>settings</mat-icon>
         </a>

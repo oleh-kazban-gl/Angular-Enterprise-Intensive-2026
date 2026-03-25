@@ -14,21 +14,21 @@
       <div class="profile-stats">
         <div>
           <span class="stat">{{ profile()?.posts }}</span>
-          <span class="label">Posts</span>
+          <span class="label">{{ 'profile.posts' | translate }}</span>
         </div>
         <div>
           <span class="stat">{{ profile()?.followers }}</span>
-          <span class="label">Followers</span>
+          <span class="label">{{ 'profile.followers' | translate }}</span>
         </div>
         <div>
           <span class="stat">{{ profile()?.following }}</span>
-          <span class="label">Following</span>
+          <span class="label">{{ 'profile.following' | translate }}</span>
         </div>
       </div>
     </div>
 
     <div card-footer>
-      <button mat-raised-button color="primary">Edit Profile</button>
+      <button mat-raised-button color="primary">{{ 'profile.editProfile' | translate }}</button>
     </div>
   </gl-card>
 </section>

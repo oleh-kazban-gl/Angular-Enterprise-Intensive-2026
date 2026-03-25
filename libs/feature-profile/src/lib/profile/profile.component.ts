@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
 
@@ -9,7 +10,7 @@ import { ProfileService } from './profile.service';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
-  imports: [CommonModule, CardComponent, MatButtonModule],
+  imports: [CommonModule, CardComponent, MatButtonModule, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

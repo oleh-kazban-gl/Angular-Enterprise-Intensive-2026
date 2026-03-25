@@ -28,17 +28,17 @@
           <div card-footer class="post-actions">
             <button mat-button (click)="likePost(post); $event.stopPropagation()">
               <mat-icon>favorite_border</mat-icon>
-              Like
+              {{ 'feed.like' | translate }}
             </button>
             <button mat-button (click)="$event.stopPropagation()">
               <mat-icon>chat_bubble_outline</mat-icon>
-              Comment
+              {{ 'feed.comment' | translate }}
             </button>
           </div>
         </gl-card>
       }
     } @else {
-      <div>No posts yet :(</div>
+      <div>{{ 'feed.noPosts' | translate }}</div>
     }
   </div>
 </section>

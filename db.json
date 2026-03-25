@@ -1,4 +1,11 @@
 {
+  "settings": {
+    "languages": [
+      { "code": "en", "label": "English" },
+      { "code": "de", "label": "Deutsch" },
+      { "code": "ua", "label": "Українська" }
+    ]
+  },
   "profile": {
     "id": "1",
     "name": "Jane Doe",

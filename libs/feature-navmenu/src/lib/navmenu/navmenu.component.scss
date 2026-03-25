@@ -1,11 +1,11 @@
 :host {
   display: block;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
   .nav {
     &-container {
-      min-height: 100vh;
+      height: 100vh;
     }
 
     &-sidenav {
@@ -44,7 +44,7 @@
     &-content {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      height: 100%;
     }
 
     &-main {

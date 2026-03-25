@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { CardComponent } from '@gl/ui-components/card';
 import { FeedPost } from './feed.models';
 import { FeedService } from './feed.service';
@@ -11,7 +13,7 @@ import { FeedService } from './feed.service';
 @Component({
   selector: 'gl-feed',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage, MatIconModule, MatButtonModule, CardComponent],
+  imports: [CommonModule, NgOptimizedImage, MatIconModule, MatButtonModule, CardComponent, TranslatePipe],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })

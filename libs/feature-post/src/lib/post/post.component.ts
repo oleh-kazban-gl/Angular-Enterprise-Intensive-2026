@@ -4,13 +4,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { CardComponent } from '@gl/ui-components/card';
 import { PostService } from './post.service';
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule, TranslatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })

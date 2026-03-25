@@ -7,13 +7,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRouteSnapshot, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { filter, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'gl-navmenu',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterModule, MatSidenavModule, MatIconModule, MatListModule, MatTooltipModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTooltipModule,
+    TranslatePipe,
+  ],
   templateUrl: './navmenu.component.html',
   styleUrl: './navmenu.component.scss',
 })

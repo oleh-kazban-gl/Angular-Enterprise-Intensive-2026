@@ -11,31 +11,31 @@ export const appRoutes: Route[] = [
   {
     path: 'posts',
     canActivate: [authGuard],
-    data: { pageTitle: 'Posts' },
+    data: { pageTitle: 'feed.title' },
     loadComponent: () => import('@gl/feature-feed').then(m => m.FeedComponent),
   },
   {
     path: 'posts/:id',
     canActivate: [authGuard],
-    data: { pageTitle: 'Post' },
+    data: { pageTitle: 'post.title' },
     loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
   },
   {
     path: 'profile',
     canActivate: [authGuard],
-    data: { pageTitle: 'Profile' },
+    data: { pageTitle: 'profile.title' },
     loadComponent: () => import('@gl/feature-profile').then(m => m.ProfileComponent),
   },
   {
     path: 'create-post',
     canActivate: [authGuard],
-    data: { pageTitle: 'Create Post' },
+    data: { pageTitle: 'createPost.title' },
     loadComponent: () => import('@gl/feature-create-post').then(m => m.CreatePostComponent),
   },
   {
     path: 'settings',
     canActivate: [authGuard],
-    data: { pageTitle: 'Settings' },
+    data: { pageTitle: 'settings.title' },
     loadComponent: () => import('@gl/feature-settings').then(m => m.SettingsComponent),
   },
   {
