@@ -1,5 +1,5 @@
 {
-  "name": "loading",
+  "name": "ui-components/loading",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ui-components/loading/src",
   "prefix": "lib",

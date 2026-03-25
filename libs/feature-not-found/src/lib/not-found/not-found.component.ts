@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';

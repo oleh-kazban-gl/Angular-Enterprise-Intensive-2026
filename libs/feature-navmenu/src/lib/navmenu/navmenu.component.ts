@@ -7,9 +7,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRouteSnapshot, NavigationEnd, Router, RouterModule } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
 
 import { filter, map, startWith } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'gl-navmenu',

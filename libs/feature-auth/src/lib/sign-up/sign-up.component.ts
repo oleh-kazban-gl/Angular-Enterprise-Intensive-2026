@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';

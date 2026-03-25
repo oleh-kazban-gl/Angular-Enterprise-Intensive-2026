@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
-
 import { ProfileService } from './profile.service';
 
 @Component({

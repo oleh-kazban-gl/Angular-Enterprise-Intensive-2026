@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve instaglam",
     "start:api": "json-server --watch db.json --port 3333",
-    "lint": "nx lint",
+    "lint": "nx run-many -t lint",
     "lint:affected": "nx affected:lint",
     "lint:styles": "npx stylelint \"**/*.scss\" --fix",
     "format": "nx format:write --all",
