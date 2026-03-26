@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
-import { PostService } from './post.service';
+import { Post } from './post.models';
 
 @Component({
   selector: 'gl-post',
@@ -19,17 +19,8 @@ import { PostService } from './post.service';
 export class PostComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
-  private readonly postService = inject(PostService);
 
-  protected readonly post = this.postService.post;
-
-  constructor() {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    if (id) {
-      this.postService.getPost(id);
-    }
-  }
+  protected readonly post = signal<Post | null>(this.route.snapshot.data['post'] ?? null);
 
   protected goBack() {
     this.router.navigate(['/posts']);

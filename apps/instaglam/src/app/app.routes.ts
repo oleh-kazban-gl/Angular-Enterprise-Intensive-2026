@@ -18,7 +18,7 @@ export const appRoutes: Route[] = [
     path: 'posts/:id',
     canActivate: [authGuard],
     data: { pageTitle: 'post.title' },
-    loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
+    loadChildren: () => import('@gl/feature-post').then(m => m.postRoutes),
   },
   {
     path: 'profile',
