@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+
+import { Observable } from 'rxjs';
 
 import { Post } from './post.models';
 
@@ -7,9 +9,7 @@ import { Post } from './post.models';
 export class PostService {
   private readonly http = inject(HttpClient);
 
-  readonly post = signal<Post | null>(null);
-
-  getPost(id: string): void {
-    this.http.get<Post>(`http://localhost:3333/posts/${id}`).subscribe(post => this.post.set(post));
+  getPost(id: string): Observable<Post> {
+    return this.http.get<Post>(`http://localhost:3333/posts/${id}`);
   }
 }
