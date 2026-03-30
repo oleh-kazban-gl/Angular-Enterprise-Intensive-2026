@@ -1,5 +1,5 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,12 +7,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { BreadcrumbService } from '@gl/util-services';
 import { PostService } from './post.service';
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule, TranslatePipe],
+  providers: [DatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
@@ -20,6 +22,8 @@ export class PostComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly postService = inject(PostService);
+  private readonly breadcrumbService = inject(BreadcrumbService);
+  private readonly datePipe = inject(DatePipe);
 
   protected readonly post = this.postService.post;
 
@@ -29,6 +33,15 @@ export class PostComponent {
     if (id) {
       this.postService.getPost(id);
     }
+
+    effect(() => {
+      const post = this.post();
+      if (!post) {
+        return;
+      }
+      const dateStr = this.datePipe.transform(post.createdAt, 'dd.MM.yyyy') ?? '';
+      this.breadcrumbService.setDynamicLabel(`${post.author} ${dateStr} post`);
+    });
   }
 
   protected goBack() {

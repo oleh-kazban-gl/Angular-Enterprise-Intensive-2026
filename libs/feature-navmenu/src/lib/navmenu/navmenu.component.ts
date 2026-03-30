@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -10,6 +10,9 @@ import { ActivatedRouteSnapshot, NavigationEnd, Router, RouterModule } from '@an
 
 import { filter, map, startWith } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
+
+import { BreadcrumbService } from '@gl/util-services';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'gl-navmenu',
@@ -22,6 +25,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     MatListModule,
     MatTooltipModule,
     TranslatePipe,
+    BreadcrumbComponent,
   ],
   templateUrl: './navmenu.component.html',
   styleUrl: './navmenu.component.scss',
@@ -29,6 +33,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class NavmenuComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly router = inject(Router);
+  private readonly breadcrumbService = inject(BreadcrumbService);
+
+  protected readonly hasBreadcrumbs = computed(() => this.breadcrumbService.breadcrumbs().length > 1);
 
   readonly isMobile = toSignal(this.breakpointObserver.observe('(max-width: 767px)').pipe(map(r => r.matches)), {
     initialValue: false,

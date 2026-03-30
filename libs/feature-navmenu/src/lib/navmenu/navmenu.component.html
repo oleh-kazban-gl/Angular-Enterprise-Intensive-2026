@@ -58,7 +58,11 @@
   }
 
   <mat-sidenav-content class="nav-content">
-    @if (pageTitle()) {
+    @if (hasBreadcrumbs()) {
+      <header class="nav-header">
+        <gl-breadcrumb />
+      </header>
+    } @else if (pageTitle()) {
       <header class="nav-header">
         <h1 class="nav-header__title">{{ pageTitle() | translate }}</h1>
       </header>

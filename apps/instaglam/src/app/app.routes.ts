@@ -11,14 +11,19 @@ export const appRoutes: Route[] = [
   {
     path: 'posts',
     canActivate: [authGuard],
-    data: { pageTitle: 'feed.title' },
-    loadComponent: () => import('@gl/feature-feed').then(m => m.FeedComponent),
-  },
-  {
-    path: 'posts/:id',
-    canActivate: [authGuard],
-    data: { pageTitle: 'post.title' },
-    loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
+    data: { breadcrumb: 'Posts' },
+    children: [
+      {
+        path: '',
+        data: { pageTitle: 'feed.title' },
+        loadComponent: () => import('@gl/feature-feed').then(m => m.FeedComponent),
+      },
+      {
+        path: ':id',
+        data: { pageTitle: 'post.title', breadcrumb: 'Post' },
+        loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
+      },
+    ],
   },
   {
     path: 'profile',
