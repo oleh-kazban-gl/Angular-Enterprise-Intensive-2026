@@ -38,7 +38,8 @@ export class SignInComponent {
     if (this.form.invalid) {
       return;
     }
-    this.authService.signIn();
-    this.router.navigate(['/posts']);
+    this.authService.signIn().subscribe(() => {
+      this.router.navigate(['/posts']);
+    });
   }
 }
