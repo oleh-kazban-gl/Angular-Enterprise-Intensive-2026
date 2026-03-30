@@ -39,10 +39,10 @@ importers:
         specifier: 21.1.0
         version: 21.1.0(@angular/common@21.1.0(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))(rxjs@7.8.0))(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))(@angular/platform-browser@21.1.0(@angular/animations@21.2.4(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0)))(@angular/common@21.1.0(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))(rxjs@7.8.0))(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0)))(rxjs@7.8.0)
       '@ngx-translate/core':
-        specifier: ^17.0.0
+        specifier: 17.0.0
         version: 17.0.0(@angular/common@21.1.0(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))(rxjs@7.8.0))(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))
       '@ngx-translate/http-loader':
-        specifier: ^17.0.0
+        specifier: 17.0.0
         version: 17.0.0(@angular/common@21.1.0(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))(rxjs@7.8.0))(@angular/core@21.1.0(@angular/compiler@21.1.0)(rxjs@7.8.0))
       rxjs:
         specifier: 7.8.0
