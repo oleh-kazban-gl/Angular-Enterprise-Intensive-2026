@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 
-import { finalize, map } from 'rxjs';
+import { delay, finalize, map } from 'rxjs';
 
 import { AppSettings } from './settings.models';
 
@@ -17,9 +17,10 @@ export class SettingsService {
   getSettings(): void {
     this.loading.set(true);
     this.http
-      .get<AppSettings>('http://localhost:3333/settings')
+      .get<AppSettings>('/settings')
       .pipe(
         map(settings => settings),
+        delay(2000),
         finalize(() => this.loading.set(false))
       )
       .subscribe(settings => this.settings.set(settings));

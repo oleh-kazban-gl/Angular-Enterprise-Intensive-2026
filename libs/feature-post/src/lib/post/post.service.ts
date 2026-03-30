@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 
-import { finalize } from 'rxjs';
+import { delay, finalize } from 'rxjs';
 
 import { Post } from './post.models';
 
@@ -15,8 +15,11 @@ export class PostService {
   getPost(id: string): void {
     this.loading.set(true);
     this.http
-      .get<Post>(`http://localhost:3333/posts/${id}`)
-      .pipe(finalize(() => this.loading.set(false)))
+      .get<Post>(`/posts/${id}`)
+      .pipe(
+        delay(2000),
+        finalize(() => this.loading.set(false))
+      )
       .subscribe(post => this.post.set(post));
   }
 }

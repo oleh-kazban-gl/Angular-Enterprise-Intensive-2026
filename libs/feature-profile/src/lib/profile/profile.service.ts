@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 
-import { finalize } from 'rxjs';
+import { delay, finalize } from 'rxjs';
 
 import { UserProfile } from './profile.models';
 
@@ -15,8 +15,11 @@ export class ProfileService {
   getProfile(): void {
     this.loading.set(true);
     this.http
-      .get<UserProfile>('http://localhost:3333/profile')
-      .pipe(finalize(() => this.loading.set(false)))
+      .get<UserProfile>('/profile')
+      .pipe(
+        delay(2000),
+        finalize(() => this.loading.set(false))
+      )
       .subscribe(profile => this.profile.set(profile));
   }
 }
