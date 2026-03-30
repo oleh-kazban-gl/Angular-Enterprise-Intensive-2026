@@ -16,5 +16,7 @@ export const apiUrlInterceptor: HttpInterceptorFn = (req, next) => {
   const config = inject(AppConfigService);
   const url = `${config.hostBaseUrl}${config.apiBaseUrl}${req.url}`;
 
+  console.log(`API URL Interceptor: Transforming ${req.url} to ${url}`);
+
   return next(req.clone({ url }));
 };
