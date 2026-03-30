@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 
-import { finalize } from 'rxjs';
+import { delay, finalize } from 'rxjs';
 
 import { FeedPost } from './feed.models';
 
@@ -15,8 +15,11 @@ export class FeedService {
   getPosts(): void {
     this.loading.set(true);
     this.http
-      .get<FeedPost[]>('http://localhost:3333/posts')
-      .pipe(finalize(() => this.loading.set(false)))
+      .get<FeedPost[]>('/posts')
+      .pipe(
+        delay(2000),
+        finalize(() => this.loading.set(false))
+      )
       .subscribe(posts => this.posts.set(posts));
   }
 }
