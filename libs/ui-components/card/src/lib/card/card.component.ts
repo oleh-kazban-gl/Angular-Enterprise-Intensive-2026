@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
-import { CardService } from './card.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'gl-card',
@@ -10,6 +8,4 @@ import { CardService } from './card.service';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
-  private readonly cardService = inject(CardService);
-}
+export class CardComponent {}
