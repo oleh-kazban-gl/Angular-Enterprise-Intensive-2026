@@ -1,34 +1,38 @@
-<section class="profile">
-  <gl-card>
-    <div card-header>
-      <div class="profile-avatar"></div>
-      <div>
-        <h2>{{ profile()?.name }}</h2>
-        <p class="subtitle">{{ profile()?.username }}</p>
-      </div>
-    </div>
-
-    <div card-content>
-      <p>{{ profile()?.bio }}</p>
-
-      <div class="profile-stats">
+@if (loading()) {
+  <gl-loading />
+} @else {
+  <section class="profile">
+    <gl-card>
+      <div card-header>
+        <div class="profile-avatar"></div>
         <div>
-          <span class="stat">{{ profile()?.posts }}</span>
-          <span class="label">{{ 'profile.posts' | translate }}</span>
-        </div>
-        <div>
-          <span class="stat">{{ profile()?.followers }}</span>
-          <span class="label">{{ 'profile.followers' | translate }}</span>
-        </div>
-        <div>
-          <span class="stat">{{ profile()?.following }}</span>
-          <span class="label">{{ 'profile.following' | translate }}</span>
+          <h2>{{ profile()?.name }}</h2>
+          <p class="subtitle">{{ profile()?.username }}</p>
         </div>
       </div>
-    </div>
 
-    <div card-footer>
-      <button mat-raised-button color="primary">{{ 'profile.editProfile' | translate }}</button>
-    </div>
-  </gl-card>
-</section>
+      <div card-content>
+        <p>{{ profile()?.bio }}</p>
+
+        <div class="profile-stats">
+          <div>
+            <span class="stat">{{ profile()?.posts }}</span>
+            <span class="label">{{ 'profile.posts' | translate }}</span>
+          </div>
+          <div>
+            <span class="stat">{{ profile()?.followers }}</span>
+            <span class="label">{{ 'profile.followers' | translate }}</span>
+          </div>
+          <div>
+            <span class="stat">{{ profile()?.following }}</span>
+            <span class="label">{{ 'profile.following' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div card-footer>
+        <button mat-raised-button color="primary">{{ 'profile.editProfile' | translate }}</button>
+      </div>
+    </gl-card>
+  </section>
+}

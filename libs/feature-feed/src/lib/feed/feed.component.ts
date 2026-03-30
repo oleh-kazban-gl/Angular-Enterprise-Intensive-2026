@@ -7,13 +7,22 @@ import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { LoadingComponent } from '@gl/ui-components/loading';
 import { FeedPost } from './feed.models';
 import { FeedService } from './feed.service';
 
 @Component({
   selector: 'gl-feed',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage, MatIconModule, MatButtonModule, CardComponent, TranslatePipe],
+  imports: [
+    CommonModule,
+    NgOptimizedImage,
+    MatIconModule,
+    MatButtonModule,
+    CardComponent,
+    TranslatePipe,
+    LoadingComponent,
+  ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
@@ -22,6 +31,7 @@ export class FeedComponent implements OnInit {
   private readonly feedService = inject(FeedService);
 
   protected readonly posts = this.feedService.posts;
+  protected readonly loading = this.feedService.loading;
 
   ngOnInit(): void {
     this.feedService.getPosts();

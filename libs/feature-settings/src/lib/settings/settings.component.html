@@ -1,64 +1,68 @@
-<section class="settings">
-  <gl-card class="settings__card">
-    <div card-header class="settings__card-header">{{ 'settings.appearance' | translate }}</div>
+@if (settingsService.loading()) {
+  <gl-loading />
+} @else {
+  <section class="settings">
+    <gl-card class="settings__card">
+      <div card-header class="settings__card-header">{{ 'settings.appearance' | translate }}</div>
 
-    <div card-content class="settings__card-content">
-      <div class="settings__row">
-        <div class="settings__row-info">
-          <span class="settings__row-label">{{ 'settings.darkTheme' | translate }}</span>
-          <span class="settings__row-desc">{{ 'settings.darkThemeDesc' | translate }}</span>
+      <div card-content class="settings__card-content">
+        <div class="settings__row">
+          <div class="settings__row-info">
+            <span class="settings__row-label">{{ 'settings.darkTheme' | translate }}</span>
+            <span class="settings__row-desc">{{ 'settings.darkThemeDesc' | translate }}</span>
+          </div>
+          <mat-slide-toggle
+            [checked]="themeService.isDark()"
+            (change)="themeService.toggleTheme()"
+            [attr.aria-label]="'settings.darkTheme' | translate"
+          />
         </div>
-        <mat-slide-toggle
-          [checked]="themeService.isDark()"
-          (change)="themeService.toggleTheme()"
-          [attr.aria-label]="'settings.darkTheme' | translate"
-        />
       </div>
-    </div>
-  </gl-card>
+    </gl-card>
 
-  <gl-card class="settings__card">
-    <div card-header class="settings__card-header">{{ 'settings.language' | translate }}</div>
+    <gl-card class="settings__card">
+      <div card-header class="settings__card-header">{{ 'settings.language' | translate }}</div>
 
-    <div card-content class="settings__card-content">
-      <div class="settings__row">
-        <div class="settings__row-info">
-          <span class="settings__row-label">{{ 'settings.languageLabel' | translate }}</span>
-          <span class="settings__row-desc">{{ 'settings.languageDesc' | translate }}</span>
+      <div card-content class="settings__card-content">
+        <div class="settings__row">
+          <div class="settings__row-info">
+            <span class="settings__row-label">{{ 'settings.languageLabel' | translate }}</span>
+            <span class="settings__row-desc">{{ 'settings.languageDesc' | translate }}</span>
+          </div>
+          <mat-select
+            class="settings__lang-select"
+            [value]="languageService.currentLang()"
+            (selectionChange)="languageService.setLanguage($event.value)"
+            [attr.aria-label]="'settings.languageLabel' | translate"
+          >
+            @for (lang of settingsService.languages(); track lang.code) {
+              <mat-option [value]="lang.code">{{ lang.label }}</mat-option>
+            }
+          </mat-select>
         </div>
-        <mat-select
-          class="settings__lang-select"
-          [value]="languageService.currentLang()"
-          (selectionChange)="languageService.setLanguage($event.value)"
-          [attr.aria-label]="'settings.languageLabel' | translate"
-        >
-          @for (lang of settingsService.languages(); track lang.code) {
-            <mat-option [value]="lang.code">{{ lang.label }}</mat-option>
-          }
-        </mat-select>
       </div>
-    </div>
-  </gl-card>
+    </gl-card>
 
-  <gl-card class="settings__card settings__card--account">
-    <div card-header class="settings__card-header">{{ 'settings.account' | translate }}</div>
+    <gl-card class="settings__card settings__card--account">
+      <div card-header class="settings__card-header">{{ 'settings.account' | translate }}</div>
 
-    <div card-content class="settings__card-content">
-      <div class="settings__row">
-        <div class="settings__row-info">
-          <span class="settings__row-label">{{ 'settings.signOut' | translate }}</span>
-          <span class="settings__row-desc">{{ 'settings.signOutDesc' | translate }}</span>
+      <div card-content class="settings__card-content">
+        <div class="settings__row">
+          <div class="settings__row-info">
+            <span class="settings__row-label">{{ 'settings.signOut' | translate }}</span>
+            <span class="settings__row-desc">{{ 'settings.signOutDesc' | translate }}</span>
+          </div>
+          <a
+            mat-stroked-button
+            routerLink="/auth/sign-out"
+            class="settings__signout-btn"
+            [attr.aria-label]="'settings.signOut' | translate"
+          >
+            <mat-icon>logout</mat-icon>
+            {{ 'settings.signOut' | translate }}
+          </a>
         </div>
-        <a
-          mat-stroked-button
-          routerLink="/auth/sign-out"
-          class="settings__signout-btn"
-          [attr.aria-label]="'settings.signOut' | translate"
-        >
-          <mat-icon>logout</mat-icon>
-          {{ 'settings.signOut' | translate }}
-        </a>
       </div>
-    </div>
-  </gl-card>
-</section>
+    </gl-card>
+  </section>
+}

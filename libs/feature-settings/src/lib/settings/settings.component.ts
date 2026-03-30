@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { LoadingComponent } from '@gl/ui-components/loading';
 import { LanguageService, ThemeService } from '@gl/util-services';
 import { SettingsService } from './settings.service';
 
@@ -22,6 +23,7 @@ import { SettingsService } from './settings.service';
     RouterModule,
     TranslatePipe,
     MatSelectModule,
+    LoadingComponent,
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],

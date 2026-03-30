@@ -7,13 +7,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { LoadingComponent } from '@gl/ui-components/loading';
 import { BreadcrumbService } from '@gl/util-services';
 import { PostService } from './post.service';
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage, CardComponent, MatButtonModule, MatIconModule, TranslatePipe],
+  imports: [
+    CommonModule,
+    NgOptimizedImage,
+    CardComponent,
+    MatButtonModule,
+    MatIconModule,
+    TranslatePipe,
+    LoadingComponent,
+  ],
   providers: [DatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
@@ -26,6 +35,7 @@ export class PostComponent {
   private readonly datePipe = inject(DatePipe);
 
   protected readonly post = this.postService.post;
+  protected readonly loading = this.postService.loading;
 
   constructor() {
     const id = this.route.snapshot.paramMap.get('id');
