@@ -5,12 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { LoadingComponent } from '@gl/ui-components/loading';
 import { ProfileService } from './profile.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
-  imports: [CommonModule, CardComponent, MatButtonModule, TranslatePipe],
+  imports: [CommonModule, CardComponent, MatButtonModule, TranslatePipe, LoadingComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   private readonly profileService = inject(ProfileService);
 
   protected readonly profile = this.profileService.profile;
+  protected readonly loading = this.profileService.loading;
 
   ngOnInit(): void {
     this.profileService.getProfile();

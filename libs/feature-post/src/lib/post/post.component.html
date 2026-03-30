@@ -1,44 +1,48 @@
 @let postItem = post();
 
-<section class="post">
-  @if (postItem) {
-    <gl-card class="post-card">
-      <div card-header class="post-header">
-        <div class="avatar"></div>
-        <div class="post-meta">
-          <div class="post-author">{{ postItem.author | uppercase }}</div>
-          <div class="post-date">
-            {{ postItem.createdAt | date: 'dd.MM.yyyy' }} <span class="post-time">({{ postItem.time }})</span>
+@if (loading()) {
+  <gl-loading />
+} @else {
+  <section class="post">
+    @if (postItem) {
+      <gl-card class="post-card">
+        <div card-header class="post-header">
+          <div class="avatar"></div>
+          <div class="post-meta">
+            <div class="post-author">{{ postItem.author | uppercase }}</div>
+            <div class="post-date">
+              {{ postItem.createdAt | date: 'dd.MM.yyyy' }} <span class="post-time">({{ postItem.time }})</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div card-content class="post-body">
-        <img
-          class="post-image"
-          [ngSrc]="postItem.image"
-          width="1200"
-          height="800"
-          [alt]="`Photo by ${postItem.author}`"
-        />
-        <p>{{ postItem.caption }}</p>
-      </div>
+        <div card-content class="post-body">
+          <img
+            class="post-image"
+            [ngSrc]="postItem.image"
+            width="1200"
+            height="800"
+            [alt]="`Photo by ${postItem.author}`"
+          />
+          <p>{{ postItem.caption }}</p>
+        </div>
 
-      <div card-footer class="post-actions">
-        <button mat-button (click)="like()">
-          <mat-icon>favorite_border</mat-icon>
-          {{ 'post.like' | translate }}
-        </button>
-        <button mat-button (click)="goBack()">
-          <mat-icon>arrow_back</mat-icon>
-          {{ 'post.back' | translate }}
-        </button>
+        <div card-footer class="post-actions">
+          <button mat-button (click)="like()">
+            <mat-icon>favorite_border</mat-icon>
+            {{ 'post.like' | translate }}
+          </button>
+          <button mat-button (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
+            {{ 'post.back' | translate }}
+          </button>
+        </div>
+      </gl-card>
+    } @else {
+      <div class="post-missing">
+        <p>{{ 'post.notFound' | translate }}</p>
+        <button mat-button (click)="goBack()">{{ 'post.backToFeed' | translate }}</button>
       </div>
-    </gl-card>
-  } @else {
-    <div class="post-missing">
-      <p>{{ 'post.notFound' | translate }}</p>
-      <button mat-button (click)="goBack()">{{ 'post.backToFeed' | translate }}</button>
-    </div>
-  }
-</section>
+    }
+  </section>
+}
