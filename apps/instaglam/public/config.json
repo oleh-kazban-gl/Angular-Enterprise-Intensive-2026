@@ -1,4 +1,4 @@
 {
-  "hostBaseUrl": "http://localhost:3333",
-  "apiBaseUrl": ""
+  "hostBaseUrl": "",
+  "apiBaseUrl": "/api/v1"
 }
