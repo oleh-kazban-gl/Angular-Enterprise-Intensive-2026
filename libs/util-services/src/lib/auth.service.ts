@@ -1,22 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
+
+import { tap } from 'rxjs';
 
 import { LocalStorageService } from './storage/local-storage.service';
 
-const STORAGE_KEY = 'isLoggedIn';
+const AUTH_KEY = 'isLoggedIn';
+const TOKEN_KEY = 'token';
+const API_URL = 'http://localhost:3333';
+
+interface AuthResponse {
+  token: string;
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly storage = inject(LocalStorageService);
+  private readonly http = inject(HttpClient);
 
-  readonly isLoggedIn = signal(this.storage.getItem<string>(STORAGE_KEY) === 'true');
+  readonly isLoggedIn = signal(this.storage.getItem<string>(AUTH_KEY) === 'true');
 
-  signIn(): void {
-    this.storage.setItem(STORAGE_KEY, 'true');
-    this.isLoggedIn.set(true);
+  signIn() {
+    return this.http.get<AuthResponse>(`${API_URL}/auth`).pipe(
+      tap(({ token }) => {
+        this.storage.setItem(TOKEN_KEY, token);
+        this.storage.setItem(AUTH_KEY, 'true');
+        this.isLoggedIn.set(true);
+      })
+    );
   }
 
   signOut(): void {
-    this.storage.removeItem(STORAGE_KEY);
+    this.storage.removeItem(TOKEN_KEY);
+    this.storage.removeItem(AUTH_KEY);
     this.isLoggedIn.set(false);
   }
 }

@@ -1,4 +1,7 @@
 {
+  "auth": {
+    "token": "fake-jwt-token-abc123xyz"
+  },
   "settings": {
     "languages": [
       { "code": "en", "label": "English" },
