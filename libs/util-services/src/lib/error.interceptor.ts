@@ -1,9 +1,10 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { catchError, throwError } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+
+import { NotificationService } from './notification.service';
 
 const STATUS_KEYS: Record<number, string> = {
   400: 'errors.400',
@@ -18,15 +19,14 @@ function resolveMessageKey(error: HttpErrorResponse): string {
 }
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
-  const snackBar = inject(MatSnackBar);
+  const notification = inject(NotificationService);
   const translate = inject(TranslateService);
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       const message = translate.instant(resolveMessageKey(error));
-      const dismiss = translate.instant('errors.dismiss');
 
-      snackBar.open(message, dismiss, { duration: 5000 });
+      notification.error(message);
 
       return throwError(() => error);
     })
