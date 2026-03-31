@@ -2,6 +2,7 @@ export * from './lib/api-url.interceptor';
 export * from './lib/app-config.service';
 export * from './lib/auth.guard';
 export * from './lib/auth.interceptor';
+export * from './lib/error.interceptor';
 export * from './lib/auth.service';
 export * from './lib/breadcrumb.service';
 export * from './lib/log.interceptor';
