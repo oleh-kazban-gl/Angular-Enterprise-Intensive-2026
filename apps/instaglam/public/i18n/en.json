@@ -84,5 +84,14 @@
       "confirmPasswordRequired": "Please confirm your password",
       "passwordMismatch": "Passwords do not match"
     }
+  },
+  "errors": {
+    "400": "Bad request. Please check the data you submitted.",
+    "404": "The requested resource was not found.",
+    "500": "Internal server error. Please try again later.",
+    "503": "Service is temporarily unavailable. Please try again shortly.",
+    "504": "The server took too long to respond. Please try again.",
+    "unknown": "An unexpected error occurred.",
+    "dismiss": "Dismiss"
   }
 }

@@ -84,5 +84,14 @@
       "confirmPasswordRequired": "Bitte bestätige dein Passwort",
       "passwordMismatch": "Passwörter stimmen nicht überein"
     }
+  },
+  "errors": {
+    "400": "Ungültige Anfrage. Bitte überprüfe die übermittelten Daten.",
+    "404": "Die angeforderte Ressource wurde nicht gefunden.",
+    "500": "Interner Serverfehler. Bitte versuche es später erneut.",
+    "503": "Der Dienst ist vorübergehend nicht verfügbar. Bitte versuche es in Kürze erneut.",
+    "504": "Der Server hat zu lange gebraucht. Bitte versuche es erneut.",
+    "unknown": "Ein unerwarteter Fehler ist aufgetreten.",
+    "dismiss": "Schließen"
   }
 }
