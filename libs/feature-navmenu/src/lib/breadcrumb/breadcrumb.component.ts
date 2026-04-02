@@ -1,21 +1,23 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { BreadcrumbService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-breadcrumb',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule],
+  imports: [RouterModule, TranslatePipe],
   template: `
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol class="breadcrumb__list">
         @for (crumb of crumbs(); track crumb.label; let last = $last) {
           <li class="breadcrumb__item" [class.breadcrumb__item--current]="last">
             @if (crumb.url && !last) {
-              <a class="breadcrumb__link" [routerLink]="crumb.url">{{ crumb.label }}</a>
+              <a class="breadcrumb__link" [routerLink]="crumb.url">{{ crumb.label | translate }}</a>
             } @else {
-              <span [attr.aria-current]="last ? 'page' : null">{{ crumb.label }}</span>
+              <span [attr.aria-current]="last ? 'page' : null">{{ crumb.label | translate }}</span>
             }
             @if (!last) {
               <span class="breadcrumb__separator" aria-hidden="true">/</span>
