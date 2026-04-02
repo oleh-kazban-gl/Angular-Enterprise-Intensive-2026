@@ -82,7 +82,8 @@
       "passwordRequired": "Пароль обов'язковий",
       "passwordMinLength": "Пароль має містити щонайменше 8 символів",
       "confirmPasswordRequired": "Будь ласка, підтвердіть пароль",
-      "passwordMismatch": "Паролі не збігаються"
+      "passwordMismatch": "Паролі не збігаються",
+      "formInvalid": "Будь ласка, виправте помилки у формі перед відправленням."
     }
   },
   "errors": {
