@@ -11,7 +11,7 @@ export const appRoutes: Route[] = [
   {
     path: 'posts',
     canActivate: [authGuard],
-    data: { breadcrumb: 'Posts' },
+    data: { breadcrumb: 'nav.posts' },
     children: [
       {
         path: '',
@@ -20,7 +20,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: ':id',
-        data: { pageTitle: 'post.title', breadcrumb: 'Post' },
+        data: { pageTitle: 'post.title', breadcrumb: 'post.title' },
         loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
       },
     ],

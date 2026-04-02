@@ -82,7 +82,8 @@
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 8 characters",
       "confirmPasswordRequired": "Please confirm your password",
-      "passwordMismatch": "Passwords do not match"
+      "passwordMismatch": "Passwords do not match",
+      "formInvalid": "Please fix the errors in the form before submitting."
     }
   },
   "errors": {
