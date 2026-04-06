@@ -51,7 +51,8 @@
     "addLocation": "Ort hinzufügen",
     "locationPlaceholder": "Ort",
     "addCollaborators": "Mitarbeiter hinzufügen",
-    "searchPeople": "Personen suchen"
+    "searchPeople": "Personen suchen",
+    "captionRequired": "Bildunterschrift ist erforderlich"
   },
   "auth": {
     "signIn": {

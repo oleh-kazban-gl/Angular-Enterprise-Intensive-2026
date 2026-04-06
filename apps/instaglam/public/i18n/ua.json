@@ -51,7 +51,8 @@
     "addLocation": "Додати місце",
     "locationPlaceholder": "Місце",
     "addCollaborators": "Додати співавторів",
-    "searchPeople": "Пошук людей"
+    "searchPeople": "Пошук людей",
+    "captionRequired": "Підпис обов'язковий"
   },
   "auth": {
     "signIn": {

@@ -99,5 +99,39 @@
       "caption": "Late night code session: +1 coffee, -1 social life 😅",
       "createdAt": "2024-06-01T18:30:00.000Z"
     }
+  ],
+  "users": [
+    { "id": "1", "username": "janedoe", "avatarUrl": "https://i.pravatar.cc/150?u=janedoe" },
+    { "id": "2", "username": "glitter_girl", "avatarUrl": "https://i.pravatar.cc/150?u=glitter_girl" },
+    { "id": "3", "username": "city_sprinter", "avatarUrl": "https://i.pravatar.cc/150?u=city_sprinter" },
+    { "id": "4", "username": "coffee.junkie", "avatarUrl": "https://i.pravatar.cc/150?u=coffee.junkie" },
+    { "id": "5", "username": "weekend.wanderer", "avatarUrl": "https://i.pravatar.cc/150?u=weekend.wanderer" },
+    { "id": "6", "username": "techie_tom", "avatarUrl": "https://i.pravatar.cc/150?u=techie_tom" },
+    { "id": "7", "username": "foodie_fiona", "avatarUrl": "https://i.pravatar.cc/150?u=foodie_fiona" },
+    { "id": "8", "username": "cityscape", "avatarUrl": "https://i.pravatar.cc/150?u=cityscape" },
+    { "id": "9", "username": "petpal", "avatarUrl": "https://i.pravatar.cc/150?u=petpal" },
+    { "id": "10", "username": "design_daily", "avatarUrl": "https://i.pravatar.cc/150?u=design_daily" },
+    { "id": "11", "username": "nightowl", "avatarUrl": "https://i.pravatar.cc/150?u=nightowl" },
+    { "id": "12", "username": "john_snaps", "avatarUrl": "https://i.pravatar.cc/150?u=john_snaps" },
+    { "id": "13", "username": "jane_travels", "avatarUrl": "https://i.pravatar.cc/150?u=jane_travels" },
+    { "id": "14", "username": "pixel_hunter", "avatarUrl": "https://i.pravatar.cc/150?u=pixel_hunter" },
+    { "id": "15", "username": "sunseeker", "avatarUrl": "https://i.pravatar.cc/150?u=sunseeker" }
+  ],
+  "locations": [
+    { "id": "1", "name": "New York, USA" },
+    { "id": "2", "name": "Los Angeles, USA" },
+    { "id": "3", "name": "London, UK" },
+    { "id": "4", "name": "Paris, France" },
+    { "id": "5", "name": "Berlin, Germany" },
+    { "id": "6", "name": "Barcelona, Spain" },
+    { "id": "7", "name": "Amsterdam, Netherlands" },
+    { "id": "8", "name": "Tokyo, Japan" },
+    { "id": "9", "name": "Sydney, Australia" },
+    { "id": "10", "name": "Toronto, Canada" },
+    { "id": "11", "name": "Dubai, UAE" },
+    { "id": "12", "name": "Singapore" },
+    { "id": "13", "name": "Rome, Italy" },
+    { "id": "14", "name": "Lisbon, Portugal" },
+    { "id": "15", "name": "Vienna, Austria" }
   ]
 }

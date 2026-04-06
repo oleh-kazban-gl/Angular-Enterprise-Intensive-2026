@@ -51,7 +51,8 @@
     "addLocation": "Add location",
     "locationPlaceholder": "Location",
     "addCollaborators": "Add collaborators",
-    "searchPeople": "Search people"
+    "searchPeople": "Search people",
+    "captionRequired": "Caption is required"
   },
   "auth": {
     "signIn": {

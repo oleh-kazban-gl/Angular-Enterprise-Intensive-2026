@@ -8,4 +8,6 @@ export * from './lib/auth.service';
 export * from './lib/breadcrumb.service';
 export * from './lib/log.interceptor';
 export * from './lib/language.service';
+export * from './lib/location-search.service';
 export * from './lib/theme.service';
+export * from './lib/user-search.service';
