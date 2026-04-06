@@ -26,57 +26,18 @@
 
   <!-- File list -->
   @if (filesArray().length > 0) {
-    <ul class="uploader__list" aria-label="Selected files">
+    <div role="list" class="uploader__list" aria-label="Selected files">
       @for (file of filesArray(); track file.name + file.size) {
-        <li class="uploader__item" [class.uploader__item--error]="fileErrors().has(file)">
-          <mat-icon class="uploader__item-icon">insert_drive_file</mat-icon>
-
-          <div class="uploader__item-info">
-            <span class="uploader__item-name">{{ file.name }}</span>
-            <span class="uploader__item-size">{{ formatBytes(file.size) }}</span>
-
-            @if (fileErrors().get(file); as errs) {
-              <ul class="uploader__item-errors" role="alert">
-                @if (errs['fileType']) {
-                  <li>Unsupported type. Accepted: {{ errs['fileType'].labels.join(', ') }}</li>
-                }
-                @if (errs['maxFileSize']) {
-                  <li>File too large (max {{ errs['maxFileSize'].maxFormatted }})</li>
-                }
-              </ul>
-            }
-          </div>
-
-          <button
-            type="button"
-            class="uploader__item-remove"
-            [attr.aria-label]="'Remove ' + file.name"
-            (click)="removeFile(file)"
-          >
-            <mat-icon>close</mat-icon>
-          </button>
-        </li>
+        <gl-uploader-file-item [file]="file" [errors]="fileErrors().get(file) ?? null" (removed)="removeFile(file)" />
       }
-    </ul>
+    </div>
   }
 
   <!-- Uploader-level errors -->
-  @if (uploaderErrors(); as errs) {
+  @if (uploaderErrorEntries().length) {
     <ul class="uploader__errors" role="alert" aria-live="polite">
-      @if (errs['requiredFiles']) {
-        <li>At least one file is required.</li>
-      }
-      @if (errs['maxFiles']) {
-        <li>Too many files (max {{ errs['maxFiles'].max }}, selected {{ errs['maxFiles'].actual }}).</li>
-      }
-      @if (errs['maxTotalSize']) {
-        <li>
-          Total size too large (max {{ errs['maxTotalSize'].maxFormatted }}, current
-          {{ errs['maxTotalSize'].actualFormatted }}).
-        </li>
-      }
-      @if (errs['noDuplicateFiles']) {
-        <li>Duplicate files detected: {{ errs['noDuplicateFiles'].duplicates.join(', ') }}</li>
+      @for (entry of uploaderErrorEntries(); track entry[0]) {
+        <li>{{ 'errors.validation.' + entry[0] | translate: entry[1] }}</li>
       }
     </ul>
   }

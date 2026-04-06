@@ -27,12 +27,12 @@ function formatBytes(bytes: number): string {
  * "Supported files: PNG, JPG" automatically.
  */
 export function fileType(accepted: string[]): FileValidator {
+  const expected = accepted.map(t => t.split('/')[1].toUpperCase()).join(', ');
   const validator: FileValidator & { acceptedTypes: string[] } = (file: File) => {
     if (accepted.includes(file.type)) {
       return null;
     }
-    const labels = accepted.map(t => t.split('/')[1].toUpperCase());
-    return { fileType: { actual: file.type, accepted, labels } };
+    return { fileType: { expected } };
   };
   validator.acceptedTypes = accepted;
   return validator;
@@ -48,10 +48,8 @@ export function maxFileSize(maxBytes: number): FileValidator {
     }
     return {
       maxFileSize: {
-        actual: file.size,
-        max: maxBytes,
-        actualFormatted: formatBytes(file.size),
-        maxFormatted: formatBytes(maxBytes),
+        actual: formatBytes(file.size),
+        expected: formatBytes(maxBytes),
       },
     };
   };
@@ -74,7 +72,7 @@ export function maxFiles(max: number): UploaderValidator {
     if (files.length <= max) {
       return null;
     }
-    return { maxFiles: { actual: files.length, max } };
+    return { maxFiles: { actual: files.length, expected: max } };
   };
 }
 
@@ -89,10 +87,8 @@ export function maxTotalSize(maxBytes: number): UploaderValidator {
     }
     return {
       maxTotalSize: {
-        actual: total,
-        max: maxBytes,
-        actualFormatted: formatBytes(total),
-        maxFormatted: formatBytes(maxBytes),
+        actual: formatBytes(total),
+        expected: formatBytes(maxBytes),
       },
     };
   };
@@ -113,6 +109,6 @@ export function noDuplicateFiles(): UploaderValidator {
         seen.add(sig);
       }
     }
-    return duplicates.length > 0 ? { noDuplicateFiles: { duplicates } } : null;
+    return duplicates.length > 0 ? { noDuplicateFiles: { actual: duplicates.join(', ') } } : null;
   };
 }

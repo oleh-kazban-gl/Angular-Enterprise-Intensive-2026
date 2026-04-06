@@ -1,0 +1,23 @@
+<mat-icon class="uploader__item-icon">insert_drive_file</mat-icon>
+
+<div class="uploader__item-info">
+  <span class="uploader__item-name">{{ file().name }}</span>
+  <span class="uploader__item-size">{{ file().size | formatBytes }}</span>
+
+  @if (errorEntries().length) {
+    <ul class="uploader__item-errors" role="alert">
+      @for (entry of errorEntries(); track entry[0]) {
+        <li>{{ 'errors.validation.' + entry[0] | translate: entry[1] }}</li>
+      }
+    </ul>
+  }
+</div>
+
+<button
+  type="button"
+  class="uploader__item-remove"
+  [attr.aria-label]="'Remove ' + file().name"
+  (click)="removed.emit()"
+>
+  <mat-icon>close</mat-icon>
+</button>

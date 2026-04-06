@@ -13,12 +13,15 @@ import {
 import { ControlValueAccessor, ValidationErrors, Validator, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
+import { UploaderFileItemComponent } from './uploader-file-item.component';
 import { FileValidator, UploaderValidator, fileType } from './uploader.validators';
 
 @Component({
   selector: 'gl-uploader',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatIconModule],
+  imports: [MatIconModule, TranslatePipe, UploaderFileItemComponent],
   templateUrl: './uploader.component.html',
   styleUrl: './uploader.component.scss',
   providers: [
@@ -68,6 +71,17 @@ export class UploaderComponent implements ControlValueAccessor, Validator {
       }
     }
     return Object.keys(merged).length > 0 ? merged : null;
+  });
+
+  readonly uploaderErrorEntries = computed<[string, Record<string, unknown>][]>(() => {
+    const errs = this.uploaderErrors();
+    if (!errs) {
+      return [];
+    }
+    return Object.entries(errs).map(([key, val]): [string, Record<string, unknown>] => [
+      key,
+      val === true ? {} : (val as Record<string, unknown>),
+    ]);
   });
 
   readonly acceptedTypes = computed<string[] | null>(() => {
@@ -184,16 +198,6 @@ export class UploaderComponent implements ControlValueAccessor, Validator {
     this.files.set(updated);
     this.onChange(new Set(updated));
     this.onValidatorChange();
-  }
-
-  formatBytes(bytes: number): string {
-    if (bytes < 1024) {
-      return `${bytes} B`;
-    }
-    if (bytes < 1024 * 1024) {
-      return `${(bytes / 1024).toFixed(1)} KB`;
-    }
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   }
 
   private isDuplicate(incoming: File, existing: Set<File>): boolean {
