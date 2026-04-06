@@ -3,8 +3,8 @@ import { inject, Injectable, signal } from '@angular/core';
 
 import { tap } from 'rxjs';
 
-import { LocalStorageService } from './storage/local-storage.service';
 import { AuthResponse } from './auth.service.models';
+import { LocalStorageService } from './storage/local-storage.service';
 
 const AUTH_KEY = 'isLoggedIn';
 const TOKEN_KEY = 'token';
