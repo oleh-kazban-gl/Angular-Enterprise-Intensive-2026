@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
@@ -14,7 +15,15 @@ import { FeedService } from './feed.service';
 @Component({
   selector: 'gl-feed',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, MatIconModule, MatButtonModule, CardComponent, TranslatePipe, LoadingComponent],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatChipsModule,
+    CardComponent,
+    TranslatePipe,
+    LoadingComponent,
+  ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })

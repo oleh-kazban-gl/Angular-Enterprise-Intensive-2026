@@ -27,6 +27,13 @@
             loading="eager"
           />
           <p>{{ postItem.caption }}</p>
+          @if (postItem.hashtags?.length) {
+            <mat-chip-set class="post-hashtags" aria-label="Hashtags">
+              @for (tag of postItem.hashtags; track tag) {
+                <mat-chip>{{ tag }}</mat-chip>
+              }
+            </mat-chip-set>
+          }
         </div>
 
         <div card-footer class="post-actions">
