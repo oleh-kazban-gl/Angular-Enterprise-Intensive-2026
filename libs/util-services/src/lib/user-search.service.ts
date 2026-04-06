@@ -3,11 +3,7 @@ import { inject, Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-export interface User {
-  id: string;
-  username: string;
-  avatarUrl: string;
-}
+import { User } from './user-search.service.models';
 
 @Injectable({ providedIn: 'root' })
 export class UserSearchService {

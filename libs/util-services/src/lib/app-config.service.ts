@@ -3,10 +3,7 @@ import { EnvironmentProviders, Injectable, inject, provideAppInitializer } from 
 
 import { Observable, lastValueFrom, map, tap } from 'rxjs';
 
-interface AppConfig {
-  hostBaseUrl: string;
-  apiBaseUrl: string;
-}
+import { AppConfig } from './app-config.service.models';
 
 @Injectable({ providedIn: 'root' })
 export class AppConfigService {

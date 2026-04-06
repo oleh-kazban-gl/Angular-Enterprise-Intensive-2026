@@ -3,10 +3,7 @@ import { inject, Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-export interface Location {
-  id: string;
-  name: string;
-}
+import { Location } from './location-search.service.models';
 
 @Injectable({ providedIn: 'root' })
 export class LocationSearchService {
