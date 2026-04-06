@@ -1,0 +1,21 @@
+{
+  "name": "ui-components/uploader",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui-components/uploader/src",
+  "prefix": "gl",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:ui-components"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui-components/uploader/jest.config.cts",
+        "tsConfig": "libs/ui-components/uploader/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

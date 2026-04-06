@@ -46,12 +46,14 @@
   "createPost": {
     "title": "Neuer Beitrag",
     "share": "Teilen",
+    "sharing": "Wird geteilt…",
     "selectPhoto": "Foto auswählen",
     "captionPlaceholder": "Bildunterschrift schreiben…",
     "addLocation": "Ort hinzufügen",
     "locationPlaceholder": "Ort",
     "addCollaborators": "Mitarbeiter hinzufügen",
-    "searchPeople": "Personen suchen"
+    "searchPeople": "Personen suchen",
+    "captionRequired": "Bildunterschrift ist erforderlich"
   },
   "auth": {
     "signIn": {
@@ -87,6 +89,14 @@
     }
   },
   "errors": {
+    "validation": {
+      "fileType": "Nicht unterstützter Dateityp. Akzeptiert: {{ expected }}",
+      "maxFileSize": "Datei zu groß (max. {{ expected }}, erhalten {{ actual }})",
+      "requiredFiles": "Mindestens eine Datei ist erforderlich",
+      "maxFiles": "Zu viele Dateien (max. {{ expected }}, ausgewählt {{ actual }})",
+      "maxTotalSize": "Gesamtgröße zu groß (max. {{ expected }}, aktuell {{ actual }})",
+      "noDuplicateFiles": "Doppelte Dateien erkannt: {{ actual }}"
+    },
     "400": "Ungültige Anfrage. Bitte überprüfe die übermittelten Daten.",
     "404": "Die angeforderte Ressource wurde nicht gefunden.",
     "500": "Interner Serverfehler. Bitte versuche es später erneut.",

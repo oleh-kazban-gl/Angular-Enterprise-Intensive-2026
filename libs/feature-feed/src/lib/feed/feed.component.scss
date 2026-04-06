@@ -19,6 +19,12 @@
       border-radius: 0.75rem;
       cursor: pointer;
     }
+
+    &__hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
   }
 
   .post-image {

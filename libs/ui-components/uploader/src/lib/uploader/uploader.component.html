@@ -1,0 +1,44 @@
+<div class="uploader" [class.uploader--disabled]="_disabled()">
+  <!-- Drop zone -->
+  <label
+    class="uploader__dropzone"
+    [class.uploader__dropzone--has-cover]="previewUrl()"
+    [attr.aria-disabled]="_disabled() ? 'true' : null"
+  >
+    <input
+      class="uploader__input"
+      type="file"
+      [attr.multiple]="multiple() ? '' : null"
+      [attr.accept]="acceptAttribute() || null"
+      [disabled]="_disabled()"
+      (change)="onFileInputChange($event)"
+      aria-hidden="true"
+    />
+    @if (previewUrl()) {
+      <img class="uploader__cover" [src]="previewUrl()" alt="Selected image preview" />
+    }
+    <mat-icon class="uploader__icon">cloud_upload</mat-icon>
+    <span class="uploader__prompt">Click or drag files here</span>
+    @if (supportedLabels()) {
+      <span class="uploader__hint">Supported files: {{ supportedLabels() }}</span>
+    }
+  </label>
+
+  <!-- File list -->
+  @if (filesArray().length > 0) {
+    <div role="list" class="uploader__list" aria-label="Selected files">
+      @for (file of filesArray(); track file.name + file.size) {
+        <gl-uploader-file-item [file]="file" [errors]="fileErrors().get(file) ?? null" (removed)="removeFile(file)" />
+      }
+    </div>
+  }
+
+  <!-- Uploader-level errors -->
+  @if (uploaderErrorEntries().length) {
+    <ul class="uploader__errors" role="alert" aria-live="polite">
+      @for (entry of uploaderErrorEntries(); track entry[0]) {
+        <li>{{ 'errors.validation.' + entry[0] | translate: entry[1] }}</li>
+      }
+    </ul>
+  }
+</div>

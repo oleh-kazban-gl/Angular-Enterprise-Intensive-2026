@@ -1,0 +1,120 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.uploader {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.75rem;
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    border: 2px dashed var(--borderColor);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+    background: transparent;
+
+    &--has-cover {
+      border-color: transparent;
+
+      .uploader__icon,
+      .uploader__prompt,
+      .uploader__hint {
+        position: relative;
+        z-index: 1;
+        color: #fff;
+        text-shadow: 0 1px 4px rgb(0, 0, 0, 0.6);
+      }
+
+      .uploader__icon {
+        filter: drop-shadow(0 1px 4px rgb(0, 0, 0, 0.6));
+      }
+
+      &:hover,
+      &:focus-within {
+        background: rgb(0, 0, 0, 0.15);
+      }
+    }
+
+    &:not(&--has-cover) {
+      &:hover,
+      &:focus-within {
+        border-color: var(--accentColor);
+        background: color-mix(in srgb, var(--accentColor) 6%, transparent);
+      }
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.625rem;
+    z-index: 0;
+  }
+
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--accentColor);
+  }
+
+  &__prompt {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--textColor);
+  }
+
+  &__hint {
+    font-size: 0.75rem;
+    color: var(--textMuted);
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  &__errors {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--errorColor);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

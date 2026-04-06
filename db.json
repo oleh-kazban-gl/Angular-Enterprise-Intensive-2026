@@ -4,9 +4,18 @@
   },
   "settings": {
     "languages": [
-      { "code": "en", "label": "English" },
-      { "code": "de", "label": "Deutsch" },
-      { "code": "ua", "label": "Українська" }
+      {
+        "code": "en",
+        "label": "English"
+      },
+      {
+        "code": "de",
+        "label": "Deutsch"
+      },
+      {
+        "code": "ua",
+        "label": "Українська"
+      }
     ]
   },
   "profile": {
@@ -22,82 +31,262 @@
     {
       "id": "1",
       "author": "glitter_girl",
-      "time": "2h ago",
       "image": "https://picsum.photos/seed/1/1200/800",
-      "caption": "Loving this sunset view! #sunset #photooftheday",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "caption": "Loving this sunset view!",
+      "location": "Santorini, Greece",
+      "collaborators": [],
+      "hashtags": ["#sunset", "#photooftheday"],
+      "createdAt": "2026-04-06T16:00:00.000Z"
     },
     {
       "id": "2",
       "author": "city_sprinter",
-      "time": "5h ago",
       "image": "https://picsum.photos/seed/2/1200/800",
       "caption": "Morning run through the city keeps me energized 💪",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": "New York, USA",
+      "collaborators": [],
+      "hashtags": ["#running", "#fitness"],
+      "createdAt": "2026-04-06T13:00:00.000Z"
     },
     {
       "id": "3",
       "author": "coffee.junkie",
-      "time": "9h ago",
       "image": "https://picsum.photos/seed/3/1200/800",
       "caption": "Starting the day right — espresso + notebook ☕️📓",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": "Vienna, Austria",
+      "collaborators": [],
+      "hashtags": ["#coffee", "#morningvibes"],
+      "createdAt": "2026-04-06T09:00:00.000Z"
     },
     {
       "id": "4",
       "author": "weekend.wanderer",
-      "time": "1d ago",
       "image": "https://picsum.photos/seed/4/1200/800",
-      "caption": "Chasing waterfalls in the forest. #hiking #nature",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "caption": "Chasing waterfalls in the forest.",
+      "location": "Banff, Canada",
+      "collaborators": [],
+      "hashtags": ["#hiking", "#nature"],
+      "createdAt": "2026-04-05T14:00:00.000Z"
     },
     {
       "id": "5",
       "author": "techie_tom",
-      "time": "1d ago",
       "image": "https://picsum.photos/seed/5/1200/800",
       "caption": "New gadget drop! Time to dive into the latest SDK. 💻",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": null,
+      "collaborators": [],
+      "hashtags": ["#tech", "#dev"],
+      "createdAt": "2026-04-05T11:00:00.000Z"
     },
     {
       "id": "6",
       "author": "foodie_fiona",
-      "time": "2d ago",
       "image": "https://picsum.photos/seed/6/1200/800",
       "caption": "Brunch goals. Avocado toast for the win 🥑✨",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": "Melbourne, Australia",
+      "collaborators": [],
+      "hashtags": ["#brunch", "#foodie"],
+      "createdAt": "2026-04-04T10:30:00.000Z"
     },
     {
       "id": "7",
       "author": "cityscape",
-      "time": "2d ago",
       "image": "https://picsum.photos/seed/7/1200/800",
       "caption": "Golden hour in the city. Those lights never sleep.",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": "Tokyo, Japan",
+      "collaborators": [],
+      "hashtags": ["#goldenhour", "#citylife"],
+      "createdAt": "2026-04-04T19:00:00.000Z"
     },
     {
       "id": "8",
       "author": "petpal",
-      "time": "3d ago",
       "image": "https://picsum.photos/seed/8/1200/800",
-      "caption": "Meet my new buddy! 🐶 #puppylove",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "caption": "Meet my new buddy! 🐶",
+      "location": null,
+      "collaborators": [],
+      "hashtags": ["#puppylove", "#dogsofinstagram"],
+      "createdAt": "2026-04-03T15:00:00.000Z"
     },
     {
       "id": "9",
       "author": "design_daily",
-      "time": "3d ago",
       "image": "https://picsum.photos/seed/9/1200/800",
       "caption": "Playing with gradients today—color is everything.",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": null,
+      "collaborators": [],
+      "hashtags": ["#design", "#uidesign"],
+      "createdAt": "2026-04-03T12:00:00.000Z"
     },
     {
       "id": "10",
       "author": "nightowl",
-      "time": "4d ago",
       "image": "https://picsum.photos/seed/10/1200/800",
       "caption": "Late night code session: +1 coffee, -1 social life 😅",
-      "createdAt": "2024-06-01T18:30:00.000Z"
+      "location": null,
+      "collaborators": [],
+      "hashtags": ["#coding", "#nightowl"],
+      "createdAt": "2026-04-02T23:00:00.000Z"
+    },
+    {
+      "id": "11",
+      "author": "janedoe",
+      "image": "https://picsum.photos/seed/11/1200/800",
+      "caption": "Some test post",
+      "location": "London, UK",
+      "collaborators": [],
+      "hashtags": ["#ukraine"],
+      "createdAt": "2026-04-06T17:19:24.676Z"
+    },
+    {
+      "author": "janedoe",
+      "image": "blob:http://localhost:4200/ba1c2418-aa84-4355-b8fb-29245a2e0104",
+      "caption": "Some test post ",
+      "location": "London, UK",
+      "collaborators": ["glitter_girl"],
+      "hashtags": ["#ukraine"],
+      "createdAt": "2026-04-06T18:22:06.874Z",
+      "id": "6TtM9VRKAnc"
     }
-  ]
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "janedoe",
+      "avatarUrl": "https://i.pravatar.cc/150?u=janedoe"
+    },
+    {
+      "id": "2",
+      "username": "glitter_girl",
+      "avatarUrl": "https://i.pravatar.cc/150?u=glitter_girl"
+    },
+    {
+      "id": "3",
+      "username": "city_sprinter",
+      "avatarUrl": "https://i.pravatar.cc/150?u=city_sprinter"
+    },
+    {
+      "id": "4",
+      "username": "coffee.junkie",
+      "avatarUrl": "https://i.pravatar.cc/150?u=coffee.junkie"
+    },
+    {
+      "id": "5",
+      "username": "weekend.wanderer",
+      "avatarUrl": "https://i.pravatar.cc/150?u=weekend.wanderer"
+    },
+    {
+      "id": "6",
+      "username": "techie_tom",
+      "avatarUrl": "https://i.pravatar.cc/150?u=techie_tom"
+    },
+    {
+      "id": "7",
+      "username": "foodie_fiona",
+      "avatarUrl": "https://i.pravatar.cc/150?u=foodie_fiona"
+    },
+    {
+      "id": "8",
+      "username": "cityscape",
+      "avatarUrl": "https://i.pravatar.cc/150?u=cityscape"
+    },
+    {
+      "id": "9",
+      "username": "petpal",
+      "avatarUrl": "https://i.pravatar.cc/150?u=petpal"
+    },
+    {
+      "id": "10",
+      "username": "design_daily",
+      "avatarUrl": "https://i.pravatar.cc/150?u=design_daily"
+    },
+    {
+      "id": "11",
+      "username": "nightowl",
+      "avatarUrl": "https://i.pravatar.cc/150?u=nightowl"
+    },
+    {
+      "id": "12",
+      "username": "john_snaps",
+      "avatarUrl": "https://i.pravatar.cc/150?u=john_snaps"
+    },
+    {
+      "id": "13",
+      "username": "jane_travels",
+      "avatarUrl": "https://i.pravatar.cc/150?u=jane_travels"
+    },
+    {
+      "id": "14",
+      "username": "pixel_hunter",
+      "avatarUrl": "https://i.pravatar.cc/150?u=pixel_hunter"
+    },
+    {
+      "id": "15",
+      "username": "sunseeker",
+      "avatarUrl": "https://i.pravatar.cc/150?u=sunseeker"
+    }
+  ],
+  "locations": [
+    {
+      "id": "1",
+      "name": "New York, USA"
+    },
+    {
+      "id": "2",
+      "name": "Los Angeles, USA"
+    },
+    {
+      "id": "3",
+      "name": "London, UK"
+    },
+    {
+      "id": "4",
+      "name": "Paris, France"
+    },
+    {
+      "id": "5",
+      "name": "Berlin, Germany"
+    },
+    {
+      "id": "6",
+      "name": "Barcelona, Spain"
+    },
+    {
+      "id": "7",
+      "name": "Amsterdam, Netherlands"
+    },
+    {
+      "id": "8",
+      "name": "Tokyo, Japan"
+    },
+    {
+      "id": "9",
+      "name": "Sydney, Australia"
+    },
+    {
+      "id": "10",
+      "name": "Toronto, Canada"
+    },
+    {
+      "id": "11",
+      "name": "Dubai, UAE"
+    },
+    {
+      "id": "12",
+      "name": "Singapore"
+    },
+    {
+      "id": "13",
+      "name": "Rome, Italy"
+    },
+    {
+      "id": "14",
+      "name": "Lisbon, Portugal"
+    },
+    {
+      "id": "15",
+      "name": "Vienna, Austria"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

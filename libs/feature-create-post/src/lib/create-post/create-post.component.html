@@ -2,20 +2,27 @@
   <gl-card class="create-post__card">
     <div card-header class="create-post__header">
       <span>{{ 'createPost.title' | translate }}</span>
-      <button mat-button color="primary" type="button">{{ 'createPost.share' | translate }}</button>
+      <button mat-button color="primary" type="button" [disabled]="form.invalid || submitting()" (click)="onSubmit()">
+        @if (submitting()) {
+          {{ 'createPost.sharing' | translate }}
+        } @else {
+          {{ 'createPost.share' | translate }}
+        }
+      </button>
     </div>
 
-    <div card-content class="create-post__body">
-      <!-- Left: image preview -->
+    <div card-content class="create-post__body" [formGroup]="form">
+      <!-- Left: photo uploader -->
       <div class="create-post__preview">
-        <div class="create-post__placeholder">
-          <mat-icon>image</mat-icon>
-          <span>{{ 'createPost.selectPhoto' | translate }}</span>
-        </div>
+        <gl-uploader
+          formControlName="photo"
+          [fileValidators]="photoFileValidators"
+          [uploaderValidators]="photoUploaderValidators"
+        />
       </div>
 
       <!-- Right: post details -->
-      <div class="create-post__form">
+      <form class="create-post__form" (ngSubmit)="onSubmit()">
         <div class="create-post__author">
           <div class="create-post__avatar"></div>
           <span class="create-post__username">username</span>
@@ -27,36 +34,99 @@
           maxlength="2200"
           rows="8"
           [attr.aria-label]="'createPost.captionPlaceholder' | translate"
+          (input)="onCaptionInput($event)"
+          (blur)="form.controls.caption.markAsTouched()"
         ></textarea>
 
-        <div class="create-post__char-count">0 / 2,200</div>
+        @if (form.controls.caption.invalid && form.controls.caption.touched) {
+          <span class="create-post__error" role="alert">
+            {{ 'createPost.captionRequired' | translate }}
+          </span>
+        }
+
+        <div class="create-post__char-count" aria-live="polite">{{ captionLength() }} / 2,200</div>
+
+        @if (hashtags().length > 0) {
+          <ul class="create-post__chips create-post__chips--tags" aria-label="Hashtags">
+            @for (tag of hashtags(); track tag) {
+              <li class="create-post__chip create-post__chip--tag">
+                <span class="create-post__chip-label">{{ tag }}</span>
+                <button
+                  type="button"
+                  class="create-post__chip-remove"
+                  [attr.aria-label]="'Remove ' + tag"
+                  (click)="removeHashtag(tag)"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+              </li>
+            }
+          </ul>
+        }
 
         <div class="create-post__divider"></div>
 
-        <label class="create-post__field">
-          <span class="create-post__field-label">{{ 'createPost.addLocation' | translate }}</span>
+        <!-- Location autocomplete -->
+        <label class="create-post__field" for="location-input">
           <mat-icon class="create-post__field-icon">location_on</mat-icon>
           <input
+            id="location-input"
             class="create-post__field-input"
             type="text"
-            [placeholder]="'createPost.locationPlaceholder' | translate"
+            formControlName="location"
+            [placeholder]="'createPost.addLocation' | translate"
             [attr.aria-label]="'createPost.addLocation' | translate"
+            [matAutocomplete]="locationAuto"
           />
         </label>
+
+        <mat-autocomplete #locationAuto="matAutocomplete" [displayWith]="displayLocation">
+          @for (loc of locationSuggestions(); track loc.id) {
+            <mat-option [value]="loc">{{ loc.name }}</mat-option>
+          }
+        </mat-autocomplete>
 
         <div class="create-post__divider"></div>
 
-        <label class="create-post__field">
-          <span class="create-post__field-label">{{ 'createPost.addCollaborators' | translate }}</span>
+        <!-- Collaborators autocomplete -->
+        <div class="create-post__field" role="group" [attr.aria-label]="'createPost.addCollaborators' | translate">
           <mat-icon class="create-post__field-icon">person_add</mat-icon>
-          <input
-            class="create-post__field-input"
-            type="text"
-            [placeholder]="'createPost.searchPeople' | translate"
-            [attr.aria-label]="'createPost.addCollaborators' | translate"
-          />
-        </label>
-      </div>
+          <div class="create-post__field-content">
+            @if (selectedCollaborators().length > 0) {
+              <ul class="create-post__chips" aria-label="Selected collaborators">
+                @for (user of selectedCollaborators(); track user.id) {
+                  <li class="create-post__chip">
+                    <span class="create-post__chip-label">{{ user.username }}</span>
+                    <button
+                      type="button"
+                      class="create-post__chip-remove"
+                      [attr.aria-label]="'Remove ' + user.username"
+                      (click)="removeCollaborator(user.id)"
+                    >
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </li>
+                }
+              </ul>
+            }
+            <input
+              id="collaborator-input"
+              class="create-post__field-input"
+              type="text"
+              [formControl]="collaboratorSearchCtrl"
+              [placeholder]="'createPost.searchPeople' | translate"
+              [attr.aria-label]="'createPost.searchPeople' | translate"
+              [matAutocomplete]="collaboratorAuto"
+            />
+          </div>
+        </div>
+
+        <mat-autocomplete #collaboratorAuto="matAutocomplete" (optionSelected)="selectCollaborator($event)">
+          @for (user of collaboratorSuggestions(); track user.id) {
+            <mat-option [value]="user">{{ user.username }}</mat-option>
+          }
+        </mat-autocomplete>
+      </form>
     </div>
   </gl-card>
 </section>

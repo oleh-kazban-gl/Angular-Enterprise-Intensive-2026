@@ -1,6 +1,7 @@
-import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,9 +17,9 @@ import { PostService } from './post.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    NgOptimizedImage,
     CardComponent,
     MatButtonModule,
+    MatChipsModule,
     MatIconModule,
     TranslatePipe,
     LoadingComponent,

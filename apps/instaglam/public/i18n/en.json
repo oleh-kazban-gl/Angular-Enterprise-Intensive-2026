@@ -46,12 +46,14 @@
   "createPost": {
     "title": "New Post",
     "share": "Share",
+    "sharing": "Sharing…",
     "selectPhoto": "Select photo",
     "captionPlaceholder": "Write a caption…",
     "addLocation": "Add location",
     "locationPlaceholder": "Location",
     "addCollaborators": "Add collaborators",
-    "searchPeople": "Search people"
+    "searchPeople": "Search people",
+    "captionRequired": "Caption is required"
   },
   "auth": {
     "signIn": {
@@ -87,6 +89,14 @@
     }
   },
   "errors": {
+    "validation": {
+      "fileType": "Unsupported file type. Accepted: {{ expected }}",
+      "maxFileSize": "File too large (max {{ expected }}, got {{ actual }})",
+      "requiredFiles": "At least one file is required",
+      "maxFiles": "Too many files (max {{ expected }}, selected {{ actual }})",
+      "maxTotalSize": "Total size too large (max {{ expected }}, current {{ actual }})",
+      "noDuplicateFiles": "Duplicate files detected: {{ actual }}"
+    },
     "400": "Bad request. Please check the data you submitted.",
     "404": "The requested resource was not found.",
     "500": "Internal server error. Please try again later.",

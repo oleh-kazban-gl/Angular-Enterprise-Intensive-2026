@@ -4,10 +4,7 @@ import { ActivatedRouteSnapshot, NavigationEnd, NavigationStart, Router } from '
 
 import { filter, map, startWith } from 'rxjs';
 
-export interface Breadcrumb {
-  label: string;
-  url: string | null;
-}
+import { Breadcrumb } from './breadcrumb.service.models';
 
 @Injectable({ providedIn: 'root' })
 export class BreadcrumbService {

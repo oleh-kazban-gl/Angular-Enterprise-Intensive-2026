@@ -1,22 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentProviders, Injectable, inject, provideAppInitializer } from '@angular/core';
 
-import { firstValueFrom } from 'rxjs';
+import { Observable, lastValueFrom, map, tap } from 'rxjs';
 
-interface AppConfig {
-  hostBaseUrl: string;
-  apiBaseUrl: string;
-}
+import { AppConfig } from './app-config.service.models';
 
 @Injectable({ providedIn: 'root' })
 export class AppConfigService {
   private readonly http = inject(HttpClient);
   private config: AppConfig = { hostBaseUrl: '', apiBaseUrl: '' };
 
-  load(): Promise<void> {
-    return firstValueFrom(this.http.get<AppConfig>('/config.json')).then(config => {
-      this.config = config;
-    });
+  load(): Observable<void> {
+    return this.http.get<AppConfig>('/config.json').pipe(
+      tap(config => (this.config = config)),
+      map(() => void 0)
+    );
   }
 
   get hostBaseUrl(): string {
@@ -29,5 +27,5 @@ export class AppConfigService {
 }
 
 export function provideAppConfig(): EnvironmentProviders {
-  return provideAppInitializer(() => inject(AppConfigService).load());
+  return provideAppInitializer(() => lastValueFrom(inject(AppConfigService).load()));
 }

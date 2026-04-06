@@ -1,6 +1,7 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
@@ -16,9 +17,9 @@ import { FeedService } from './feed.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    NgOptimizedImage,
     MatIconModule,
     MatButtonModule,
+    MatChipsModule,
     CardComponent,
     TranslatePipe,
     LoadingComponent,

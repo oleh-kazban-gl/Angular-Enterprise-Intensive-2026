@@ -19,14 +19,22 @@
             <div card-content class="post-body">
               <img
                 class="feed__image"
-                [ngSrc]="post.image"
+                [src]="post.image"
                 width="1200"
                 height="800"
                 [alt]="`Photo by ${post.author}`"
-                [priority]="idx === 0"
+                [attr.fetchpriority]="idx === 0 ? 'high' : null"
+                [attr.loading]="idx === 0 ? 'eager' : 'lazy'"
                 (click)="goToPost(post.id)"
               />
               <p>{{ post.caption }}</p>
+              @if (post.hashtags?.length) {
+                <mat-chip-set class="feed__hashtags" aria-label="Hashtags">
+                  @for (tag of post.hashtags; track tag) {
+                    <mat-chip>{{ tag }}</mat-chip>
+                  }
+                </mat-chip-set>
+              }
             </div>
 
             <div card-footer class="post-actions">

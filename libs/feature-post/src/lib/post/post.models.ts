@@ -4,6 +4,9 @@ export interface Post {
   time: string;
   image: string;
   caption: string;
+  location: string | null;
+  collaborators: string[];
+  hashtags: string[];
   likes?: number;
   createdAt: Date;
 }
