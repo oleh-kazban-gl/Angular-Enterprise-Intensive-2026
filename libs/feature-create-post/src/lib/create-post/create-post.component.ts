@@ -4,17 +4,28 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
-import { of, switchMap, debounceTime, startWith } from 'rxjs';
+import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
+import { CreatePostService } from './create-post.service';
 
 @Component({
   selector: 'gl-create-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, MatAutocompleteModule, MatButtonModule, MatIconModule, TranslatePipe, CardComponent],
+  imports: [
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslatePipe,
+    CardComponent,
+    UploaderComponent,
+  ],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss',
 })
@@ -22,11 +33,19 @@ export class CreatePostComponent {
   private readonly fb = inject(FormBuilder);
   private readonly locationService = inject(LocationSearchService);
   private readonly userService = inject(UserSearchService);
+  private readonly createPostService = inject(CreatePostService);
+  private readonly router = inject(Router);
+
+  readonly submitting = signal(false);
 
   form = this.fb.group({
+    photo: [new Set<File>()],
     caption: ['', [Validators.required, Validators.maxLength(2200)]],
     location: [null as Location | string | null],
   });
+
+  readonly photoFileValidators = [fileType(['image/png', 'image/jpeg', 'image/webp']), maxFileSize(1 * 1024 * 1024)];
+  readonly photoUploaderValidators = [requiredFiles(), maxFiles(1)];
 
   collaboratorSearchCtrl = new FormControl('');
   selectedCollaborators = signal<User[]>([]);
@@ -101,11 +120,30 @@ export class CreatePostComponent {
   }
 
   onSubmit(): void {
-    if (this.form.invalid) {
+    if (this.form.invalid || this.submitting()) {
       return;
     }
-    const { caption, location } = this.form.getRawValue();
-    const collaborators = this.selectedCollaborators();
-    console.log({ caption, location, collaborators });
+
+    const { photo, caption, location } = this.form.getRawValue();
+    const [firstPhoto] = photo ?? [];
+
+    if (!firstPhoto) {
+      return;
+    }
+
+    this.submitting.set(true);
+    this.createPostService
+      .create({
+        author: 'janedoe',
+        photo: firstPhoto,
+        caption: caption ?? '',
+        location: location ?? null,
+        collaborators: this.selectedCollaborators().map(u => u.username),
+        hashtags: this.hashtags(),
+      })
+      .subscribe({
+        next: () => this.router.navigate(['/']),
+        error: () => this.submitting.set(false),
+      });
   }
 }

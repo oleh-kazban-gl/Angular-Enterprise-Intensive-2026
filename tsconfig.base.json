@@ -26,7 +26,8 @@
       "@gl/util-services": ["libs/util-services/src/index.ts"],
       "@gl/util-services/storage": ["libs/util-services/src/lib/storage/index.ts"],
       "@gl/feature-auth": ["libs/feature-auth/src/index.ts"],
-      "@gl/ui-components/loading": ["libs/ui-components/loading/src/index.ts"]
+      "@gl/ui-components/loading": ["libs/ui-components/loading/src/index.ts"],
+      "@gl/ui-components/uploader": ["libs/ui-components/uploader/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -2,22 +2,27 @@
   <gl-card class="create-post__card">
     <div card-header class="create-post__header">
       <span>{{ 'createPost.title' | translate }}</span>
-      <button mat-button color="primary" type="button" [disabled]="form.invalid" (click)="onSubmit()">
-        {{ 'createPost.share' | translate }}
+      <button mat-button color="primary" type="button" [disabled]="form.invalid || submitting()" (click)="onSubmit()">
+        @if (submitting()) {
+          {{ 'createPost.sharing' | translate }}
+        } @else {
+          {{ 'createPost.share' | translate }}
+        }
       </button>
     </div>
 
-    <div card-content class="create-post__body">
-      <!-- Left: image preview -->
+    <div card-content class="create-post__body" [formGroup]="form">
+      <!-- Left: photo uploader -->
       <div class="create-post__preview">
-        <div class="create-post__placeholder">
-          <mat-icon>image</mat-icon>
-          <span>{{ 'createPost.selectPhoto' | translate }}</span>
-        </div>
+        <gl-uploader
+          formControlName="photo"
+          [fileValidators]="photoFileValidators"
+          [uploaderValidators]="photoUploaderValidators"
+        />
       </div>
 
       <!-- Right: post details -->
-      <form class="create-post__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form class="create-post__form" (ngSubmit)="onSubmit()">
         <div class="create-post__author">
           <div class="create-post__avatar"></div>
           <span class="create-post__username">username</span>

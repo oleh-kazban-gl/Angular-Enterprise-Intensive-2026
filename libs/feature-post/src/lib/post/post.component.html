@@ -19,11 +19,12 @@
         <div card-content class="post-body">
           <img
             class="post-image"
-            [ngSrc]="postItem.image"
+            [src]="postItem.image"
             width="1200"
             height="800"
             [alt]="`Photo by ${postItem.author}`"
-            priority
+            fetchpriority="high"
+            loading="eager"
           />
           <p>{{ postItem.caption }}</p>
         </div>

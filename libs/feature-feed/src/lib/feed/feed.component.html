@@ -19,11 +19,12 @@
             <div card-content class="post-body">
               <img
                 class="feed__image"
-                [ngSrc]="post.image"
+                [src]="post.image"
                 width="1200"
                 height="800"
                 [alt]="`Photo by ${post.author}`"
-                [priority]="idx === 0"
+                [attr.fetchpriority]="idx === 0 ? 'high' : null"
+                [attr.loading]="idx === 0 ? 'eager' : 'lazy'"
                 (click)="goToPost(post.id)"
               />
               <p>{{ post.caption }}</p>

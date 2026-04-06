@@ -46,6 +46,7 @@
   "createPost": {
     "title": "Нова публікація",
     "share": "Поділитися",
+    "sharing": "Публікація…",
     "selectPhoto": "Вибрати фото",
     "captionPlaceholder": "Напишіть підпис…",
     "addLocation": "Додати місце",

@@ -46,6 +46,7 @@
   "createPost": {
     "title": "New Post",
     "share": "Share",
+    "sharing": "Sharing…",
     "selectPhoto": "Select photo",
     "captionPlaceholder": "Write a caption…",
     "addLocation": "Add location",

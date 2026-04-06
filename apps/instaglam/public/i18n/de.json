@@ -46,6 +46,7 @@
   "createPost": {
     "title": "Neuer Beitrag",
     "share": "Teilen",
+    "sharing": "Wird geteilt…",
     "selectPhoto": "Foto auswählen",
     "captionPlaceholder": "Bildunterschrift schreiben…",
     "addLocation": "Ort hinzufügen",

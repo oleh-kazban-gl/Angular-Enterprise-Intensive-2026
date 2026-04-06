@@ -1,4 +1,4 @@
-import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,15 +14,7 @@ import { PostService } from './post.service';
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    CardComponent,
-    MatButtonModule,
-    MatIconModule,
-    TranslatePipe,
-    LoadingComponent,
-  ],
+  imports: [CommonModule, CardComponent, MatButtonModule, MatIconModule, TranslatePipe, LoadingComponent],
   providers: [DatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',

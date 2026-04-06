@@ -1,0 +1,83 @@
+<div class="uploader" [class.uploader--disabled]="_disabled()">
+  <!-- Drop zone -->
+  <label
+    class="uploader__dropzone"
+    [class.uploader__dropzone--has-cover]="previewUrl()"
+    [attr.aria-disabled]="_disabled() ? 'true' : null"
+  >
+    <input
+      class="uploader__input"
+      type="file"
+      [attr.multiple]="multiple() ? '' : null"
+      [attr.accept]="acceptAttribute() || null"
+      [disabled]="_disabled()"
+      (change)="onFileInputChange($event)"
+      aria-hidden="true"
+    />
+    @if (previewUrl()) {
+      <img class="uploader__cover" [src]="previewUrl()" alt="Selected image preview" />
+    }
+    <mat-icon class="uploader__icon">cloud_upload</mat-icon>
+    <span class="uploader__prompt">Click or drag files here</span>
+    @if (supportedLabels()) {
+      <span class="uploader__hint">Supported files: {{ supportedLabels() }}</span>
+    }
+  </label>
+
+  <!-- File list -->
+  @if (filesArray().length > 0) {
+    <ul class="uploader__list" aria-label="Selected files">
+      @for (file of filesArray(); track file.name + file.size) {
+        <li class="uploader__item" [class.uploader__item--error]="fileErrors().has(file)">
+          <mat-icon class="uploader__item-icon">insert_drive_file</mat-icon>
+
+          <div class="uploader__item-info">
+            <span class="uploader__item-name">{{ file.name }}</span>
+            <span class="uploader__item-size">{{ formatBytes(file.size) }}</span>
+
+            @if (fileErrors().get(file); as errs) {
+              <ul class="uploader__item-errors" role="alert">
+                @if (errs['fileType']) {
+                  <li>Unsupported type. Accepted: {{ errs['fileType'].labels.join(', ') }}</li>
+                }
+                @if (errs['maxFileSize']) {
+                  <li>File too large (max {{ errs['maxFileSize'].maxFormatted }})</li>
+                }
+              </ul>
+            }
+          </div>
+
+          <button
+            type="button"
+            class="uploader__item-remove"
+            [attr.aria-label]="'Remove ' + file.name"
+            (click)="removeFile(file)"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <!-- Uploader-level errors -->
+  @if (uploaderErrors(); as errs) {
+    <ul class="uploader__errors" role="alert" aria-live="polite">
+      @if (errs['requiredFiles']) {
+        <li>At least one file is required.</li>
+      }
+      @if (errs['maxFiles']) {
+        <li>Too many files (max {{ errs['maxFiles'].max }}, selected {{ errs['maxFiles'].actual }}).</li>
+      }
+      @if (errs['maxTotalSize']) {
+        <li>
+          Total size too large (max {{ errs['maxTotalSize'].maxFormatted }}, current
+          {{ errs['maxTotalSize'].actualFormatted }}).
+        </li>
+      }
+      @if (errs['noDuplicateFiles']) {
+        <li>Duplicate files detected: {{ errs['noDuplicateFiles'].duplicates.join(', ') }}</li>
+      }
+    </ul>
+  }
+</div>
