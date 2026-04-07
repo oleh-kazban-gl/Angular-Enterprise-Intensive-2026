@@ -9,14 +9,16 @@
     "title": "Beiträge",
     "noPosts": "Noch keine Beiträge :(",
     "like": "Gefällt mir",
-    "comment": "Kommentieren"
+    "comment": "Kommentieren",
+    "collaborators": "Markierte Personen"
   },
   "post": {
     "title": "Beitrag",
     "like": "Gefällt mir",
     "back": "Zurück",
     "notFound": "Beitrag nicht gefunden.",
-    "backToFeed": "Zurück zum Feed"
+    "backToFeed": "Zurück zum Feed",
+    "collaborators": "Markierte Personen"
   },
   "profile": {
     "title": "Profil",
@@ -47,7 +49,14 @@
     "prompt": "Hier klicken oder Dateien ablegen",
     "hint": "Unterstützte Dateien: {{ types }}",
     "imagePreviewAlt": "Vorschau des ausgewählten Bildes",
-    "selectedFiles": "Ausgewählte Dateien"
+    "selectedFiles": "Ausgewählte Dateien",
+    "preview": "Fotovorschau"
+  },
+  "carousel": {
+    "prevImage": "Vorheriges Bild",
+    "nextImage": "Nächstes Bild",
+    "slideOf": "Bild {{ current }} von {{ total }}",
+    "goToSlide": "Zu Bild {{ index }} wechseln"
   },
   "createPost": {
     "title": "Neuer Beitrag",

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { CarouselComponent } from '@gl/ui-components/carousel';
 import { LoadingComponent } from '@gl/ui-components/loading';
 import { FeedPost } from './feed.models';
 import { FeedService } from './feed.service';
@@ -21,6 +22,7 @@ import { FeedService } from './feed.service';
     MatButtonModule,
     MatChipsModule,
     CardComponent,
+    CarouselComponent,
     TranslatePipe,
     LoadingComponent,
   ],

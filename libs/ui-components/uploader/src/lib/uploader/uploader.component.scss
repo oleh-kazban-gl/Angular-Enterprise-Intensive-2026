@@ -33,45 +33,95 @@
       background 0.15s;
     background: transparent;
 
-    &--has-cover {
-      border-color: transparent;
-
-      .uploader__icon,
-      .uploader__prompt,
-      .uploader__hint {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-        text-shadow: 0 1px 4px rgb(0, 0, 0, 0.6);
-      }
-
-      .uploader__icon {
-        filter: drop-shadow(0 1px 4px rgb(0, 0, 0, 0.6));
-      }
-
-      &:hover,
-      &:focus-within {
-        background: rgb(0, 0, 0, 0.15);
-      }
-    }
-
-    &:not(&--has-cover) {
-      &:hover,
-      &:focus-within {
-        border-color: var(--accentColor);
-        background: color-mix(in srgb, var(--accentColor) 6%, transparent);
-      }
+    &:hover,
+    &:focus-within {
+      border-color: var(--accentColor);
+      background: color-mix(in srgb, var(--accentColor) 6%, transparent);
     }
   }
 
-  &__cover {
-    position: absolute;
-    inset: 0;
+  &__preview {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.625rem;
-    z-index: 0;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: var(--surface);
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: none;
+      background: rgb(0 0 0 / 0.5);
+      color: #fff;
+      cursor: pointer;
+      transition:
+        background 0.15s,
+        opacity 0.15s;
+      z-index: 1;
+
+      &:hover:not(:disabled) {
+        background: rgb(0 0 0 / 0.75);
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+
+      &--prev {
+        left: 0.5rem;
+      }
+
+      &--next {
+        right: 0.5rem;
+      }
+    }
+
+    &-dots {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.375rem;
+    }
+
+    &-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      border: none;
+      background: rgb(255 255 255 / 0.6);
+      cursor: pointer;
+      padding: 0;
+      transition:
+        background 0.15s,
+        transform 0.15s;
+
+      &--active {
+        background: #fff;
+        transform: scale(1.25);
+      }
+
+      &:hover {
+        background: #fff;
+      }
+    }
   }
 
   &__input {

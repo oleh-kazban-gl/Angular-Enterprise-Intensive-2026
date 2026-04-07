@@ -16,6 +16,7 @@
       <div class="create-post__preview">
         <gl-uploader
           formControlName="photo"
+          [multiple]="true"
           [fileValidators]="photoFileValidators"
           [uploaderValidators]="photoUploaderValidators"
         />

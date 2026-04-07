@@ -108,22 +108,39 @@ export class UploaderComponent implements ControlValueAccessor, Validator {
 
   readonly filesArray = computed<File[]>(() => [...this.files()]);
 
-  readonly previewUrl = signal<string | null>(null);
+  readonly previewUrls = signal<string[]>([]);
+  readonly previewIndex = signal(0);
+
+  readonly currentPreviewUrl = computed<string | null>(() => {
+    const urls = this.previewUrls();
+    if (urls.length === 0) {
+      return null;
+    }
+    return urls[Math.min(this.previewIndex(), urls.length - 1)];
+  });
+
+  readonly hasMultiplePreviews = computed(() => this.previewUrls().length > 1);
 
   private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
-    effect(() => {
-      const imageFile = [...this.files()].find(f => f.type.startsWith('image/'));
-      const prev = untracked(this.previewUrl);
-      if (prev) {
-        URL.revokeObjectURL(prev);
-      }
-      this.previewUrl.set(imageFile ? URL.createObjectURL(imageFile) : null);
-    });
+    effect(
+      () => {
+        const imageFiles = [...this.files()].filter(f => f.type.startsWith('image/'));
+        const prevUrls = untracked(this.previewUrls);
+        for (const url of prevUrls) {
+          URL.revokeObjectURL(url);
+        }
+        const newUrls = imageFiles.map(f => URL.createObjectURL(f));
+        this.previewUrls.set(newUrls);
+        if (untracked(this.previewIndex) >= newUrls.length) {
+          this.previewIndex.set(Math.max(0, newUrls.length - 1));
+        }
+      },
+      { allowSignalWrites: true }
+    );
     this.destroyRef.onDestroy(() => {
-      const url = this.previewUrl();
-      if (url) {
+      for (const url of untracked(this.previewUrls)) {
         URL.revokeObjectURL(url);
       }
     });
@@ -198,6 +215,20 @@ export class UploaderComponent implements ControlValueAccessor, Validator {
     this.files.set(updated);
     this.onChange(new Set(updated));
     this.onValidatorChange();
+  }
+
+  prevPreview(): void {
+    const len = this.previewUrls().length;
+    this.previewIndex.update(i => (i - 1 + len) % len);
+  }
+
+  nextPreview(): void {
+    const len = this.previewUrls().length;
+    this.previewIndex.update(i => (i + 1) % len);
+  }
+
+  goToPreview(index: number): void {
+    this.previewIndex.set(index);
   }
 
   private isDuplicate(incoming: File, existing: Set<File>): boolean {

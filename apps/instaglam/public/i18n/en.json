@@ -9,14 +9,16 @@
     "title": "Posts",
     "noPosts": "No posts yet :(",
     "like": "Like",
-    "comment": "Comment"
+    "comment": "Comment",
+    "collaborators": "Tagged people"
   },
   "post": {
     "title": "Post",
     "like": "Like",
     "back": "Back",
     "notFound": "Post not found.",
-    "backToFeed": "Back to feed"
+    "backToFeed": "Back to feed",
+    "collaborators": "Tagged people"
   },
   "profile": {
     "title": "Profile",
@@ -47,7 +49,14 @@
     "prompt": "Click or drag files here",
     "hint": "Supported files: {{ types }}",
     "imagePreviewAlt": "Selected image preview",
-    "selectedFiles": "Selected files"
+    "selectedFiles": "Selected files",
+    "preview": "Photo preview"
+  },
+  "carousel": {
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "slideOf": "Image {{ current }} of {{ total }}",
+    "goToSlide": "Go to image {{ index }}"
   },
   "createPost": {
     "title": "New Post",
