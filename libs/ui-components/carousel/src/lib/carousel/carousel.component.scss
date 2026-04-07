@@ -1,0 +1,106 @@
+:host {
+  display: block;
+  outline: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--accentColor);
+    outline-offset: 2px;
+    border-radius: 0.75rem;
+  }
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+
+  &__track {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: none;
+    background: rgb(0 0 0 / 0.5);
+    color: #fff;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      opacity 0.15s;
+    z-index: 1;
+
+    &:hover:not(:disabled) {
+      background: rgb(0 0 0 / 0.75);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    &--prev {
+      left: 0.5rem;
+    }
+
+    &--next {
+      right: 0.5rem;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 0.625rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.375rem;
+  }
+
+  &__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgb(255 255 255 / 0.6);
+    cursor: pointer;
+    padding: 0;
+    transition:
+      background 0.15s,
+      transform 0.15s;
+
+    &--active {
+      background: #fff;
+      transform: scale(1.25);
+    }
+
+    &:hover {
+      background: #fff;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

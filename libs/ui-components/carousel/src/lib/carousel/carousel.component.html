@@ -1,0 +1,53 @@
+<div class="carousel">
+  @if (currentImage()) {
+    <div
+      class="carousel__track"
+      role="img"
+      [attr.aria-label]="'carousel.slideOf' | translate: { current: currentIndex() + 1, total: images().length }"
+    >
+      <img class="carousel__image" [src]="currentImage()" alt="" aria-hidden="true" />
+    </div>
+  }
+
+  @if (hasMultiple()) {
+    <button
+      class="carousel__btn carousel__btn--prev"
+      type="button"
+      [attr.aria-label]="'carousel.prevImage' | translate"
+      (click)="prev(); $event.stopPropagation()"
+    >
+      <mat-icon aria-hidden="true">chevron_left</mat-icon>
+    </button>
+
+    <button
+      class="carousel__btn carousel__btn--next"
+      type="button"
+      [attr.aria-label]="'carousel.nextImage' | translate"
+      (click)="next(); $event.stopPropagation()"
+    >
+      <mat-icon aria-hidden="true">chevron_right</mat-icon>
+    </button>
+
+    <div
+      class="carousel__dots"
+      role="tablist"
+      [attr.aria-label]="'carousel.slideOf' | translate: { current: currentIndex() + 1, total: images().length }"
+    >
+      @for (img of images(); track $index) {
+        <button
+          class="carousel__dot"
+          [class.carousel__dot--active]="$index === currentIndex()"
+          role="tab"
+          type="button"
+          [attr.aria-selected]="$index === currentIndex()"
+          [attr.aria-label]="'carousel.goToSlide' | translate: { index: $index + 1 }"
+          (click)="goTo($index); $event.stopPropagation()"
+        ></button>
+      }
+    </div>
+
+    <div class="carousel__status" aria-live="polite" aria-atomic="true">
+      {{ 'carousel.slideOf' | translate: { current: currentIndex() + 1, total: images().length } }}
+    </div>
+  }
+</div>
