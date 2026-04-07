@@ -2,7 +2,7 @@ export interface Post {
   id: string;
   author: string;
   time: string;
-  image: string;
+  images: string[];
   caption: string;
   location: string | null;
   collaborators: string[];

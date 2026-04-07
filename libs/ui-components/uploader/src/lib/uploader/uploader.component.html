@@ -1,10 +1,47 @@
 <div class="uploader" [class.uploader--disabled]="_disabled()">
+  <!-- Preview carousel (shown when image files are selected) -->
+  @if (currentPreviewUrl()) {
+    <div class="uploader__preview" role="region" [attr.aria-label]="'uploader.preview' | translate">
+      <img class="uploader__preview-image" [src]="currentPreviewUrl()" [alt]="'uploader.imagePreviewAlt' | translate" />
+
+      @if (hasMultiplePreviews()) {
+        <button
+          class="uploader__preview-btn uploader__preview-btn--prev"
+          type="button"
+          [attr.aria-label]="'carousel.prevImage' | translate"
+          (click)="prevPreview()"
+        >
+          <mat-icon aria-hidden="true">chevron_left</mat-icon>
+        </button>
+
+        <button
+          class="uploader__preview-btn uploader__preview-btn--next"
+          type="button"
+          [attr.aria-label]="'carousel.nextImage' | translate"
+          (click)="nextPreview()"
+        >
+          <mat-icon aria-hidden="true">chevron_right</mat-icon>
+        </button>
+
+        <div class="uploader__preview-dots" role="tablist">
+          @for (url of previewUrls(); track $index) {
+            <button
+              class="uploader__preview-dot"
+              [class.uploader__preview-dot--active]="$index === previewIndex()"
+              role="tab"
+              type="button"
+              [attr.aria-selected]="$index === previewIndex()"
+              [attr.aria-label]="'carousel.goToSlide' | translate: { index: $index + 1 }"
+              (click)="goToPreview($index)"
+            ></button>
+          }
+        </div>
+      }
+    </div>
+  }
+
   <!-- Drop zone -->
-  <label
-    class="uploader__dropzone"
-    [class.uploader__dropzone--has-cover]="previewUrl()"
-    [attr.aria-disabled]="_disabled() ? 'true' : null"
-  >
+  <label class="uploader__dropzone" [attr.aria-disabled]="_disabled() ? 'true' : null">
     <input
       class="uploader__input"
       type="file"
@@ -14,9 +51,6 @@
       (change)="onFileInputChange($event)"
       aria-hidden="true"
     />
-    @if (previewUrl()) {
-      <img class="uploader__cover" [src]="previewUrl()" [alt]="'uploader.imagePreviewAlt' | translate" />
-    }
     <mat-icon class="uploader__icon">cloud_upload</mat-icon>
     <span class="uploader__prompt">{{ 'uploader.prompt' | translate }}</span>
     @if (supportedLabels()) {

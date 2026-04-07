@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { CarouselComponent } from '@gl/ui-components/carousel';
 import { LoadingComponent } from '@gl/ui-components/loading';
 import { BreadcrumbService } from '@gl/util-services';
 import { PostService } from './post.service';
@@ -18,6 +19,7 @@ import { PostService } from './post.service';
   imports: [
     CommonModule,
     CardComponent,
+    CarouselComponent,
     MatButtonModule,
     MatChipsModule,
     MatIconModule,

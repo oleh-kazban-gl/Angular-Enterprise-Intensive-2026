@@ -3,7 +3,7 @@ import { Location } from '@gl/util-services';
 export interface Post {
   id: string;
   author: string;
-  image: string;
+  images: string[];
   caption: string;
   location: string | null;
   collaborators: string[];
@@ -13,7 +13,7 @@ export interface Post {
 
 export interface CreatePostPayload {
   author: string;
-  photo: File;
+  photos: File[];
   caption: string;
   location: Location | string | null;
   collaborators: string[];

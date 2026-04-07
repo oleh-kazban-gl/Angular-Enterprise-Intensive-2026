@@ -45,7 +45,7 @@ export class CreatePostComponent {
   });
 
   readonly photoFileValidators = [fileType(['image/png', 'image/jpeg', 'image/webp']), maxFileSize(1 * 1024 * 1024)];
-  readonly photoUploaderValidators = [requiredFiles(), maxFiles(1)];
+  readonly photoUploaderValidators = [requiredFiles(), maxFiles(10)];
 
   collaboratorSearchCtrl = new FormControl('');
   selectedCollaborators = signal<User[]>([]);
@@ -125,9 +125,9 @@ export class CreatePostComponent {
     }
 
     const { photo, caption, location } = this.form.getRawValue();
-    const [firstPhoto] = photo ?? [];
+    const photos = [...(photo ?? new Set<File>())];
 
-    if (!firstPhoto) {
+    if (photos.length === 0) {
       return;
     }
 
@@ -135,7 +135,7 @@ export class CreatePostComponent {
     this.createPostService
       .create({
         author: 'janedoe',
-        photo: firstPhoto,
+        photos,
         caption: caption ?? '',
         location: location ?? null,
         collaborators: this.selectedCollaborators().map(u => u.username),

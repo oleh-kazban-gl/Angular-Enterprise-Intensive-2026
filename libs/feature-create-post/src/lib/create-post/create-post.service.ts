@@ -10,11 +10,11 @@ export class CreatePostService {
   private readonly http = inject(HttpClient);
 
   create(payload: CreatePostPayload): Observable<Post> {
-    const image = URL.createObjectURL(payload.photo);
+    const images = payload.photos.map(photo => URL.createObjectURL(photo));
 
     const body = {
       author: payload.author,
-      image,
+      images,
       caption: payload.caption,
       location: typeof payload.location === 'string' ? payload.location : (payload.location?.name ?? null),
       collaborators: payload.collaborators,
