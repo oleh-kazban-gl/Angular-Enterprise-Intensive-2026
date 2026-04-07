@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CardComponent } from '@gl/ui-components/card';
+import { controlErrors } from '@gl/util-forms';
 import { AuthService } from '@gl/util-services';
 
 @Component({
@@ -33,6 +34,8 @@ export class SignInComponent {
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
     password: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
   });
+
+  readonly controlErrors = controlErrors;
 
   onSubmit(): void {
     if (this.form.invalid) {

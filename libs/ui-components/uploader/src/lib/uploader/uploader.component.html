@@ -15,18 +15,18 @@
       aria-hidden="true"
     />
     @if (previewUrl()) {
-      <img class="uploader__cover" [src]="previewUrl()" alt="Selected image preview" />
+      <img class="uploader__cover" [src]="previewUrl()" [alt]="'uploader.imagePreviewAlt' | translate" />
     }
     <mat-icon class="uploader__icon">cloud_upload</mat-icon>
-    <span class="uploader__prompt">Click or drag files here</span>
+    <span class="uploader__prompt">{{ 'uploader.prompt' | translate }}</span>
     @if (supportedLabels()) {
-      <span class="uploader__hint">Supported files: {{ supportedLabels() }}</span>
+      <span class="uploader__hint">{{ 'uploader.hint' | translate: { types: supportedLabels() } }}</span>
     }
   </label>
 
   <!-- File list -->
   @if (filesArray().length > 0) {
-    <div role="list" class="uploader__list" aria-label="Selected files">
+    <div role="list" class="uploader__list" [attr.aria-label]="'uploader.selectedFiles' | translate">
       @for (file of filesArray(); track file.name + file.size) {
         <gl-uploader-file-item [file]="file" [errors]="fileErrors().get(file) ?? null" (removed)="removeFile(file)" />
       }

@@ -43,6 +43,12 @@
     "description": "Die Seite, auf die du zugreifen wolltest, existiert nicht. Geh zurück zum Feed, um weiterzustöbern.",
     "goHome": "Zur Startseite"
   },
+  "uploader": {
+    "prompt": "Hier klicken oder Dateien ablegen",
+    "hint": "Unterstützte Dateien: {{ types }}",
+    "imagePreviewAlt": "Vorschau des ausgewählten Bildes",
+    "selectedFiles": "Ausgewählte Dateien"
+  },
   "createPost": {
     "title": "Neuer Beitrag",
     "share": "Teilen",
@@ -90,6 +96,10 @@
   },
   "errors": {
     "validation": {
+      "required": "Dieses Feld ist erforderlich",
+      "email": "Gib eine gültige E-Mail-Adresse ein",
+      "minlength": "Muss mindestens {{ requiredLength }} Zeichen lang sein",
+      "passwordMismatch": "Passwörter stimmen nicht überein",
       "fileType": "Nicht unterstützter Dateityp. Akzeptiert: {{ expected }}",
       "maxFileSize": "Datei zu groß (max. {{ expected }}, erhalten {{ actual }})",
       "requiredFiles": "Mindestens eine Datei ist erforderlich",

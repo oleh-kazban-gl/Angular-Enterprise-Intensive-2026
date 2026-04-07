@@ -137,16 +137,6 @@
       "collaborators": [],
       "hashtags": ["#ukraine"],
       "createdAt": "2026-04-06T17:19:24.676Z"
-    },
-    {
-      "author": "janedoe",
-      "image": "blob:http://localhost:4200/ba1c2418-aa84-4355-b8fb-29245a2e0104",
-      "caption": "Some test post ",
-      "location": "London, UK",
-      "collaborators": ["glitter_girl"],
-      "hashtags": ["#ukraine"],
-      "createdAt": "2026-04-06T18:22:06.874Z",
-      "id": "6TtM9VRKAnc"
     }
   ],
   "users": [
@@ -287,6 +277,5 @@
       "id": "15",
       "name": "Vienna, Austria"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
