@@ -14,6 +14,6 @@ export class PostService {
   }
 
   toggleLike(id: string, liked: boolean): Observable<Post> {
-    return this.http.post<Post>(`/posts/${id}/like`, { liked });
+    return this.http.patch<Post>(`/posts/${id}`, { liked });
   }
 }

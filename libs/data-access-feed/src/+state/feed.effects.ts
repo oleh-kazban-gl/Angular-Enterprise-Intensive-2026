@@ -35,8 +35,10 @@ export class FeedEffects {
       ofType(FeedActions.toggleLike),
       withLatestFrom(this.store.select(selectPostEntities)),
       switchMap(([{ postId, liked }, entities]) => {
-        const previousLikes = entities[postId]?.likes ?? 0;
-        const previousLiked = entities[postId]?.liked ?? false;
+        // entities already has the optimistic value; derive the pre-toggle values from it
+        const optimisticLikes = entities[postId]?.likes ?? 0;
+        const previousLikes = liked ? optimisticLikes - 1 : optimisticLikes + 1;
+        const previousLiked = !liked;
         return this.feedService.toggleLike(postId, liked).pipe(
           map(post => FeedActions.toggleLikeSuccess({ postId, likes: post.likes, liked: post.liked })),
           catchError(error =>

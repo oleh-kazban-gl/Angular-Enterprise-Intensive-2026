@@ -12,6 +12,6 @@ export class FeedService {
   }
 
   toggleLike(postId: string, liked: boolean) {
-    return this.http.post<FeedPost>(`/posts/${postId}/like`, { liked });
+    return this.http.patch<FeedPost>(`/posts/${postId}`, { liked });
   }
 }

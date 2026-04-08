@@ -36,8 +36,10 @@ export class PostEffects {
       ofType(PostActions.toggleLike),
       withLatestFrom(this.store.select(selectPost)),
       switchMap(([{ liked }, post]) => {
-        const previousLikes = post!.likes;
-        const previousLiked = post!.liked;
+        // post already has the optimistic value; derive the pre-toggle values from it
+        const optimisticLikes = post!.likes;
+        const previousLikes = liked ? optimisticLikes - 1 : optimisticLikes + 1;
+        const previousLiked = !liked;
         return this.postService.toggleLike(post!.id, liked).pipe(
           map(updated => PostActions.toggleLikeSuccess({ likes: updated.likes, liked: updated.liked })),
           catchError(error =>
