@@ -24,20 +24,6 @@
                 (click)="goToPost(post.id)"
               />
               <p>{{ post.caption }}</p>
-              @if (post.collaborators.length) {
-                <mat-chip-set class="feed__collaborators" [attr.aria-label]="'feed.collaborators' | translate">
-                  @for (person of post.collaborators; track person) {
-                    <mat-chip>{{ '@' + person }}</mat-chip>
-                  }
-                </mat-chip-set>
-              }
-              @if (post.hashtags.length) {
-                <mat-chip-set class="feed__hashtags" aria-label="Hashtags">
-                  @for (tag of post.hashtags; track tag) {
-                    <mat-chip>{{ tag }}</mat-chip>
-                  }
-                </mat-chip-set>
-              }
             </div>
 
             <div card-footer class="post-actions">

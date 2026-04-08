@@ -2,7 +2,6 @@ import { DatePipe, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
@@ -13,6 +12,8 @@ import { CardComponent } from '@gl/ui-components/card';
 import { CarouselComponent } from '@gl/ui-components/carousel';
 import { LoadingComponent } from '@gl/ui-components/loading';
 import { BreadcrumbService } from '@gl/util-services';
+import { CollaboratorsSetComponent } from './collaborators-set.component';
+import { TagsSetComponent } from './tags-set.component';
 
 @Component({
   selector: 'gl-post',
@@ -23,10 +24,11 @@ import { BreadcrumbService } from '@gl/util-services';
     CardComponent,
     CarouselComponent,
     MatButtonModule,
-    MatChipsModule,
     MatIconModule,
     TranslatePipe,
     LoadingComponent,
+    CollaboratorsSetComponent,
+    TagsSetComponent,
   ],
   providers: [DatePipe],
   templateUrl: './post.component.html',
