@@ -1,5 +1,9 @@
 import { Route } from '@angular/router';
 
+import { provideEffects } from '@ngrx/effects';
+import { provideState } from '@ngrx/store';
+
+import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { authGuard } from '@gl/util-services';
 
 export const appRoutes: Route[] = [
@@ -29,6 +33,7 @@ export const appRoutes: Route[] = [
     path: 'profile',
     canActivate: [authGuard],
     data: { pageTitle: 'profile.title' },
+    providers: [provideState(PROFILE_FEATURE_KEY, profileReducer), provideEffects(ProfileEffects), ProfileFacade],
     loadComponent: () => import('@gl/feature-profile').then(m => m.ProfileComponent),
   },
   {
