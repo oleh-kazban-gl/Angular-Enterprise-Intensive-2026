@@ -7,6 +7,6 @@ export interface FeedPost {
   location: string | null;
   collaborators: string[];
   hashtags: string[];
-  likes?: number;
-  createdAt: Date;
+  likes: number;
+  createdAt: string;
 }

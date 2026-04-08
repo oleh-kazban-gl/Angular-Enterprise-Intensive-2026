@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
 
+import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer } from '@gl/data-access-feed';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { authGuard } from '@gl/util-services';
 
@@ -16,6 +17,7 @@ export const appRoutes: Route[] = [
     path: 'posts',
     canActivate: [authGuard],
     data: { breadcrumb: 'nav.posts' },
+    providers: [provideState(FEED_FEATURE_KEY, feedReducer), provideEffects(FeedEffects), FeedFacade],
     children: [
       {
         path: '',
