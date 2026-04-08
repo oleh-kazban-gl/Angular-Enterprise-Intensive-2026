@@ -58,32 +58,6 @@
     }
 
     &-image {
-      width: 100%;
-      height: auto;
-      max-height: 50vh;
-      object-fit: cover;
-      border-radius: 0.75rem;
-      display: block;
-    }
-
-    &-hashtags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-    }
-
-    &-collaborators {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-
-      mat-chip {
-        --mdc-chip-label-text-color: var(--linkColor);
-        --mdc-chip-elevated-container-color: color-mix(in srgb, var(--linkColor) 10%, transparent);
-      }
-    }
-
-    &-actions {
       display: flex;
       gap: 0.75rem;
       justify-content: flex-end;

@@ -22,6 +22,7 @@
     "id": "1",
     "name": "Jane Doe",
     "username": "janedoe",
+    "avatar": "https://picsum.photos/seed/janedoe/200/200",
     "bio": "Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.",
     "posts": 34,
     "followers": 1200,
@@ -40,7 +41,9 @@
       "location": "Santorini, Greece",
       "collaborators": ["jane_travels", "sunseeker"],
       "hashtags": ["#sunset", "#photooftheday"],
-      "createdAt": "2026-04-06T16:00:00.000Z"
+      "createdAt": "2026-04-06T16:00:00.000Z",
+      "likes": 0,
+      "liked": true
     },
     {
       "id": "2",
@@ -50,7 +53,9 @@
       "location": "New York, USA",
       "collaborators": [],
       "hashtags": ["#running", "#fitness"],
-      "createdAt": "2026-04-06T13:00:00.000Z"
+      "createdAt": "2026-04-06T13:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "3",
@@ -60,7 +65,9 @@
       "location": "Vienna, Austria",
       "collaborators": [],
       "hashtags": ["#coffee", "#morningvibes"],
-      "createdAt": "2026-04-06T09:00:00.000Z"
+      "createdAt": "2026-04-06T09:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "4",
@@ -76,7 +83,9 @@
       "location": "Banff, Canada",
       "collaborators": ["pixel_hunter"],
       "hashtags": ["#hiking", "#nature"],
-      "createdAt": "2026-04-05T14:00:00.000Z"
+      "createdAt": "2026-04-05T14:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "5",
@@ -91,7 +100,9 @@
       "location": null,
       "collaborators": ["nightowl", "design_daily"],
       "hashtags": ["#tech", "#dev"],
-      "createdAt": "2026-04-05T11:00:00.000Z"
+      "createdAt": "2026-04-05T11:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "6",
@@ -101,7 +112,9 @@
       "location": "Melbourne, Australia",
       "collaborators": ["coffee.junkie"],
       "hashtags": ["#brunch", "#foodie"],
-      "createdAt": "2026-04-04T10:30:00.000Z"
+      "createdAt": "2026-04-04T10:30:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "7",
@@ -115,7 +128,9 @@
       "location": "Tokyo, Japan",
       "collaborators": [],
       "hashtags": ["#goldenhour", "#citylife"],
-      "createdAt": "2026-04-04T19:00:00.000Z"
+      "createdAt": "2026-04-04T19:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "8",
@@ -125,7 +140,9 @@
       "location": null,
       "collaborators": [],
       "hashtags": ["#puppylove", "#dogsofinstagram"],
-      "createdAt": "2026-04-03T15:00:00.000Z"
+      "createdAt": "2026-04-03T15:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "9",
@@ -140,7 +157,9 @@
       "location": null,
       "collaborators": [],
       "hashtags": ["#design", "#uidesign"],
-      "createdAt": "2026-04-03T12:00:00.000Z"
+      "createdAt": "2026-04-03T12:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "10",
@@ -150,7 +169,9 @@
       "location": null,
       "collaborators": [],
       "hashtags": ["#coding", "#nightowl"],
-      "createdAt": "2026-04-02T23:00:00.000Z"
+      "createdAt": "2026-04-02T23:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "11",
@@ -164,7 +185,9 @@
       "location": "London, UK",
       "collaborators": [],
       "hashtags": ["#ukraine"],
-      "createdAt": "2026-04-06T17:19:24.676Z"
+      "createdAt": "2026-04-06T17:19:24.676Z",
+      "likes": 0,
+      "liked": false
     }
   ],
   "users": [

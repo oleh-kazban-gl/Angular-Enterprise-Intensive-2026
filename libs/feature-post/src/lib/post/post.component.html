@@ -20,24 +20,16 @@
           <gl-carousel class="post-image" [images]="postItem.images" [label]="'Photos by ' + postItem.author" />
           <p>{{ postItem.caption }}</p>
           @if (postItem.collaborators.length) {
-            <mat-chip-set class="post-collaborators" [attr.aria-label]="'post.collaborators' | translate">
-              @for (person of postItem.collaborators; track person) {
-                <mat-chip>{{ '@' + person }}</mat-chip>
-              }
-            </mat-chip-set>
+            <gl-collaborators-set [collaborators]="postItem.collaborators" />
           }
           @if (postItem.hashtags.length) {
-            <mat-chip-set class="post-hashtags" aria-label="Hashtags">
-              @for (tag of postItem.hashtags; track tag) {
-                <mat-chip>{{ tag }}</mat-chip>
-              }
-            </mat-chip-set>
+            <gl-tags-set [tags]="postItem.hashtags" />
           }
         </div>
 
         <div card-footer class="post-actions">
-          <button mat-button (click)="like()">
-            <mat-icon>favorite_border</mat-icon>
+          <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
+            <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
             {{ 'post.like' | translate }}
           </button>
           <button mat-button (click)="goBack()">

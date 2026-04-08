@@ -7,6 +7,13 @@ const DURATION_MS = 5000;
 export class NotificationService {
   private readonly snackBar = inject(MatSnackBar);
 
+  success(message: string): void {
+    this.snackBar.open(message, '✕', {
+      duration: DURATION_MS,
+      panelClass: ['notification--success'],
+    });
+  }
+
   error(message: string): void {
     this.snackBar.open(message, '✕', {
       duration: DURATION_MS,

@@ -1,27 +1,28 @@
-import { CommonModule } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { ProfileFacade } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { LoadingComponent } from '@gl/ui-components/loading';
-import { ProfileService } from './profile.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
-  imports: [CommonModule, CardComponent, MatButtonModule, TranslatePipe, LoadingComponent],
+  imports: [NgOptimizedImage, CardComponent, MatButtonModule, TranslatePipe, LoadingComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent implements OnInit {
-  private readonly profileService = inject(ProfileService);
+  private readonly facade = inject(ProfileFacade);
 
-  protected readonly profile = this.profileService.profile;
-  protected readonly loading = this.profileService.loading;
+  protected readonly profile = toSignal(this.facade.profile$, { requireSync: true });
+  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
 
   ngOnInit(): void {
-    this.profileService.getProfile();
+    this.facade.loadProfile();
   }
 }

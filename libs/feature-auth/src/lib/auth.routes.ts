@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { authGuard, guestGuard } from '@gl/util-services';
+import { authGuard, guestGuard } from '@gl/data-access-auth';
 
 export const authRoutes: Route[] = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full' },

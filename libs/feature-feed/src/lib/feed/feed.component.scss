@@ -19,23 +19,6 @@
       border-radius: 0.75rem;
       cursor: pointer;
     }
-
-    &__hashtags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-    }
-
-    &__collaborators {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-
-      mat-chip {
-        --mdc-chip-label-text-color: var(--linkColor);
-        --mdc-chip-elevated-container-color: color-mix(in srgb, var(--linkColor) 10%, transparent);
-      }
-    }
   }
 
   .post-image {

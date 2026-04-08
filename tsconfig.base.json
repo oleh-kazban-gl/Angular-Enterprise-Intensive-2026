@@ -30,7 +30,14 @@
       "@gl/ui-components/uploader": ["libs/ui-components/uploader/src/index.ts"],
       "@gl/ui-components/carousel": ["libs/ui-components/carousel/src/index.ts"],
       "@gl/pipes": ["libs/pipes/src/index.ts"],
-      "@gl/util-forms": ["libs/util-forms/src/index.ts"]
+      "@gl/util-forms": ["libs/util-forms/src/index.ts"],
+      "@gl/util-ngrx": ["libs/util-ngrx/src/index.ts"],
+      "@gl/data-access-profile": ["libs/data-access-profile/src/index.ts"],
+      "@gl/data-access-feed": ["libs/data-access-feed/src/index.ts"],
+      "@gl/data-access-post": ["libs/data-access-post/src/index.ts"],
+      "@gl/data-access-auth": ["libs/data-access-auth/src/index.ts"],
+      "@gl/data-access-settings": ["libs/data-access-settings/src/index.ts"],
+      "@gl/data-access-create-post": ["libs/data-access-create-post/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

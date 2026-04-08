@@ -1,51 +1,56 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { PostFacade } from '@gl/data-access-post';
 import { CardComponent } from '@gl/ui-components/card';
 import { CarouselComponent } from '@gl/ui-components/carousel';
 import { LoadingComponent } from '@gl/ui-components/loading';
 import { BreadcrumbService } from '@gl/util-services';
-import { PostService } from './post.service';
+import { CollaboratorsSetComponent } from './collaborators-set.component';
+import { TagsSetComponent } from './tags-set.component';
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
+    DatePipe,
+    UpperCasePipe,
     CardComponent,
     CarouselComponent,
     MatButtonModule,
-    MatChipsModule,
     MatIconModule,
     TranslatePipe,
     LoadingComponent,
+    CollaboratorsSetComponent,
+    TagsSetComponent,
   ],
   providers: [DatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
 export class PostComponent {
-  private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
-  private readonly postService = inject(PostService);
+  private readonly facade = inject(PostFacade);
   private readonly breadcrumbService = inject(BreadcrumbService);
   private readonly datePipe = inject(DatePipe);
 
-  protected readonly post = this.postService.post;
-  protected readonly loading = this.postService.loading;
+  protected readonly postId = toSignal(this.facade.postId$);
+  protected readonly post = toSignal(this.facade.post$, { requireSync: true });
+  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
 
   constructor() {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    if (id) {
-      this.postService.getPost(id);
-    }
+    effect(() => {
+      const postId = this.postId();
+      if (postId) {
+        this.facade.loadPost();
+      }
+    });
 
     effect(() => {
       const post = this.post();
@@ -62,12 +67,6 @@ export class PostComponent {
   }
 
   protected like() {
-    const current = this.post();
-
-    if (!current) {
-      return;
-    }
-
-    current.likes = (current.likes || 0) + 1;
+    this.facade.toggleLike(!this.post()?.liked);
   }
 }

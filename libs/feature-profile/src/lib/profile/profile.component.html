@@ -4,7 +4,16 @@
   <section class="profile">
     <gl-card>
       <div card-header>
-        <div class="profile-avatar"></div>
+        <div class="profile__avatar">
+          <img
+            [ngSrc]="profile()?.avatar || ''"
+            width="64"
+            height="64"
+            [alt]="profile()?.name || ''"
+            class="profile__avatar-img"
+            priority
+          />
+        </div>
         <div>
           <h2>{{ profile()?.name }}</h2>
           <p class="subtitle">{{ profile()?.username }}</p>
@@ -16,16 +25,16 @@
 
         <div class="profile-stats">
           <div>
-            <span class="stat">{{ profile()?.posts }}</span>
-            <span class="label">{{ 'profile.posts' | translate }}</span>
+            <span class="profile-stat">{{ profile()?.posts }}</span>
+            <span class="profile-label">{{ 'profile.posts' | translate }}</span>
           </div>
           <div>
-            <span class="stat">{{ profile()?.followers }}</span>
-            <span class="label">{{ 'profile.followers' | translate }}</span>
+            <span class="profile-stat">{{ profile()?.followers }}</span>
+            <span class="profile-label">{{ 'profile.followers' | translate }}</span>
           </div>
           <div>
-            <span class="stat">{{ profile()?.following }}</span>
-            <span class="label">{{ 'profile.following' | translate }}</span>
+            <span class="profile-stat">{{ profile()?.following }}</span>
+            <span class="profile-label">{{ 'profile.following' | translate }}</span>
           </div>
         </div>
       </div>

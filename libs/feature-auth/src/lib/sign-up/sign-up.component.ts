@@ -14,11 +14,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
+import { AuthFacade } from '@gl/data-access-auth';
 import { CardComponent } from '@gl/ui-components/card';
 import { controlErrors } from '@gl/util-forms';
-import { NotificationService } from '@gl/util-services';
 
 const passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const password = control.parent?.get('password')?.value;
@@ -41,8 +41,7 @@ const passwordMatchValidator: ValidatorFn = (control: AbstractControl): Validati
   styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent {
-  private readonly notificationService = inject(NotificationService);
-  private readonly translate = inject(TranslateService);
+  private readonly facade = inject(AuthFacade);
 
   readonly form = new FormGroup({
     name: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
@@ -63,10 +62,7 @@ export class SignUpComponent {
   }
 
   onSubmit(): void {
-    if (this.form.invalid) {
-      this.notificationService.error(this.translate.instant('auth.signUp.formInvalid'));
-      return;
-    }
-    // TODO: connect to auth service
+    const { name, email, password } = this.form.getRawValue();
+    this.facade.signUp(name, email, password);
   }
 }

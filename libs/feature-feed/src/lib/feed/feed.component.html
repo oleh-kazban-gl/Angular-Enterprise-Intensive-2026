@@ -24,25 +24,11 @@
                 (click)="goToPost(post.id)"
               />
               <p>{{ post.caption }}</p>
-              @if (post.collaborators.length) {
-                <mat-chip-set class="feed__collaborators" [attr.aria-label]="'feed.collaborators' | translate">
-                  @for (person of post.collaborators; track person) {
-                    <mat-chip>{{ '@' + person }}</mat-chip>
-                  }
-                </mat-chip-set>
-              }
-              @if (post.hashtags.length) {
-                <mat-chip-set class="feed__hashtags" aria-label="Hashtags">
-                  @for (tag of post.hashtags; track tag) {
-                    <mat-chip>{{ tag }}</mat-chip>
-                  }
-                </mat-chip-set>
-              }
             </div>
 
             <div card-footer class="post-actions">
-              <button mat-button (click)="likePost(post); $event.stopPropagation()">
-                <mat-icon>favorite_border</mat-icon>
+              <button mat-button [attr.aria-pressed]="post.liked" (click)="toggleLike(post); $event.stopPropagation()">
+                <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
                 {{ 'feed.like' | translate }}
               </button>
               <button mat-button (click)="$event.stopPropagation()">

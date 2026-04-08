@@ -3,13 +3,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { AuthFacade } from '@gl/data-access-auth';
 import { CardComponent } from '@gl/ui-components/card';
 import { controlErrors } from '@gl/util-forms';
-import { AuthService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-sign-in',
@@ -27,8 +27,7 @@ import { AuthService } from '@gl/util-services';
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent {
-  private readonly authService = inject(AuthService);
-  private readonly router = inject(Router);
+  private readonly facade = inject(AuthFacade);
 
   readonly form = new FormGroup({
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
@@ -38,11 +37,7 @@ export class SignInComponent {
   readonly controlErrors = controlErrors;
 
   onSubmit(): void {
-    if (this.form.invalid) {
-      return;
-    }
-    this.authService.signIn().subscribe(() => {
-      this.router.navigate(['/posts']);
-    });
+    const { email, password } = this.form.getRawValue();
+    this.facade.signIn(email, password);
   }
 }

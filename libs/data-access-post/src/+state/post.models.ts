@@ -7,6 +7,7 @@ export interface Post {
   location: string | null;
   collaborators: string[];
   hashtags: string[];
-  likes?: number;
-  createdAt: Date;
+  likes: number;
+  liked: boolean;
+  createdAt: string;
 }
