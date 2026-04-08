@@ -16,8 +16,8 @@ export class AuthEffects {
   signIn$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.signIn),
-      switchMap(() =>
-        this.authService.signIn().pipe(
+      switchMap(({ email, password }) =>
+        this.authService.signIn(email, password).pipe(
           map(({ token }) => {
             localStorage.setItem('token', token);
             return AuthActions.signInSuccess({ token });
@@ -33,6 +33,27 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(AuthActions.signInSuccess),
         tap(() => this.router.navigate(['/posts']))
+      ),
+    { dispatch: false }
+  );
+
+  signUp$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.signUp),
+      switchMap(({ name, email, password }) =>
+        this.authService.signUp(name, email, password).pipe(
+          map(() => AuthActions.signUpSuccess()),
+          catchError(error => of(AuthActions.signUpFailure({ error: error.message ?? String(error) })))
+        )
+      )
+    )
+  );
+
+  signUpSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.signUpSuccess),
+        tap(() => this.router.navigate(['/auth/sign-in']))
       ),
     { dispatch: false }
   );
