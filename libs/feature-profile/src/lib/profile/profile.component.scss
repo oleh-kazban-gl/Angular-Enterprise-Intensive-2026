@@ -20,7 +20,7 @@
 
     &-subtitle {
       margin: 0;
-      color: rgb(0, 0, 0, 0.6);
+      color: color-mix(in srgb, var(--textColor) 60%, transparent);
     }
 
     &-stats {
@@ -36,7 +36,7 @@
     }
 
     &-label {
-      color: rgb(0, 0, 0, 0.6);
+      color: color-mix(in srgb, var(--textColor) 60%, transparent);
       font-size: 0.85rem;
     }
   }
