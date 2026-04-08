@@ -9,21 +9,17 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import {
-  apiUrlInterceptor,
-  authInterceptor,
-  errorInterceptor,
-  logInterceptor,
-  provideAppConfig,
-} from '@gl/util-services';
+import { AUTH_FEATURE_KEY, AuthEffects, AuthFacade, authInterceptor, authReducer } from '@gl/data-access-auth';
+import { apiUrlInterceptor, errorInterceptor, logInterceptor, provideAppConfig } from '@gl/util-services';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideStore(),
+    provideStore({ [AUTH_FEATURE_KEY]: authReducer }),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(),
+    provideEffects(AuthEffects),
+    AuthFacade,
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes),
     provideHttpClient(
