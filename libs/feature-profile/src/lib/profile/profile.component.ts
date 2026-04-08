@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,7 +12,7 @@ import { LoadingComponent } from '@gl/ui-components/loading';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
-  imports: [CardComponent, MatButtonModule, TranslatePipe, LoadingComponent],
+  imports: [NgOptimizedImage, CardComponent, MatButtonModule, TranslatePipe, LoadingComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

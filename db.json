@@ -22,6 +22,7 @@
     "id": "1",
     "name": "Jane Doe",
     "username": "janedoe",
+    "avatar": "https://picsum.photos/seed/janedoe/200/200",
     "bio": "Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.",
     "posts": 34,
     "followers": 1200,

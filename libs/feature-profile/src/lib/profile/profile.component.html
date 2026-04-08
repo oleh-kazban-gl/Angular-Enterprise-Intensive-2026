@@ -4,7 +4,16 @@
   <section class="profile">
     <gl-card>
       <div card-header>
-        <div class="profile-avatar"></div>
+        <div class="profile__avatar">
+          <img
+            [ngSrc]="profile()?.avatar || ''"
+            width="64"
+            height="64"
+            [alt]="profile()?.name || ''"
+            class="profile__avatar-img"
+            priority
+          />
+        </div>
         <div>
           <h2>{{ profile()?.name }}</h2>
           <p class="subtitle">{{ profile()?.username }}</p>
