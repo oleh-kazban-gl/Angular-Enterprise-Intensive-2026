@@ -8,8 +8,8 @@ export const FeedActions = createActionGroup({
     'Load Feed': emptyProps(),
     'Load Feed Success': props<{ posts: FeedPost[] }>(),
     'Load Feed Failure': props<{ error: string }>(),
-    'Like Post': props<{ postId: string }>(),
-    'Like Post Success': props<{ postId: string; likes: number }>(),
-    'Like Post Failure': props<{ postId: string; previousLikes: number; error: string }>(),
+    'Toggle Like': props<{ postId: string; liked: boolean }>(),
+    'Toggle Like Success': props<{ postId: string; likes: number; liked: boolean }>(),
+    'Toggle Like Failure': props<{ postId: string; previousLikes: number; previousLiked: boolean; error: string }>(),
   },
 });

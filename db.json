@@ -1,4 +1,4 @@
-{
+﻿{
   "auth": {
     "token": "fake-jwt-token-abc123xyz"
   },
@@ -14,7 +14,7 @@
       },
       {
         "code": "ua",
-        "label": "Українська"
+        "label": "Ð£ÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ°"
       }
     ]
   },
@@ -41,27 +41,33 @@
       "location": "Santorini, Greece",
       "collaborators": ["jane_travels", "sunseeker"],
       "hashtags": ["#sunset", "#photooftheday"],
-      "createdAt": "2026-04-06T16:00:00.000Z"
+      "createdAt": "2026-04-06T16:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "2",
       "author": "city_sprinter",
       "images": ["https://picsum.photos/seed/2/1200/800"],
-      "caption": "Morning run through the city keeps me energized 💪",
+      "caption": "Morning run through the city keeps me energized ðŸ’ª",
       "location": "New York, USA",
       "collaborators": [],
       "hashtags": ["#running", "#fitness"],
-      "createdAt": "2026-04-06T13:00:00.000Z"
+      "createdAt": "2026-04-06T13:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "3",
       "author": "coffee.junkie",
       "images": ["https://picsum.photos/seed/3/1200/800", "https://picsum.photos/seed/14/1200/800"],
-      "caption": "Starting the day right — espresso + notebook ☕️📓",
+      "caption": "Starting the day right â€” espresso + notebook â˜•ï¸ðŸ““",
       "location": "Vienna, Austria",
       "collaborators": [],
       "hashtags": ["#coffee", "#morningvibes"],
-      "createdAt": "2026-04-06T09:00:00.000Z"
+      "createdAt": "2026-04-06T09:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "4",
@@ -77,7 +83,9 @@
       "location": "Banff, Canada",
       "collaborators": ["pixel_hunter"],
       "hashtags": ["#hiking", "#nature"],
-      "createdAt": "2026-04-05T14:00:00.000Z"
+      "createdAt": "2026-04-05T14:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "5",
@@ -88,21 +96,25 @@
         "https://picsum.photos/seed/20/1200/800",
         "https://picsum.photos/seed/21/1200/800"
       ],
-      "caption": "New gadget drop! Time to dive into the latest SDK. 💻",
+      "caption": "New gadget drop! Time to dive into the latest SDK. ðŸ’»",
       "location": null,
       "collaborators": ["nightowl", "design_daily"],
       "hashtags": ["#tech", "#dev"],
-      "createdAt": "2026-04-05T11:00:00.000Z"
+      "createdAt": "2026-04-05T11:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "6",
       "author": "foodie_fiona",
       "images": ["https://picsum.photos/seed/6/1200/800", "https://picsum.photos/seed/22/1200/800"],
-      "caption": "Brunch goals. Avocado toast for the win 🥑✨",
+      "caption": "Brunch goals. Avocado toast for the win ðŸ¥‘âœ¨",
       "location": "Melbourne, Australia",
       "collaborators": ["coffee.junkie"],
       "hashtags": ["#brunch", "#foodie"],
-      "createdAt": "2026-04-04T10:30:00.000Z"
+      "createdAt": "2026-04-04T10:30:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "7",
@@ -116,17 +128,21 @@
       "location": "Tokyo, Japan",
       "collaborators": [],
       "hashtags": ["#goldenhour", "#citylife"],
-      "createdAt": "2026-04-04T19:00:00.000Z"
+      "createdAt": "2026-04-04T19:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "8",
       "author": "petpal",
       "images": ["https://picsum.photos/seed/8/1200/800"],
-      "caption": "Meet my new buddy! 🐶",
+      "caption": "Meet my new buddy! ðŸ¶",
       "location": null,
       "collaborators": [],
       "hashtags": ["#puppylove", "#dogsofinstagram"],
-      "createdAt": "2026-04-03T15:00:00.000Z"
+      "createdAt": "2026-04-03T15:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "9",
@@ -137,21 +153,25 @@
         "https://picsum.photos/seed/26/1200/800",
         "https://picsum.photos/seed/27/1200/800"
       ],
-      "caption": "Playing with gradients today—color is everything.",
+      "caption": "Playing with gradients todayâ€”color is everything.",
       "location": null,
       "collaborators": [],
       "hashtags": ["#design", "#uidesign"],
-      "createdAt": "2026-04-03T12:00:00.000Z"
+      "createdAt": "2026-04-03T12:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "10",
       "author": "nightowl",
       "images": ["https://picsum.photos/seed/10/1200/800", "https://picsum.photos/seed/28/1200/800"],
-      "caption": "Late night code session: +1 coffee, -1 social life 😅",
+      "caption": "Late night code session: +1 coffee, -1 social life ðŸ˜…",
       "location": null,
       "collaborators": [],
       "hashtags": ["#coding", "#nightowl"],
-      "createdAt": "2026-04-02T23:00:00.000Z"
+      "createdAt": "2026-04-02T23:00:00.000Z",
+      "likes": 0,
+      "liked": false
     },
     {
       "id": "11",
@@ -165,7 +185,9 @@
       "location": "London, UK",
       "collaborators": [],
       "hashtags": ["#ukraine"],
-      "createdAt": "2026-04-06T17:19:24.676Z"
+      "createdAt": "2026-04-06T17:19:24.676Z",
+      "likes": 0,
+      "liked": false
     }
   ],
   "users": [

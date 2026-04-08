@@ -41,8 +41,8 @@
             </div>
 
             <div card-footer class="post-actions">
-              <button mat-button (click)="likePost(post); $event.stopPropagation()">
-                <mat-icon>favorite_border</mat-icon>
+              <button mat-button [attr.aria-pressed]="post.liked" (click)="toggleLike(post); $event.stopPropagation()">
+                <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
                 {{ 'feed.like' | translate }}
               </button>
               <button mat-button (click)="$event.stopPropagation()">

@@ -33,7 +33,8 @@
       "@gl/util-forms": ["libs/util-forms/src/index.ts"],
       "@gl/util-ngrx": ["libs/util-ngrx/src/index.ts"],
       "@gl/data-access-profile": ["libs/data-access-profile/src/index.ts"],
-      "@gl/data-access-feed": ["libs/data-access-feed/src/index.ts"]
+      "@gl/data-access-feed": ["libs/data-access-feed/src/index.ts"],
+      "@gl/data-access-post": ["libs/data-access-post/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

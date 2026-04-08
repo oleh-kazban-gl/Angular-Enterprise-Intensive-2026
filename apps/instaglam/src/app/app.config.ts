@@ -3,6 +3,7 @@ import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners } from
 import { provideRouter } from '@angular/router';
 
 import { provideEffects } from '@ngrx/effects';
+import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideTranslateService } from '@ngx-translate/core';
@@ -20,6 +21,7 @@ import { appRoutes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideStore(),
+    provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideEffects(),
     provideBrowserGlobalErrorListeners(),

@@ -8,5 +8,6 @@ export interface FeedPost {
   collaborators: string[];
   hashtags: string[];
   likes: number;
+  liked: boolean;
   createdAt: string;
 }

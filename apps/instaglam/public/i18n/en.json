@@ -123,5 +123,9 @@
     "504": "The server took too long to respond. Please try again.",
     "unknown": "An unexpected error occurred.",
     "dismiss": "Dismiss"
+  },
+  "notifications": {
+    "liked": "Post liked!",
+    "unliked": "Post unliked."
   }
 }

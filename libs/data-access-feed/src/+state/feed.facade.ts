@@ -17,7 +17,7 @@ export class FeedFacade {
     this.store.dispatch(FeedActions.loadFeed());
   }
 
-  likePost(postId: string): void {
-    this.store.dispatch(FeedActions.likePost({ postId }));
+  toggleLike(postId: string, liked: boolean): void {
+    this.store.dispatch(FeedActions.toggleLike({ postId, liked }));
   }
 }

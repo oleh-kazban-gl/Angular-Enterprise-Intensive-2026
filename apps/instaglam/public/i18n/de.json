@@ -123,5 +123,9 @@
     "504": "Der Server hat zu lange gebraucht. Bitte versuche es erneut.",
     "unknown": "Ein unerwarteter Fehler ist aufgetreten.",
     "dismiss": "Schließen"
+  },
+  "notifications": {
+    "liked": "Beitrag gefällt dir!",
+    "unliked": "Gefällt dir nicht mehr."
   }
 }

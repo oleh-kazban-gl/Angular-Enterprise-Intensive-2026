@@ -4,6 +4,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
 
 import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer } from '@gl/data-access-feed';
+import { PostEffects, PostFacade, POST_FEATURE_KEY, postReducer } from '@gl/data-access-post';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { authGuard } from '@gl/util-services';
 
@@ -27,6 +28,7 @@ export const appRoutes: Route[] = [
       {
         path: ':id',
         data: { pageTitle: 'post.title', breadcrumb: 'post.title' },
+        providers: [provideState(POST_FEATURE_KEY, postReducer), provideEffects(PostEffects), PostFacade],
         loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
       },
     ],

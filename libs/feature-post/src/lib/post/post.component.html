@@ -36,8 +36,8 @@
         </div>
 
         <div card-footer class="post-actions">
-          <button mat-button (click)="like()">
-            <mat-icon>favorite_border</mat-icon>
+          <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
+            <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
             {{ 'post.like' | translate }}
           </button>
           <button mat-button (click)="goBack()">

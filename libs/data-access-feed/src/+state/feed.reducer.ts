@@ -26,17 +26,24 @@ export const feedFeature = createFeature({
       feedAdapter.setAll(posts, { ...state, callState: 'loaded' as const })
     ),
     on(FeedActions.loadFeedFailure, (state, { error }) => ({ ...state, callState: { error } })),
-    // Optimistic like: update immediately in the store
-    on(FeedActions.likePost, (state, { postId }) => {
+    // Optimistic toggle
+    on(FeedActions.toggleLike, (state, { postId, liked }) => {
       const post = state.entities[postId];
       if (!post) {
         return state;
       }
-      return feedAdapter.updateOne({ id: postId, changes: { likes: post.likes + 1 } }, state);
+      return feedAdapter.updateOne(
+        { id: postId, changes: { liked, likes: liked ? post.likes + 1 : post.likes - 1 } },
+        state
+      );
     }),
+    // Confirm server values on success
+    on(FeedActions.toggleLikeSuccess, (state, { postId, likes, liked }) =>
+      feedAdapter.updateOne({ id: postId, changes: { likes, liked } }, state)
+    ),
     // Roll back on failure
-    on(FeedActions.likePostFailure, (state, { postId, previousLikes }) =>
-      feedAdapter.updateOne({ id: postId, changes: { likes: previousLikes } }, state)
+    on(FeedActions.toggleLikeFailure, (state, { postId, previousLikes, previousLiked }) =>
+      feedAdapter.updateOne({ id: postId, changes: { likes: previousLikes, liked: previousLiked } }, state)
     )
   ),
 });

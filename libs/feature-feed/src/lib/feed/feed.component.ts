@@ -42,7 +42,7 @@ export class FeedComponent implements OnInit {
     this.router.navigate(['/posts', postId]);
   }
 
-  protected likePost(post: FeedPost): void {
-    this.facade.likePost(post.id);
+  protected toggleLike(post: FeedPost): void {
+    this.facade.toggleLike(post.id, !post.liked);
   }
 }

@@ -11,7 +11,7 @@ export class FeedService {
     return this.http.get<FeedPost[]>('/posts');
   }
 
-  likePost(postId: string, likes: number) {
-    return this.http.patch<FeedPost>(`/posts/${postId}`, { likes });
+  toggleLike(postId: string, liked: boolean) {
+    return this.http.post<FeedPost>(`/posts/${postId}/like`, { liked });
   }
 }
