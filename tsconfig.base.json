@@ -36,7 +36,8 @@
       "@gl/data-access-feed": ["libs/data-access-feed/src/index.ts"],
       "@gl/data-access-post": ["libs/data-access-post/src/index.ts"],
       "@gl/data-access-auth": ["libs/data-access-auth/src/index.ts"],
-      "@gl/data-access-settings": ["libs/data-access-settings/src/index.ts"]
+      "@gl/data-access-settings": ["libs/data-access-settings/src/index.ts"],
+      "@gl/data-access-create-post": ["libs/data-access-create-post/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

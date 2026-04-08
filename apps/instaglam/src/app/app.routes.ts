@@ -7,6 +7,12 @@ import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer } from '@gl/data
 import { PostEffects, PostFacade, POST_FEATURE_KEY, postReducer } from '@gl/data-access-post';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { SettingsEffects, SettingsFacade, SETTINGS_FEATURE_KEY, settingsReducer } from '@gl/data-access-settings';
+import {
+  CreatePostEffects,
+  CreatePostFacade,
+  CREATE_POST_FEATURE_KEY,
+  createPostReducer,
+} from '@gl/data-access-create-post';
 import { authGuard } from '@gl/data-access-auth';
 
 export const appRoutes: Route[] = [
@@ -45,6 +51,11 @@ export const appRoutes: Route[] = [
     path: 'create-post',
     canActivate: [authGuard],
     data: { pageTitle: 'createPost.title' },
+    providers: [
+      provideState(CREATE_POST_FEATURE_KEY, createPostReducer),
+      provideEffects(CreatePostEffects),
+      CreatePostFacade,
+    ],
     loadComponent: () => import('@gl/feature-create-post').then(m => m.CreatePostComponent),
   },
   {

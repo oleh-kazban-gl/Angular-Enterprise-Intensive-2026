@@ -1,23 +1,24 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
 
 import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { CreatePostFacade } from '@gl/data-access-create-post';
 import { CardComponent } from '@gl/ui-components/card';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
-import { CreatePostService } from './create-post.service';
 
 @Component({
   selector: 'gl-create-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    AsyncPipe,
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -33,10 +34,7 @@ export class CreatePostComponent {
   private readonly fb = inject(FormBuilder);
   private readonly locationService = inject(LocationSearchService);
   private readonly userService = inject(UserSearchService);
-  private readonly createPostService = inject(CreatePostService);
-  private readonly router = inject(Router);
-
-  readonly submitting = signal(false);
+  readonly facade = inject(CreatePostFacade);
 
   form = this.fb.group({
     photo: [new Set<File>()],
@@ -120,7 +118,7 @@ export class CreatePostComponent {
   }
 
   onSubmit(): void {
-    if (this.form.invalid || this.submitting()) {
+    if (this.form.invalid) {
       return;
     }
 
@@ -131,19 +129,13 @@ export class CreatePostComponent {
       return;
     }
 
-    this.submitting.set(true);
-    this.createPostService
-      .create({
-        author: 'janedoe',
-        photos,
-        caption: caption ?? '',
-        location: location ?? null,
-        collaborators: this.selectedCollaborators().map(u => u.username),
-        hashtags: this.hashtags(),
-      })
-      .subscribe({
-        next: () => this.router.navigate(['/']),
-        error: () => this.submitting.set(false),
-      });
+    this.facade.createPost({
+      author: 'janedoe',
+      photos,
+      caption: caption ?? '',
+      location: location ?? null,
+      collaborators: this.selectedCollaborators().map(u => u.username),
+      hashtags: this.hashtags(),
+    });
   }
 }
