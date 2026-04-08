@@ -1,4 +1,4 @@
-﻿{
+{
   "auth": {
     "token": "fake-jwt-token-abc123xyz"
   },
@@ -14,7 +14,7 @@
       },
       {
         "code": "ua",
-        "label": "Ð£ÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ°"
+        "label": "Українська"
       }
     ]
   },
@@ -49,7 +49,7 @@
       "id": "2",
       "author": "city_sprinter",
       "images": ["https://picsum.photos/seed/2/1200/800"],
-      "caption": "Morning run through the city keeps me energized ðŸ’ª",
+      "caption": "Morning run through the city keeps me energized 💪",
       "location": "New York, USA",
       "collaborators": [],
       "hashtags": ["#running", "#fitness"],
@@ -61,7 +61,7 @@
       "id": "3",
       "author": "coffee.junkie",
       "images": ["https://picsum.photos/seed/3/1200/800", "https://picsum.photos/seed/14/1200/800"],
-      "caption": "Starting the day right â€” espresso + notebook â˜•ï¸ðŸ““",
+      "caption": "Starting the day right — espresso + notebook ☕️📓",
       "location": "Vienna, Austria",
       "collaborators": [],
       "hashtags": ["#coffee", "#morningvibes"],
@@ -96,7 +96,7 @@
         "https://picsum.photos/seed/20/1200/800",
         "https://picsum.photos/seed/21/1200/800"
       ],
-      "caption": "New gadget drop! Time to dive into the latest SDK. ðŸ’»",
+      "caption": "New gadget drop! Time to dive into the latest SDK. 💻",
       "location": null,
       "collaborators": ["nightowl", "design_daily"],
       "hashtags": ["#tech", "#dev"],
@@ -108,7 +108,7 @@
       "id": "6",
       "author": "foodie_fiona",
       "images": ["https://picsum.photos/seed/6/1200/800", "https://picsum.photos/seed/22/1200/800"],
-      "caption": "Brunch goals. Avocado toast for the win ðŸ¥‘âœ¨",
+      "caption": "Brunch goals. Avocado toast for the win 🥑✨",
       "location": "Melbourne, Australia",
       "collaborators": ["coffee.junkie"],
       "hashtags": ["#brunch", "#foodie"],
@@ -136,7 +136,7 @@
       "id": "8",
       "author": "petpal",
       "images": ["https://picsum.photos/seed/8/1200/800"],
-      "caption": "Meet my new buddy! ðŸ¶",
+      "caption": "Meet my new buddy! 🐶",
       "location": null,
       "collaborators": [],
       "hashtags": ["#puppylove", "#dogsofinstagram"],
@@ -153,7 +153,7 @@
         "https://picsum.photos/seed/26/1200/800",
         "https://picsum.photos/seed/27/1200/800"
       ],
-      "caption": "Playing with gradients todayâ€”color is everything.",
+      "caption": "Playing with gradients today—color is everything.",
       "location": null,
       "collaborators": [],
       "hashtags": ["#design", "#uidesign"],
@@ -165,7 +165,7 @@
       "id": "10",
       "author": "nightowl",
       "images": ["https://picsum.photos/seed/10/1200/800", "https://picsum.photos/seed/28/1200/800"],
-      "caption": "Late night code session: +1 coffee, -1 social life ðŸ˜…",
+      "caption": "Late night code session: +1 coffee, -1 social life 😅",
       "location": null,
       "collaborators": [],
       "hashtags": ["#coding", "#nightowl"],
@@ -328,6 +328,5 @@
       "id": "15",
       "name": "Vienna, Austria"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
