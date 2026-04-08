@@ -1,7 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { CallState } from '@gl/util-ngrx';
-
 import { CreatePostActions } from './create-post.actions';
 
 export const CREATE_POST_FEATURE_KEY = 'createPost';

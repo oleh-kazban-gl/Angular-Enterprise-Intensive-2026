@@ -1,7 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
 import { getError } from '@gl/util-ngrx';
-
 import { authFeature } from './auth.reducer';
 
 export const { selectAuthState, selectToken, selectCallState } = authFeature;

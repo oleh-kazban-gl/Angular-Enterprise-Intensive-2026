@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Router } from '@angular/router';
 
 import { CreatePostActions } from './create-post.actions';
 import { CreatePostService } from './create-post.service';

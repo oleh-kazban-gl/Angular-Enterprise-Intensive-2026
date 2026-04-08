@@ -1,7 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { CallState } from '@gl/util-ngrx';
-
 import { SettingsActions } from './settings.actions';
 import { Language } from './settings.models';
 

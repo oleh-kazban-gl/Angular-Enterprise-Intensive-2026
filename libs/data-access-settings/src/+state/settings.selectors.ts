@@ -1,7 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
 import { getError } from '@gl/util-ngrx';
-
 import { settingsFeature } from './settings.reducer';
 
 export const { selectSettingsState, selectLanguages, selectCallState } = settingsFeature;
