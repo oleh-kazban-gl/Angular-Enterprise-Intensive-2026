@@ -1,4 +1,4 @@
-@if (settingsService.loading()) {
+@if (facade.isLoading$ | async) {
   <gl-loading />
 } @else {
   <section class="settings">
@@ -35,7 +35,7 @@
             (selectionChange)="languageService.setLanguage($event.value)"
             [attr.aria-label]="'settings.languageLabel' | translate"
           >
-            @for (lang of settingsService.languages(); track lang.code) {
+            @for (lang of facade.languages$ | async; track lang.code) {
               <mat-option [value]="lang.code">{{ lang.label }}</mat-option>
             }
           </mat-select>

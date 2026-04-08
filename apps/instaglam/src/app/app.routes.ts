@@ -6,6 +6,7 @@ import { provideState } from '@ngrx/store';
 import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer } from '@gl/data-access-feed';
 import { PostEffects, PostFacade, POST_FEATURE_KEY, postReducer } from '@gl/data-access-post';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
+import { SettingsEffects, SettingsFacade, SETTINGS_FEATURE_KEY, settingsReducer } from '@gl/data-access-settings';
 import { authGuard } from '@gl/data-access-auth';
 
 export const appRoutes: Route[] = [
@@ -50,6 +51,7 @@ export const appRoutes: Route[] = [
     path: 'settings',
     canActivate: [authGuard],
     data: { pageTitle: 'settings.title' },
+    providers: [provideState(SETTINGS_FEATURE_KEY, settingsReducer), provideEffects(SettingsEffects), SettingsFacade],
     loadComponent: () => import('@gl/feature-settings').then(m => m.SettingsComponent),
   },
   {
