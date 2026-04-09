@@ -3,18 +3,20 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { CallState } from '@gl/util-ngrx';
 import { FeedActions } from './feed.actions';
-import { FeedPost } from './feed.models';
+import { FeedPagination, FeedPost } from './feed.models';
 
 export const FEED_FEATURE_KEY = 'feed';
 
 export interface FeedState extends EntityState<FeedPost> {
   callState: CallState;
+  pagination: FeedPagination | null;
 }
 
 export const feedAdapter: EntityAdapter<FeedPost> = createEntityAdapter<FeedPost>();
 
 const initialState: FeedState = feedAdapter.getInitialState({
   callState: 'init',
+  pagination: null,
 });
 
 export const feedFeature = createFeature({
@@ -22,8 +24,8 @@ export const feedFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(FeedActions.loadFeed, state => ({ ...state, callState: 'loading' as const })),
-    on(FeedActions.loadFeedSuccess, (state, { posts }) =>
-      feedAdapter.setAll(posts, { ...state, callState: 'loaded' as const })
+    on(FeedActions.loadFeedSuccess, (state, { posts, pagination }) =>
+      feedAdapter.setAll(posts, { ...state, callState: 'loaded' as const, pagination })
     ),
     on(FeedActions.loadFeedFailure, (state, { error }) => ({ ...state, callState: { error } })),
     // Optimistic toggle

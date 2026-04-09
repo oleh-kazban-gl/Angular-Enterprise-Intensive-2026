@@ -3,11 +3,12 @@ import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/cor
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
-import { FeedFacade, FeedPost } from '@gl/data-access-feed';
+import { FeedFacade, FeedPagination, FeedPost, FeedDeepLinkService } from '@gl/data-access-feed';
 import { CardComponent } from '@gl/ui-components/card';
 import { CarouselComponent } from '@gl/ui-components/carousel';
 import { LoadingComponent } from '@gl/ui-components/loading';
@@ -19,6 +20,7 @@ import { LoadingComponent } from '@gl/ui-components/loading';
     NgOptimizedImage,
     MatIconModule,
     MatButtonModule,
+    MatPaginatorModule,
     CardComponent,
     CarouselComponent,
     TranslatePipe,
@@ -30,12 +32,14 @@ import { LoadingComponent } from '@gl/ui-components/loading';
 export class FeedComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly facade = inject(FeedFacade);
+  private readonly deepLink = inject(FeedDeepLinkService);
 
   protected readonly posts = toSignal<FeedPost[]>(this.facade.posts$, { requireSync: true });
   protected readonly loading = toSignal<boolean>(this.facade.loading$, { requireSync: true });
+  protected readonly pagination = toSignal<FeedPagination | null>(this.facade.pagination$, { initialValue: null });
 
   ngOnInit(): void {
-    this.facade.loadFeed();
+    this.deepLink.init();
   }
 
   protected goToPost(postId: string): void {
@@ -44,5 +48,9 @@ export class FeedComponent implements OnInit {
 
   protected toggleLike(post: FeedPost): void {
     this.facade.toggleLike(post.id, !post.liked);
+  }
+
+  protected onPageChange(event: PageEvent): void {
+    this.deepLink.applyFilters({ page: event.pageIndex + 1, size: event.pageSize });
   }
 }

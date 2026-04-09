@@ -5,3 +5,4 @@ export * from './+state/feed.models';
 export * from './+state/feed.reducer';
 export * from './+state/feed.selectors';
 export * from './+state/feed.service';
+export * from './+state/feed-deep-link.service';

@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { FeedActions } from './feed.actions';
-import { FeedPost } from './feed.models';
-import { selectAllPosts, selectFeedLoading, selectFeedError } from './feed.selectors';
+import { FeedPagination, FeedPost } from './feed.models';
+import { selectAllPosts, selectFeedLoading, selectFeedError, selectFeedPagination } from './feed.selectors';
 
 @Injectable()
 export class FeedFacade {
@@ -14,9 +14,10 @@ export class FeedFacade {
   readonly posts$: Observable<FeedPost[]> = this.store.select(selectAllPosts);
   readonly loading$: Observable<boolean> = this.store.select(selectFeedLoading);
   readonly error$: Observable<string | null> = this.store.select(selectFeedError);
+  readonly pagination$: Observable<FeedPagination | null> = this.store.select(selectFeedPagination);
 
-  loadFeed(): void {
-    this.store.dispatch(FeedActions.loadFeed());
+  loadFeed(page: number, size: number): void {
+    this.store.dispatch(FeedActions.loadFeed({ page, size }));
   }
 
   toggleLike(postId: string, liked: boolean): void {

@@ -16,3 +16,5 @@ export const selectFeedLoading = createSelector(selectCallState, callState => ca
 export const selectFeedLoaded = createSelector(selectCallState, callState => callState === 'loaded');
 
 export const selectFeedError = createSelector(selectCallState, callState => getError(callState));
+
+export const selectFeedPagination = createSelector(selectFeedState, state => state.pagination);

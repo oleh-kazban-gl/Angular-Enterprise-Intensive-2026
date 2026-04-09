@@ -45,5 +45,13 @@
       border-radius: 0.75rem;
       cursor: pointer;
     }
+
+    &__paginator {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      background: transparent;
+    }
   }
 }
