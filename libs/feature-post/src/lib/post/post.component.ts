@@ -1,5 +1,5 @@
 import { DatePipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,7 +30,6 @@ import { TagsSetComponent } from './tags-set.component';
     CollaboratorsSetComponent,
     TagsSetComponent,
   ],
-  providers: [DatePipe],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
@@ -38,11 +37,22 @@ export class PostComponent {
   private readonly router = inject(Router);
   private readonly facade = inject(PostFacade);
   private readonly breadcrumbService = inject(BreadcrumbService);
-  private readonly datePipe = inject(DatePipe);
 
   protected readonly postId = toSignal(this.facade.postId$);
   protected readonly post = toSignal(this.facade.post$, { requireSync: true });
   protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
+
+  private readonly breadcrumbLabel = computed(() => {
+    const post = this.post();
+    if (!post) {
+      return null;
+    }
+    const d = new Date(post.createdAt);
+    const dd = d.getDate().toString().padStart(2, '0');
+    const mm = (d.getMonth() + 1).toString().padStart(2, '0');
+    const yyyy = d.getFullYear();
+    return `${post.author} ${dd}.${mm}.${yyyy} post`;
+  });
 
   constructor() {
     effect(() => {
@@ -53,12 +63,10 @@ export class PostComponent {
     });
 
     effect(() => {
-      const post = this.post();
-      if (!post) {
-        return;
+      const label = this.breadcrumbLabel();
+      if (label) {
+        this.breadcrumbService.setDynamicLabel(label);
       }
-      const dateStr = this.datePipe.transform(post.createdAt, 'dd.MM.yyyy') ?? '';
-      this.breadcrumbService.setDynamicLabel(`${post.author} ${dateStr} post`);
     });
   }
 

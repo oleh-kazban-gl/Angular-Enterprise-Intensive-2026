@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,6 +10,7 @@ import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CreatePostFacade } from '@gl/data-access-create-post';
+import { ProfileFacade } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
@@ -23,6 +24,7 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
+    NgOptimizedImage,
     TranslatePipe,
     CardComponent,
     UploaderComponent,
@@ -35,6 +37,13 @@ export class CreatePostComponent {
   private readonly locationService = inject(LocationSearchService);
   private readonly userService = inject(UserSearchService);
   readonly facade = inject(CreatePostFacade);
+  private readonly profileFacade = inject(ProfileFacade);
+
+  readonly profile = toSignal(this.profileFacade.profile$);
+
+  constructor() {
+    this.profileFacade.loadProfile();
+  }
 
   form = this.fb.group({
     photo: [new Set<File>()],
@@ -58,7 +67,8 @@ export class CreatePostComponent {
     const textarea = event.target as HTMLTextAreaElement;
     const raw = textarea.value;
 
-    // Only extract tags that are "completed" — followed by whitespace
+    // Extract tags confirmed by whitespace (user pressed space/enter after the tag).
+    // Trailing tags without a trailing space are drained on submit instead.
     const completedTags = raw.match(/#[\w-]+(?=\s)/g) ?? [];
 
     if (completedTags.length > 0) {
@@ -122,17 +132,29 @@ export class CreatePostComponent {
       return;
     }
 
-    const { photo, caption, location } = this.form.getRawValue();
+    const { photo, location } = this.form.getRawValue();
     const photos = [...(photo ?? new Set<File>())];
 
     if (photos.length === 0) {
       return;
     }
 
+    // Drain any trailing hashtag that was never followed by whitespace
+    let caption = this.form.controls.caption.value ?? '';
+    const trailingTags = caption.match(/#[\w-]+(?=\s|$)/g) ?? [];
+    if (trailingTags.length > 0) {
+      caption = caption
+        .replace(/#[\w-]+(?=\s|$)/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      this.hashtags.update(existing => [...new Set([...existing, ...trailingTags])]);
+      this.form.controls.caption.setValue(caption);
+    }
+
     this.facade.createPost({
-      author: 'janedoe',
+      author: this.profile()?.username ?? 'unknown',
       photos,
-      caption: caption ?? '',
+      caption,
       location: location ?? null,
       collaborators: this.selectedCollaborators().map(u => u.username),
       hashtags: this.hashtags(),

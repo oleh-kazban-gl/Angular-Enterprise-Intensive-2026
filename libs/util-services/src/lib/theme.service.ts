@@ -10,7 +10,11 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly cookiesStorage = inject(CookiesStorageService);
 
-  readonly isDark = signal(this.cookiesStorage.getItem<string>(THEME_KEY) === 'dark');
+  readonly isDark = signal(
+    this.cookiesStorage.getItem<string>(THEME_KEY) === 'dark' ||
+      (this.cookiesStorage.getItem<string>(THEME_KEY) === null &&
+        !!this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)').matches)
+  );
 
   constructor() {
     effect(() => {

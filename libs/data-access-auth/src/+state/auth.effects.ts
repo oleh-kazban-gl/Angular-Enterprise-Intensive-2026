@@ -13,13 +13,23 @@ export class AuthEffects {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
+  restoreAuth$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.restoreAuth),
+      map(() => {
+        const token = this.authService.getStoredToken();
+        return token ? AuthActions.restoreAuthSuccess({ token }) : AuthActions.restoreAuthComplete();
+      })
+    )
+  );
+
   signIn$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.signIn),
       switchMap(({ email, password }) =>
         this.authService.signIn(email, password).pipe(
           map(({ token }) => {
-            localStorage.setItem('token', token);
+            this.authService.saveToken(token);
             return AuthActions.signInSuccess({ token });
           }),
           catchError(error => of(AuthActions.signInFailure({ error: error.message ?? String(error) })))

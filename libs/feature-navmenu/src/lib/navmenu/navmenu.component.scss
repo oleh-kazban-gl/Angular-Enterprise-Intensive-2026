@@ -14,7 +14,7 @@
       overflow: hidden;
       background: var(--surface, #fff);
       border-right: 1px solid var(--borderColor, #e4e6eb);
-      box-shadow: 2px 0 8px rgb(0, 0, 0, 0.04);
+      box-shadow: var(--navShadow, 2px 0 8px rgb(0, 0, 0, 0.04));
 
       &__body {
         display: flex;

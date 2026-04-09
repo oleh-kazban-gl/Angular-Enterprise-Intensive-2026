@@ -15,7 +15,27 @@ export class AuthService {
     return this.http.post<void>('/auth/sign-up', { name, email, password });
   }
 
+  getStoredToken(): string | null {
+    try {
+      return localStorage.getItem('token');
+    } catch {
+      return null;
+    }
+  }
+
+  saveToken(token: string): void {
+    try {
+      localStorage.setItem('token', token);
+    } catch {
+      // storage may be unavailable (private mode, quota exceeded)
+    }
+  }
+
   clearStorage(): void {
-    localStorage.removeItem('token');
+    try {
+      localStorage.removeItem('token');
+    } catch {
+      // storage may be unavailable
+    }
   }
 }

@@ -28,7 +28,7 @@ import { LanguageService, ThemeService } from '@gl/util-services';
     LoadingComponent,
   ],
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss'],
+  styleUrl: './settings.component.scss',
 })
 export class SettingsComponent implements OnInit {
   readonly themeService = inject(ThemeService);

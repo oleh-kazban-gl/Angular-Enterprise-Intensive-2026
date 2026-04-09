@@ -31,8 +31,18 @@
       <!-- Right: post details -->
       <form class="create-post__form" (ngSubmit)="onSubmit()">
         <div class="create-post__author">
-          <div class="create-post__avatar"></div>
-          <span class="create-post__username">username</span>
+          @if (profile()?.avatar) {
+            <img
+              class="create-post__avatar"
+              [ngSrc]="profile()!.avatar"
+              width="32"
+              height="32"
+              [alt]="profile()!.name"
+            />
+          } @else {
+            <div class="create-post__avatar"></div>
+          }
+          <span class="create-post__username">{{ profile()?.username }}</span>
         </div>
 
         <textarea

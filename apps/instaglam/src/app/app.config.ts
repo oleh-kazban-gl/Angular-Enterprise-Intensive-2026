@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes),
     provideHttpClient(
-      withInterceptors([...(isDevMode() ? [logInterceptor] : []), apiUrlInterceptor, authInterceptor, errorInterceptor])
+      withInterceptors([apiUrlInterceptor, ...(isDevMode() ? [logInterceptor] : []), authInterceptor, errorInterceptor])
     ),
     provideTranslateService({
       loader: provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' }),

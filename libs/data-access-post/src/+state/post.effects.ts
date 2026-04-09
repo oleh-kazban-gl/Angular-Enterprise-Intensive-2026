@@ -22,12 +22,15 @@ export class PostEffects {
     this.actions$.pipe(
       ofType(PostActions.loadPost),
       withLatestFrom(this.store.select(selectPostId)),
-      switchMap(([, postId]) =>
-        this.postService.getPost(postId!).pipe(
+      switchMap(([, postId]) => {
+        if (!postId) {
+          return of(PostActions.loadPostFailure({ error: 'No post ID in route' }));
+        }
+        return this.postService.getPost(postId).pipe(
           map(post => PostActions.loadPostSuccess({ post })),
           catchError(error => of(PostActions.loadPostFailure({ error: error.message ?? String(error) })))
-        )
-      )
+        );
+      })
     )
   );
 
@@ -36,11 +39,16 @@ export class PostEffects {
       ofType(PostActions.toggleLike),
       withLatestFrom(this.store.select(selectPost)),
       switchMap(([{ liked }, post]) => {
+        if (!post) {
+          return of(
+            PostActions.toggleLikeFailure({ previousLikes: 0, previousLiked: !liked, error: 'Post not loaded' })
+          );
+        }
         // post already has the optimistic value; derive the pre-toggle values from it
-        const optimisticLikes = post!.likes;
+        const optimisticLikes = post.likes;
         const previousLikes = liked ? optimisticLikes - 1 : optimisticLikes + 1;
         const previousLiked = !liked;
-        return this.postService.toggleLike(post!.id, liked).pipe(
+        return this.postService.toggleLike(post.id, liked).pipe(
           map(updated => PostActions.toggleLikeSuccess({ likes: updated.likes, liked: updated.liked })),
           catchError(error =>
             of(PostActions.toggleLikeFailure({ previousLikes, previousLiked, error: error.message ?? String(error) }))
