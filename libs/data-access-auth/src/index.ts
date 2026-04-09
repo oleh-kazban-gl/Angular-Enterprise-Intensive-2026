@@ -6,5 +6,4 @@ export { AuthEffects } from './+state/auth.effects';
 export { AuthFacade } from './+state/auth.facade';
 export { authGuard, guestGuard } from './+state/auth.guard';
 export { authInterceptor } from './+state/auth.interceptor';
-export { provideAuthInit } from './+state/auth.init';
 export * from './+state/auth.selectors';
