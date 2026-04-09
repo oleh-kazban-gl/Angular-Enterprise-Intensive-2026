@@ -28,24 +28,23 @@ jobs:
       - name: Build all apps
         run: pnpm nx run-many -t build --projects=tag:type:app
 
-  # Uncomment when ready to enable unit tests on merge
-  # test:
-  #   name: Test all projects
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #
-  #     - uses: pnpm/action-setup@v4
-  #       with:
-  #         version: 9
-  #
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: '20'
-  #         cache: 'pnpm'
-  #
-  #     - run: pnpm install --frozen-lockfile
-  #
-  #     - name: Run unit tests
-  #       run: pnpm nx run-many -t test --configuration=ci
+  test:
+    name: Test all projects
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run unit tests
+        run: pnpm nx run-many -t test --configuration=ci
