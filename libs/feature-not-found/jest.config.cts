@@ -1,6 +1,6 @@
 module.exports = {
   displayName: 'feature-not-found',
-  preset: '../jest.preset.js',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../coverage/feature',
   transform: {
