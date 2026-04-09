@@ -1,4 +1,4 @@
-import { AsyncPipe, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CreatePostFacade } from '@gl/data-access-create-post';
-import { ProfileFacade } from '@gl/data-access-profile';
+import { ProfileFacade, UserProfile } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
@@ -19,7 +19,6 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
   selector: 'gl-create-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    AsyncPipe,
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -39,7 +38,8 @@ export class CreatePostComponent {
   readonly facade = inject(CreatePostFacade);
   private readonly profileFacade = inject(ProfileFacade);
 
-  readonly profile = toSignal(this.profileFacade.profile$);
+  readonly profile = toSignal<UserProfile | null>(this.profileFacade.profile$);
+  readonly isSubmitting = toSignal(this.facade.isSubmitting$, { initialValue: false });
 
   constructor() {
     this.profileFacade.loadProfile();

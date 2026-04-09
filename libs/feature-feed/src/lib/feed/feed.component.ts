@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,7 +15,15 @@ import { LoadingComponent } from '@gl/ui-components/loading';
 @Component({
   selector: 'gl-feed',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatIconModule, MatButtonModule, CardComponent, CarouselComponent, TranslatePipe, LoadingComponent],
+  imports: [
+    NgOptimizedImage,
+    MatIconModule,
+    MatButtonModule,
+    CardComponent,
+    CarouselComponent,
+    TranslatePipe,
+    LoadingComponent,
+  ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
@@ -22,8 +31,8 @@ export class FeedComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly facade = inject(FeedFacade);
 
-  protected readonly posts = toSignal(this.facade.posts$, { requireSync: true });
-  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
+  protected readonly posts = toSignal<FeedPost[]>(this.facade.posts$, { requireSync: true });
+  protected readonly loading = toSignal<boolean>(this.facade.loading$, { requireSync: true });
 
   ngOnInit(): void {
     this.facade.loadFeed();

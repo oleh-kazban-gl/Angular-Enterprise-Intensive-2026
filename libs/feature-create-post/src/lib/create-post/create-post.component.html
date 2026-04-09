@@ -2,14 +2,8 @@
   <gl-card class="create-post__card">
     <div card-header class="create-post__header">
       <span>{{ 'createPost.title' | translate }}</span>
-      <button
-        mat-button
-        color="primary"
-        type="button"
-        [disabled]="form.invalid || (facade.isSubmitting$ | async)"
-        (click)="onSubmit()"
-      >
-        @if (facade.isSubmitting$ | async) {
+      <button mat-button color="primary" type="button" [disabled]="form.invalid || isSubmitting()" (click)="onSubmit()">
+        @if (isSubmitting()) {
           {{ 'createPost.sharing' | translate }}
         } @else {
           {{ 'createPost.share' | translate }}
