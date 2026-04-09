@@ -28,3 +28,6 @@ jobs:
 
       - name: Run Build
         run: pnpm nx affected -t build --base=origin/master
+
+      - name: Run Tests
+        run: pnpm nx affected -t test --base=origin/master
