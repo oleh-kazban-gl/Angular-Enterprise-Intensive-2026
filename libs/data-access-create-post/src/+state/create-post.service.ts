@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 
 import { CreatePostPayload, Post } from './create-post.models';
 
@@ -22,6 +22,6 @@ export class CreatePostService {
       createdAt: new Date().toISOString(),
     };
 
-    return this.http.post<Post>('/posts', body);
+    return this.http.post<Post>('/posts', body).pipe(finalize(() => images.forEach(url => URL.revokeObjectURL(url))));
   }
 }

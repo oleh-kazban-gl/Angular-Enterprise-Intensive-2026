@@ -11,7 +11,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-  token: localStorage.getItem('token'),
+  token: null,
   callState: 'init',
 };
 
@@ -19,6 +19,7 @@ export const authFeature = createFeature({
   name: AUTH_FEATURE_KEY,
   reducer: createReducer(
     initialState,
+    on(AuthActions.restoreAuthSuccess, (state, { token }) => ({ ...state, token })),
     on(AuthActions.signIn, state => ({ ...state, callState: 'loading' as const })),
     on(AuthActions.signInSuccess, (state, { token }) => ({ ...state, token, callState: 'loaded' as const })),
     on(AuthActions.signInFailure, (state, { error }) => ({ ...state, callState: { error } })),
