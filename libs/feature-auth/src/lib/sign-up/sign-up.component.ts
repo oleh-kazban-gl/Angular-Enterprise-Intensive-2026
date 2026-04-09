@@ -62,6 +62,9 @@ export class SignUpComponent {
   }
 
   onSubmit(): void {
+    if (this.form.invalid) {
+      return;
+    }
     const { name, email, password } = this.form.getRawValue();
     this.facade.signUp(name, email, password);
   }

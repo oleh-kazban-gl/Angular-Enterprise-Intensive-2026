@@ -14,7 +14,7 @@
     width: 100%;
     margin: 0 auto;
 
-    &-card {
+    &__card {
       display: flex;
       flex-direction: column;
       min-height: 0;
@@ -26,29 +26,37 @@
       overflow: hidden;
     }
 
-    &-header {
+    &__header {
       display: flex;
       gap: 0.75rem;
       align-items: center;
       background: inherit;
     }
 
-    &-meta {
+    &__avatar {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-color: var(--avatarBg, color-mix(in srgb, var(--textColor) 8%, transparent));
+    }
+
+    &__meta {
       display: flex;
       flex-direction: column;
       gap: 0.125rem;
     }
 
-    &-author {
+    &__author {
       font-weight: 600;
     }
 
-    &-time {
+    &__date {
       font-size: 0.9rem;
       color: var(--textMuted, #6c6f74);
     }
 
-    &-body {
+    &__body {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
@@ -57,14 +65,14 @@
       overflow-y: auto;
     }
 
-    &-image {
+    &__actions {
       display: flex;
       gap: 0.75rem;
       justify-content: flex-end;
       background: inherit;
     }
 
-    &-missing {
+    &__missing {
       text-align: center;
     }
   }

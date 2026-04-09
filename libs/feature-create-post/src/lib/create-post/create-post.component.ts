@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,6 +10,7 @@ import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { CreatePostFacade } from '@gl/data-access-create-post';
+import { ProfileFacade } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
@@ -23,6 +24,7 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
+    NgOptimizedImage,
     TranslatePipe,
     CardComponent,
     UploaderComponent,
@@ -35,6 +37,13 @@ export class CreatePostComponent {
   private readonly locationService = inject(LocationSearchService);
   private readonly userService = inject(UserSearchService);
   readonly facade = inject(CreatePostFacade);
+  private readonly profileFacade = inject(ProfileFacade);
+
+  readonly profile = toSignal(this.profileFacade.profile$);
+
+  constructor() {
+    this.profileFacade.loadProfile();
+  }
 
   form = this.fb.group({
     photo: [new Set<File>()],
@@ -143,7 +152,7 @@ export class CreatePostComponent {
     }
 
     this.facade.createPost({
-      author: 'janedoe',
+      author: this.profile()?.username ?? 'unknown',
       photos,
       caption,
       location: location ?? null,

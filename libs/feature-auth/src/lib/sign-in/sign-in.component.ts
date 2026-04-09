@@ -37,6 +37,9 @@ export class SignInComponent {
   readonly controlErrors = controlErrors;
 
   onSubmit(): void {
+    if (this.form.invalid) {
+      return;
+    }
     const { email, password } = this.form.getRawValue();
     this.facade.signIn(email, password);
   }

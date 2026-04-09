@@ -8,15 +8,15 @@
       @if (postRecords.length) {
         @for (post of postRecords; track post.id; let idx = $index) {
           <gl-card class="feed__card">
-            <div card-header class="post-header">
+            <div card-header class="feed__header">
               <div class="feed__avatar"></div>
-              <div class="post-meta">
-                <div class="post-author">{{ post.author }}</div>
-                <div class="post-time">{{ post.time }}</div>
+              <div class="feed__meta">
+                <div class="feed__author">{{ post.author }}</div>
+                <div class="feed__time">{{ post.time }}</div>
               </div>
             </div>
 
-            <div card-content class="post-body">
+            <div card-content class="feed__body">
               <gl-carousel
                 class="feed__image"
                 [images]="post.images"
@@ -26,7 +26,7 @@
               <p>{{ post.caption }}</p>
             </div>
 
-            <div card-footer class="post-actions">
+            <div card-footer class="feed__actions">
               <button mat-button [attr.aria-pressed]="post.liked" (click)="toggleLike(post); $event.stopPropagation()">
                 <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
                 {{ 'feed.like' | translate }}

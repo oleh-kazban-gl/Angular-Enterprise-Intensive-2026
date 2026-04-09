@@ -38,7 +38,7 @@
     height: 2.25rem;
     border-radius: 50%;
     border: none;
-    background: rgb(0 0 0 / 0.5);
+    background: var(--overlayBg, rgb(0 0 0 / 0.5));
     color: #fff;
     cursor: pointer;
     transition:
@@ -47,7 +47,7 @@
     z-index: 1;
 
     &:hover:not(:disabled) {
-      background: rgb(0 0 0 / 0.75);
+      background: var(--overlayBgHover, rgb(0 0 0 / 0.75));
     }
 
     &:disabled {
