@@ -32,6 +32,7 @@
     {
       "id": "1",
       "author": "glitter_girl",
+      "avatarUrl": "https://picsum.photos/seed/glitter_girl/200/200",
       "images": [
         "https://picsum.photos/seed/1/1200/800",
         "https://picsum.photos/seed/12/1200/800",
@@ -48,6 +49,7 @@
     {
       "id": "2",
       "author": "city_sprinter",
+      "avatarUrl": "https://picsum.photos/seed/city_sprinter/200/200",
       "images": ["https://picsum.photos/seed/2/1200/800"],
       "caption": "Morning run through the city keeps me energized 💪",
       "location": "New York, USA",
@@ -60,6 +62,7 @@
     {
       "id": "3",
       "author": "coffee.junkie",
+      "avatarUrl": "https://picsum.photos/seed/coffee.junkie/200/200",
       "images": ["https://picsum.photos/seed/3/1200/800", "https://picsum.photos/seed/14/1200/800"],
       "caption": "Starting the day right — espresso + notebook ☕️📓",
       "location": "Vienna, Austria",
@@ -72,6 +75,7 @@
     {
       "id": "4",
       "author": "weekend.wanderer",
+      "avatarUrl": "https://picsum.photos/seed/weekend.wanderer/200/200",
       "images": [
         "https://picsum.photos/seed/4/1200/800",
         "https://picsum.photos/seed/15/1200/800",
@@ -90,6 +94,7 @@
     {
       "id": "5",
       "author": "techie_tom",
+      "avatarUrl": "https://picsum.photos/seed/techie_tom/200/200",
       "images": [
         "https://picsum.photos/seed/5/1200/800",
         "https://picsum.photos/seed/19/1200/800",
@@ -107,6 +112,7 @@
     {
       "id": "6",
       "author": "foodie_fiona",
+      "avatarUrl": "https://picsum.photos/seed/foodie_fiona/200/200",
       "images": ["https://picsum.photos/seed/6/1200/800", "https://picsum.photos/seed/22/1200/800"],
       "caption": "Brunch goals. Avocado toast for the win 🥑✨",
       "location": "Melbourne, Australia",
@@ -119,6 +125,7 @@
     {
       "id": "7",
       "author": "cityscape",
+      "avatarUrl": "https://picsum.photos/seed/cityscape/200/200",
       "images": [
         "https://picsum.photos/seed/7/1200/800",
         "https://picsum.photos/seed/23/1200/800",
@@ -135,6 +142,7 @@
     {
       "id": "8",
       "author": "petpal",
+      "avatarUrl": "https://picsum.photos/seed/petpal/200/200",
       "images": ["https://picsum.photos/seed/8/1200/800"],
       "caption": "Meet my new buddy! 🐶",
       "location": null,
@@ -147,6 +155,7 @@
     {
       "id": "9",
       "author": "design_daily",
+      "avatarUrl": "https://picsum.photos/seed/design_daily/200/200",
       "images": [
         "https://picsum.photos/seed/9/1200/800",
         "https://picsum.photos/seed/25/1200/800",
@@ -164,6 +173,7 @@
     {
       "id": "10",
       "author": "nightowl",
+      "avatarUrl": "https://picsum.photos/seed/nightowl/200/200",
       "images": ["https://picsum.photos/seed/10/1200/800", "https://picsum.photos/seed/28/1200/800"],
       "caption": "Late night code session: +1 coffee, -1 social life 😅",
       "location": null,
@@ -176,6 +186,7 @@
     {
       "id": "11",
       "author": "janedoe",
+      "avatarUrl": "https://picsum.photos/seed/janedoe/200/200",
       "images": [
         "https://picsum.photos/seed/11/1200/800",
         "https://picsum.photos/seed/29/1200/800",
@@ -194,77 +205,77 @@
     {
       "id": "1",
       "username": "janedoe",
-      "avatarUrl": "https://i.pravatar.cc/150?u=janedoe"
+      "avatarUrl": "https://picsum.photos/seed/janedoe/200/200"
     },
     {
       "id": "2",
       "username": "glitter_girl",
-      "avatarUrl": "https://i.pravatar.cc/150?u=glitter_girl"
+      "avatarUrl": "https://picsum.photos/seed/glitter_girl/200/200"
     },
     {
       "id": "3",
       "username": "city_sprinter",
-      "avatarUrl": "https://i.pravatar.cc/150?u=city_sprinter"
+      "avatarUrl": "https://picsum.photos/seed/city_sprinter/200/200"
     },
     {
       "id": "4",
       "username": "coffee.junkie",
-      "avatarUrl": "https://i.pravatar.cc/150?u=coffee.junkie"
+      "avatarUrl": "https://picsum.photos/seed/coffee.junkie/200/200"
     },
     {
       "id": "5",
       "username": "weekend.wanderer",
-      "avatarUrl": "https://i.pravatar.cc/150?u=weekend.wanderer"
+      "avatarUrl": "https://picsum.photos/seed/weekend.wanderer/200/200"
     },
     {
       "id": "6",
       "username": "techie_tom",
-      "avatarUrl": "https://i.pravatar.cc/150?u=techie_tom"
+      "avatarUrl": "https://picsum.photos/seed/techie_tom/200/200"
     },
     {
       "id": "7",
       "username": "foodie_fiona",
-      "avatarUrl": "https://i.pravatar.cc/150?u=foodie_fiona"
+      "avatarUrl": "https://picsum.photos/seed/foodie_fiona/200/200"
     },
     {
       "id": "8",
       "username": "cityscape",
-      "avatarUrl": "https://i.pravatar.cc/150?u=cityscape"
+      "avatarUrl": "https://picsum.photos/seed/cityscape/200/200"
     },
     {
       "id": "9",
       "username": "petpal",
-      "avatarUrl": "https://i.pravatar.cc/150?u=petpal"
+      "avatarUrl": "https://picsum.photos/seed/petpal/200/200"
     },
     {
       "id": "10",
       "username": "design_daily",
-      "avatarUrl": "https://i.pravatar.cc/150?u=design_daily"
+      "avatarUrl": "https://picsum.photos/seed/design_daily/200/200"
     },
     {
       "id": "11",
       "username": "nightowl",
-      "avatarUrl": "https://i.pravatar.cc/150?u=nightowl"
+      "avatarUrl": "https://picsum.photos/seed/nightowl/200/200"
     },
     {
       "id": "12",
       "username": "john_snaps",
-      "avatarUrl": "https://i.pravatar.cc/150?u=john_snaps"
+      "avatarUrl": "https://picsum.photos/seed/john_snaps/200/200"
     },
     {
       "id": "13",
       "username": "jane_travels",
-      "avatarUrl": "https://i.pravatar.cc/150?u=jane_travels"
+      "avatarUrl": "https://picsum.photos/seed/jane_travels/200/200"
     },
     {
       "id": "14",
       "username": "pixel_hunter",
-      "avatarUrl": "https://i.pravatar.cc/150?u=pixel_hunter"
+      "avatarUrl": "https://picsum.photos/seed/pixel_hunter/200/200"
     },
     {
       "id": "15",
       "username": "sunseeker",
-      "avatarUrl": "https://i.pravatar.cc/150?u=sunseeker"
+      "avatarUrl": "https://picsum.photos/seed/sunseeker/200/200"
     }
   ],
   "locations": [

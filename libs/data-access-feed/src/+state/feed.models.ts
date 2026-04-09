@@ -1,6 +1,7 @@
 export interface FeedPost {
   id: string;
   author: string;
+  avatarUrl: string;
   time: string;
   images: string[];
   caption: string;
