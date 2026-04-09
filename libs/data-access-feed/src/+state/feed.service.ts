@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
-import { FeedPost } from './feed.models';
+import { PagedFeedResponse, FeedPost } from './feed.models';
 
 @Injectable({ providedIn: 'root' })
 export class FeedService {
   private readonly http = inject(HttpClient);
 
-  getPosts() {
-    return this.http.get<FeedPost[]>('/posts');
+  getPosts(page: number, size: number) {
+    return this.http.get<PagedFeedResponse>('/posts', {
+      params: { _page: page, _per_page: size },
+    });
   }
 
   toggleLike(postId: string, liked: boolean) {

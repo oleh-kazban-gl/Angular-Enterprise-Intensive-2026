@@ -21,9 +21,19 @@ export class FeedEffects {
   loadFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FeedActions.loadFeed),
-      switchMap(() =>
-        this.feedService.getPosts().pipe(
-          map(posts => FeedActions.loadFeedSuccess({ posts })),
+      switchMap(({ page, size }) =>
+        this.feedService.getPosts(page, size).pipe(
+          map(response =>
+            FeedActions.loadFeedSuccess({
+              posts: response.data,
+              pagination: {
+                page,
+                size,
+                totalItems: response.items,
+                totalPages: response.pages,
+              },
+            })
+          ),
           catchError(error => of(FeedActions.loadFeedFailure({ error: error.message })))
         )
       )

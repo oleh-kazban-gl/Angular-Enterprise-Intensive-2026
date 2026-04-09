@@ -2,6 +2,7 @@
   <gl-loading />
 } @else {
   @let postRecords = posts();
+  @let paging = pagination();
 
   <section class="feed">
     <div class="posts">
@@ -42,5 +43,18 @@
         <div>{{ 'feed.noPosts' | translate }}</div>
       }
     </div>
+
+    @if (paging) {
+      <mat-paginator
+        class="feed__paginator"
+        [length]="paging.totalItems"
+        [pageSize]="paging.size"
+        [pageIndex]="paging.page - 1"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true"
+        aria-label="Feed pagination"
+        (page)="onPageChange($event)"
+      />
+    }
   </section>
 }

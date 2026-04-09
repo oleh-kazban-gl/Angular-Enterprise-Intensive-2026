@@ -1,12 +1,12 @@
-import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { createActionGroup, props } from '@ngrx/store';
 
-import { FeedPost } from './feed.models';
+import { FeedPagination, FeedPost } from './feed.models';
 
 export const FeedActions = createActionGroup({
   source: 'Feed',
   events: {
-    'Load Feed': emptyProps(),
-    'Load Feed Success': props<{ posts: FeedPost[] }>(),
+    'Load Feed': props<{ page: number; size: number }>(),
+    'Load Feed Success': props<{ posts: FeedPost[]; pagination: FeedPagination }>(),
     'Load Feed Failure': props<{ error: string }>(),
     'Toggle Like': props<{ postId: string; liked: boolean }>(),
     'Toggle Like Success': props<{ postId: string; likes: number; liked: boolean }>(),

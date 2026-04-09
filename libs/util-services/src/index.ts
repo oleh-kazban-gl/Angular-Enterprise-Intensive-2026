@@ -12,3 +12,4 @@ export * from './lib/location-search.service.models';
 export * from './lib/theme.service';
 export * from './lib/user-search.service';
 export * from './lib/user-search.service.models';
+export * from './lib/deep-link.service';
