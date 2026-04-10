@@ -127,5 +127,11 @@
   "notifications": {
     "liked": "Beitrag gefällt dir!",
     "unliked": "Gefällt dir nicht mehr."
+  },
+  "confirmLeave": {
+    "title": "Ungespeicherte Änderungen",
+    "message": "Du hast ungespeicherte Änderungen. Möchtest du die Seite wirklich verlassen?",
+    "stay": "Bleiben",
+    "leave": "Verlassen"
   }
 }

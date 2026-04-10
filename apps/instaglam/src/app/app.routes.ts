@@ -14,6 +14,7 @@ import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer, FeedDeepLinkSer
 import { PostEffects, PostFacade, POST_FEATURE_KEY, postReducer } from '@gl/data-access-post';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { SettingsEffects, SettingsFacade, SETTINGS_FEATURE_KEY, settingsReducer } from '@gl/data-access-settings';
+import { canDeactivateGuard } from '@gl/util-services';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
@@ -55,6 +56,7 @@ export const appRoutes: Route[] = [
   {
     path: 'create-post',
     canActivate: [authGuard],
+    canDeactivate: [canDeactivateGuard],
     data: { pageTitle: 'createPost.title' },
     providers: [
       provideState(CREATE_POST_FEATURE_KEY, createPostReducer),
