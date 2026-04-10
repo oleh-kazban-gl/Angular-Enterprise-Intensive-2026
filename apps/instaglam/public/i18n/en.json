@@ -127,5 +127,11 @@
   "notifications": {
     "liked": "Post liked!",
     "unliked": "Post unliked."
+  },
+  "confirmLeave": {
+    "title": "Unsaved Changes",
+    "message": "You have unsaved changes. Are you sure you want to leave?",
+    "stay": "Stay",
+    "leave": "Leave"
   }
 }

@@ -29,6 +29,7 @@
       "@gl/ui-components/loading": ["libs/ui-components/loading/src/index.ts"],
       "@gl/ui-components/uploader": ["libs/ui-components/uploader/src/index.ts"],
       "@gl/ui-components/carousel": ["libs/ui-components/carousel/src/index.ts"],
+      "@gl/ui-components/confirm-dialog": ["libs/ui-components/confirm-dialog/src/index.ts"],
       "@gl/pipes": ["libs/pipes/src/index.ts"],
       "@gl/util-forms": ["libs/util-forms/src/index.ts"],
       "@gl/util-ngrx": ["libs/util-ngrx/src/index.ts"],

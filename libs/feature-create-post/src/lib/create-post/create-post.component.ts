@@ -13,11 +13,15 @@ import { CreatePostFacade } from '@gl/data-access-create-post';
 import { ProfileFacade, UserProfile } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
+import { FormSnapshotBase } from '@gl/util-forms';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-create-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(window:beforeunload)': 'onBeforeUnload($event)',
+  },
   imports: [
     ReactiveFormsModule,
     MatAutocompleteModule,
@@ -31,7 +35,7 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss',
 })
-export class CreatePostComponent {
+export class CreatePostComponent extends FormSnapshotBase {
   private readonly fb = inject(FormBuilder);
   private readonly locationService = inject(LocationSearchService);
   private readonly userService = inject(UserSearchService);
@@ -42,7 +46,9 @@ export class CreatePostComponent {
   readonly isSubmitting = toSignal(this.facade.isSubmitting$, { initialValue: false });
 
   constructor() {
+    super();
     this.profileFacade.loadProfile();
+    this.takeSnapshot();
   }
 
   form = this.fb.group({
@@ -159,5 +165,24 @@ export class CreatePostComponent {
       collaborators: this.selectedCollaborators().map(u => u.username),
       hashtags: this.hashtags(),
     });
+  }
+
+  protected formSnapshot(): unknown {
+    const { caption, location, photo } = this.form.getRawValue();
+    return {
+      caption: caption ?? '',
+      location: location ?? null,
+      photoCount: photo?.size ?? 0,
+      collaborators: this.selectedCollaborators()
+        .map(u => u.id)
+        .sort(),
+      hashtags: [...this.hashtags()].sort(),
+    };
+  }
+
+  protected onBeforeUnload(event: BeforeUnloadEvent): void {
+    if (this.hasPendingChanges()) {
+      event.preventDefault();
+    }
   }
 }
