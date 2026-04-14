@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 
 import { DeepLinkService } from '@gl/util-services';
-import { FeedFacade } from './feed.facade';
-import { FeedFilters } from './feed.models';
+import { FeedFacade } from './+state/feed.facade';
+import { FeedFilters } from './+state/feed.models';
 
 @Injectable()
 export class FeedDeepLinkService extends DeepLinkService<FeedFilters> {
