@@ -533,6 +533,5 @@
       "id": "15",
       "name": "Vienna, Austria"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

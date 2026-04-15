@@ -12,6 +12,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { CreatePostFacade } from '@gl/data-access-create-post';
 import { ProfileFacade, UserProfile } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
+import { LoadingComponent } from '@gl/ui-components/loading';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { FormSnapshotBase } from '@gl/util-forms';
 import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
@@ -30,6 +31,7 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
     NgOptimizedImage,
     TranslatePipe,
     CardComponent,
+    LoadingComponent,
     UploaderComponent,
   ],
   templateUrl: './create-post.component.html',
@@ -43,6 +45,7 @@ export class CreatePostComponent extends FormSnapshotBase {
   private readonly profileFacade = inject(ProfileFacade);
 
   readonly profile = toSignal<UserProfile | null>(this.profileFacade.profile$);
+  readonly isProfileLoading = toSignal(this.profileFacade.loading$, { initialValue: true });
   readonly isSubmitting = toSignal(this.facade.isSubmitting$, { initialValue: false });
 
   constructor() {
