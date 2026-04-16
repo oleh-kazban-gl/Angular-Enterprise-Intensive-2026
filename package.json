@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve instaglam",
     "start:api": "json-server db.json --port 3333",
-    "test": "pnpm nx run-many -t test",
+    "test": "nx run-many -t test",
     "test:affected": "nx affected:test",
     "lint": "nx run-many -t lint",
     "lint:affected": "nx affected:lint",
