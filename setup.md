@@ -121,11 +121,3 @@ You can proceed with the first module.
 # Related repos
 
 - https://github.com/oleh-kazban-gl/TypeScript
-
-# Add NgRx support
-
-Add the required packages:
-
-```Shell
-pnpm add @ngrx/store @ngrx/effects @ngrx/entity @ngrx/operators @ngrx/store-devtools
-```
