@@ -13,7 +13,8 @@
     "format": "nx format:write --all",
     "format:uncommitted": "nx format:write --uncommitted",
     "format:check": "nx format:check --all",
-    "dep-graph": "nx dep-graph"
+    "dep-graph": "nx dep-graph",
+    "analyze": "nx build instaglam --source-map && npx source-map-explorer dist/apps/instaglam/*.js --no-border-checks"
   },
   "private": true,
   "dependencies": {
