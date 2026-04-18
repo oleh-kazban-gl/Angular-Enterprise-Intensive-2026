@@ -40,12 +40,12 @@
                 [ngSrc]="profile()!.avatar"
                 width="32"
                 height="32"
-                [alt]="profile()!.name"
+                [alt]="currentUser()?.name || ''"
               />
             } @else {
               <div class="create-post__avatar"></div>
             }
-            <span class="create-post__username">{{ profile()?.username }}</span>
+            <span class="create-post__username">{{ currentUser()?.username }}</span>
           </div>
 
           <textarea

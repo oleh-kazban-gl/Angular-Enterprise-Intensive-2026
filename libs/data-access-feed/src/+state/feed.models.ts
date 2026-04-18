@@ -11,15 +11,10 @@ export interface FeedPost {
   createdAt: string;
 }
 
-/** Shape of the paginated envelope returned by json-server v1. */
+/** Shape of the paginated response returned by json-server v0 (plain array + X-Total-Count header). */
 export interface PagedFeedResponse {
-  data: FeedPost[];
-  items: number;
-  pages: number;
-  first: number;
-  prev: number | null;
-  next: number | null;
-  last: number;
+  posts: FeedPost[];
+  totalItems: number;
 }
 
 /** Pagination metadata stored in NgRx feed state. */

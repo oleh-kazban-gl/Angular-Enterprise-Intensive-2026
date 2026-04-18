@@ -7,7 +7,7 @@ import { UserProfile } from './profile.models';
 export class ProfileService {
   private readonly http = inject(HttpClient);
 
-  getProfile() {
-    return this.http.get<UserProfile>('/profile');
+  getProfile(userId: string) {
+    return this.http.get<UserProfile>(`/profile/${userId}`);
   }
 }

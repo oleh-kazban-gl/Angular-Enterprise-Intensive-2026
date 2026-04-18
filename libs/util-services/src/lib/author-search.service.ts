@@ -3,13 +3,13 @@ import { inject, Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { User } from './user-search.service.models';
+import { Author } from './author-search.service.models';
 
 @Injectable({ providedIn: 'root' })
-export class UserSearchService {
+export class AuthorSearchService {
   private readonly http = inject(HttpClient);
 
-  search(query: string): Observable<User[]> {
-    return this.http.get<User[]>('/users', { params: { username_contains: query } });
+  search(query: string): Observable<Author[]> {
+    return this.http.get<Author[]>('/authors', { params: { username_like: query } });
   }
 }

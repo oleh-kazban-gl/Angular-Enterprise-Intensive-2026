@@ -45,6 +45,7 @@ export class SignUpComponent {
 
   readonly form = new FormGroup({
     name: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    username: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
     password: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(8)] }),
     confirmPassword: new FormControl('', {
@@ -65,7 +66,7 @@ export class SignUpComponent {
     if (this.form.invalid) {
       return;
     }
-    const { name, email, password } = this.form.getRawValue();
-    this.facade.signUp(name, email, password);
+    const { name, username, email, password } = this.form.getRawValue();
+    this.facade.signUp(name, username, email, password);
   }
 }

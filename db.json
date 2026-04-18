@@ -1,6 +1,16 @@
 {
   "users": [
     {
+      "email": "oleh.kazban@mail.com",
+      "password": "$2a$10$0haW8Wtjm1X/TqU79zl5ZuoavGghOKBh.4sYi91urJenLQIGDovMu",
+      "name": "Oleh Kazban",
+      "username": "CyberiXUA",
+      "avatarUrl": "https://picsum.photos/seed/oleh.kazban/200/200",
+      "id": "vOQCJ2B"
+    }
+  ],
+  "authors": [
+    {
       "id": "1",
       "username": "janedoe",
       "avatarUrl": "https://picsum.photos/seed/janedoe/200/200"
@@ -76,10 +86,9 @@
       "avatarUrl": "https://picsum.photos/seed/sunseeker/200/200"
     },
     {
-      "email": "oleh.kazban@mail.com",
-      "password": "$2a$10$0haW8Wtjm1X/TqU79zl5ZuoavGghOKBh.4sYi91urJenLQIGDovMu",
-      "name": "Oleh Kazban",
-      "id": "vOQCJ2B"
+      "id": "vOQCJ2B",
+      "username": "CyberiXUA",
+      "avatarUrl": "https://picsum.photos/seed/oleh.kazban/200/200"
     }
   ],
   "settings": {
@@ -98,16 +107,16 @@
       }
     ]
   },
-  "profile": {
-    "id": "1",
-    "name": "Jane Doe",
-    "username": "janedoe",
-    "avatar": "https://picsum.photos/seed/janedoe/200/200",
-    "bio": "Just a photographer capturing moments. This is a placeholder profile page for the InstaGlam demo.",
-    "posts": 34,
-    "followers": 1200,
-    "following": 368
-  },
+  "profile": [
+    {
+      "id": "vOQCJ2B",
+      "avatar": "https://picsum.photos/seed/oleh.kazban/200/200",
+      "bio": "Just a photographer capturing moments.",
+      "posts": 0,
+      "followers": 0,
+      "following": 0
+    }
+  ],
   "posts": [
     {
       "id": "1",

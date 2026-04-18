@@ -1,7 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 const DURATION_MS = 5000;
+const HORIZONTAL: MatSnackBarHorizontalPosition = 'center';
+const VERTICAL: MatSnackBarVerticalPosition = 'bottom';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {
@@ -10,6 +12,8 @@ export class NotificationService {
   success(message: string): void {
     this.snackBar.open(message, '✕', {
       duration: DURATION_MS,
+      horizontalPosition: HORIZONTAL,
+      verticalPosition: VERTICAL,
       panelClass: ['notification--success'],
     });
   }
@@ -17,6 +21,8 @@ export class NotificationService {
   error(message: string): void {
     this.snackBar.open(message, '✕', {
       duration: DURATION_MS,
+      horizontalPosition: HORIZONTAL,
+      verticalPosition: VERTICAL,
       panelClass: ['notification--error'],
     });
   }
@@ -24,6 +30,8 @@ export class NotificationService {
   warn(message: string): void {
     this.snackBar.open(message, '✕', {
       duration: DURATION_MS,
+      horizontalPosition: HORIZONTAL,
+      verticalPosition: VERTICAL,
       panelClass: ['notification--warn'],
     });
   }
@@ -31,6 +39,8 @@ export class NotificationService {
   info(message: string): void {
     this.snackBar.open(message, '✕', {
       duration: DURATION_MS,
+      horizontalPosition: HORIZONTAL,
+      verticalPosition: VERTICAL,
       panelClass: ['notification--info'],
     });
   }

@@ -87,6 +87,7 @@
       "title": "Sign Up",
       "subtitle": "Create your Instaglam account",
       "fullName": "Full Name",
+      "username": "Username",
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm Password",
