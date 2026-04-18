@@ -98,11 +98,11 @@ Required tools:
 
 See the setup guide:
 
-SETUP.md
+[setup.md](setup.md)
 
 See the NX commands:
 
-NX.md
+[nx.md](nx.md)
 
 ---
 
@@ -125,3 +125,34 @@ or
 ```bash
 pnpm start
 ```
+
+---
+
+# Available Scripts
+
+| Script               | Description                          |
+| -------------------- | ------------------------------------ |
+| `pnpm start`         | Start the Angular dev server         |
+| `pnpm start:api`     | Start the json-server mock API       |
+| `pnpm test`          | Run all tests                        |
+| `pnpm test:affected` | Run tests for affected projects only |
+| `pnpm lint`          | Lint all projects                    |
+| `pnpm lint:affected` | Lint affected projects only          |
+| `pnpm analyze`       | Build and open bundle size treemap   |
+| `pnpm dep-graph`     | Open Nx dependency graph             |
+
+---
+
+# Official Resources
+
+| Technology       | Documentation                       |
+| ---------------- | ----------------------------------- |
+| Angular          | https://angular.dev                 |
+| TypeScript       | https://www.typescriptlang.org/docs |
+| RxJS             | https://rxjs.dev                    |
+| NgRx             | https://ngrx.io/docs                |
+| Nx               | https://nx.dev/docs                 |
+| Angular Material | https://material.angular.io         |
+| ESLint           | https://eslint.org/docs/latest      |
+| Prettier         | https://prettier.io/docs/en         |
+| webpack          | https://webpack.js.org/concepts     |
