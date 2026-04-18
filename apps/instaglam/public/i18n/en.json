@@ -20,12 +20,19 @@
     "backToFeed": "Back to feed",
     "collaborators": "Tagged people"
   },
+  "common": {
+    "cancel": "Cancel"
+  },
   "profile": {
     "title": "Profile",
     "posts": "Posts",
     "followers": "Followers",
     "following": "Following",
-    "editProfile": "Edit Profile"
+    "editProfile": "Edit Profile",
+    "bio": "Bio",
+    "avatar": "Avatar",
+    "saveChanges": "Save Changes",
+    "bioMaxLength": "Bio cannot exceed {{ max }} characters"
   },
   "settings": {
     "title": "Settings",
@@ -87,6 +94,7 @@
       "title": "Sign Up",
       "subtitle": "Create your Instaglam account",
       "fullName": "Full Name",
+      "username": "Username",
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm Password",

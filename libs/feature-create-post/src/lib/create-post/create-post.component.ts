@@ -1,4 +1,3 @@
-import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -9,13 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { debounceTime, of, startWith, switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
+import { AuthFacade } from '@gl/data-access-auth';
 import { CreatePostFacade } from '@gl/data-access-create-post';
 import { ProfileFacade, UserProfile } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { LoadingComponent } from '@gl/ui-components/loading';
 import { UploaderComponent, fileType, maxFileSize, maxFiles, requiredFiles } from '@gl/ui-components/uploader';
 import { FormSnapshotBase } from '@gl/util-forms';
-import { Location, LocationSearchService, User, UserSearchService } from '@gl/util-services';
+import { Author, AuthorSearchService, Location, LocationSearchService } from '@gl/util-services';
 
 @Component({
   selector: 'gl-create-post',
@@ -28,7 +28,6 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
-    NgOptimizedImage,
     TranslatePipe,
     CardComponent,
     LoadingComponent,
@@ -40,12 +39,14 @@ import { Location, LocationSearchService, User, UserSearchService } from '@gl/ut
 export class CreatePostComponent extends FormSnapshotBase {
   private readonly fb = inject(FormBuilder);
   private readonly locationService = inject(LocationSearchService);
-  private readonly userService = inject(UserSearchService);
+  private readonly userService = inject(AuthorSearchService);
   readonly facade = inject(CreatePostFacade);
   private readonly profileFacade = inject(ProfileFacade);
+  private readonly authFacade = inject(AuthFacade);
 
   readonly profile = toSignal<UserProfile | null>(this.profileFacade.profile$);
   readonly isProfileLoading = toSignal(this.profileFacade.loading$, { initialValue: true });
+  readonly currentUser = toSignal(this.authFacade.currentUser$, { requireSync: true });
   readonly isSubmitting = toSignal(this.facade.isSubmitting$, { initialValue: false });
 
   constructor() {
@@ -64,7 +65,7 @@ export class CreatePostComponent extends FormSnapshotBase {
   readonly photoUploaderValidators = [requiredFiles(), maxFiles(10)];
 
   collaboratorSearchCtrl = new FormControl('');
-  selectedCollaborators = signal<User[]>([]);
+  selectedCollaborators = signal<Author[]>([]);
 
   private readonly captionValue = toSignal(this.form.controls.caption.valueChanges, {
     initialValue: '',
@@ -107,10 +108,10 @@ export class CreatePostComponent extends FormSnapshotBase {
   collaboratorSuggestions = toSignal(
     this.collaboratorSearchCtrl.valueChanges.pipe(
       debounceTime(300),
-      switchMap(v => (typeof v === 'string' && v.trim().length > 0 ? this.userService.search(v) : of([] as User[]))),
-      startWith([] as User[])
+      switchMap(v => (typeof v === 'string' && v.trim().length > 0 ? this.userService.search(v) : of([] as Author[]))),
+      startWith([] as Author[])
     ),
-    { initialValue: [] as User[] }
+    { initialValue: [] as Author[] }
   );
 
   readonly displayLocation = (value: Location | string | null): string => {
@@ -121,7 +122,7 @@ export class CreatePostComponent extends FormSnapshotBase {
   };
 
   selectCollaborator(event: MatAutocompleteSelectedEvent): void {
-    const user = event.option.value as User;
+    const user = event.option.value as Author;
     if (!this.selectedCollaborators().find(u => u.id === user.id)) {
       this.selectedCollaborators.update(list => [...list, user]);
     }
@@ -161,7 +162,7 @@ export class CreatePostComponent extends FormSnapshotBase {
     }
 
     this.facade.createPost({
-      author: this.profile()?.username ?? 'unknown',
+      author: this.currentUser()?.username ?? 'unknown',
       photos,
       caption,
       location: location ?? null,

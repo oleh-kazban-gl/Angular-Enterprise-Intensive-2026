@@ -18,24 +18,24 @@
       }
     }
 
-    &-subtitle {
+    &__subtitle {
       margin: 0;
       color: color-mix(in srgb, var(--textColor) 60%, transparent);
     }
 
-    &-stats {
+    &__stats {
       display: flex;
       justify-content: space-between;
       margin-top: 1rem;
     }
 
-    &-stat {
+    &__stat {
       font-weight: 700;
       display: block;
       font-size: 1.2rem;
     }
 
-    &-label {
+    &__label {
       color: color-mix(in srgb, var(--textColor) 60%, transparent);
       font-size: 0.85rem;
     }

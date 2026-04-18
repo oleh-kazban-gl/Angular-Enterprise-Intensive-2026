@@ -3,13 +3,17 @@ import { Router } from '@angular/router';
 
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { concatLatestFrom } from '@ngrx/operators';
+import { Store } from '@ngrx/store';
 
 import { AuthActions } from './auth.actions';
+import { selectCurrentUserId } from './auth.selectors';
 import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthEffects {
   private readonly actions$ = inject(Actions);
+  private readonly store = inject(Store);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
@@ -47,12 +51,33 @@ export class AuthEffects {
     { dispatch: false }
   );
 
+  loadUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.signInSuccess, AuthActions.restoreAuthSuccess),
+      concatLatestFrom(() => this.store.select(selectCurrentUserId)),
+      switchMap(([, userId]) => {
+        if (!userId) {
+          return of(AuthActions.loadUserFailure({ error: 'Invalid token' }));
+        }
+        return this.authService.getCurrentUser(userId).pipe(
+          map(user => AuthActions.loadUserSuccess({ user })),
+          catchError(error => of(AuthActions.loadUserFailure({ error: error.message })))
+        );
+      })
+    )
+  );
+
   signUp$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.signUp),
-      switchMap(({ name, email, password }) =>
-        this.authService.signUp(name, email, password).pipe(
-          map(() => AuthActions.signUpSuccess()),
+      switchMap(({ name, username, email, password }) =>
+        this.authService.signUp(name, username, email, password).pipe(
+          switchMap(({ id }) =>
+            this.authService.createAuthor(id, username).pipe(
+              map(() => AuthActions.signUpSuccess()),
+              catchError(error => of(AuthActions.signUpFailure({ error: error.message ?? String(error) })))
+            )
+          ),
           catchError(error => of(AuthActions.signUpFailure({ error: error.message ?? String(error) })))
         )
       )

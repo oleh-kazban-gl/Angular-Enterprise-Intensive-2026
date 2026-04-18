@@ -1,4 +1,4 @@
-export type { AuthResponse } from './+state/auth.models';
+export type { AuthResponse, User } from './+state/auth.models';
 export { AUTH_FEATURE_KEY, authReducer } from './+state/auth.reducer';
 export type { AuthState } from './+state/auth.reducer';
 export { AuthActions } from './+state/auth.actions';

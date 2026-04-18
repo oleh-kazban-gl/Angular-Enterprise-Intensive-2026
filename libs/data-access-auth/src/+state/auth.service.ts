@@ -1,18 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
-import { AuthResponse } from './auth.models';
+import { map } from 'rxjs';
+
+import { AuthResponse, User } from './auth.models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly http = inject(HttpClient);
 
   signIn(email: string, password: string) {
-    return this.http.post<AuthResponse>('/auth', { email, password });
+    return this.http
+      .post<{ accessToken: string }>('/login', { email, password })
+      .pipe(map(({ accessToken }) => ({ token: accessToken }) satisfies AuthResponse));
   }
 
-  signUp(name: string, email: string, password: string) {
-    return this.http.post<void>('/auth/sign-up', { name, email, password });
+  signUp(name: string, username: string, email: string, password: string) {
+    return this.http.post<{ id: string }>('/register', { name, username, email, password });
+  }
+
+  createAuthor(id: string, username: string) {
+    return this.http.post<void>('/authors', { id, username, avatarUrl: null });
+  }
+
+  getCurrentUser(userId: string) {
+    return this.http.get<User>(`/users/${userId}`);
   }
 
   getStoredToken(): string | null {

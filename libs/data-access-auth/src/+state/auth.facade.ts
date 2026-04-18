@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AuthActions } from './auth.actions';
-import { selectError, selectIsLoading, selectIsLoggedIn } from './auth.selectors';
+import { selectCurrentUser, selectError, selectIsLoading, selectIsLoggedIn } from './auth.selectors';
 
 @Injectable()
 export class AuthFacade {
@@ -12,13 +12,14 @@ export class AuthFacade {
   readonly isLoggedIn$ = this.store.select(selectIsLoggedIn);
   readonly isLoading$ = this.store.select(selectIsLoading);
   readonly error$ = this.store.select(selectError);
+  readonly currentUser$ = this.store.select(selectCurrentUser);
 
   signIn(email: string, password: string): void {
     this.store.dispatch(AuthActions.signIn({ email, password }));
   }
 
-  signUp(name: string, email: string, password: string): void {
-    this.store.dispatch(AuthActions.signUp({ name, email, password }));
+  signUp(name: string, username: string, email: string, password: string): void {
+    this.store.dispatch(AuthActions.signUp({ name, username, email, password }));
   }
 
   signOut(): void {

@@ -49,6 +49,7 @@ export const appRoutes: Route[] = [
   {
     path: 'profile',
     canActivate: [authGuard],
+    canDeactivate: [canDeactivateGuard],
     data: { pageTitle: 'profile.title' },
     providers: [provideState(PROFILE_FEATURE_KEY, profileReducer), provideEffects(ProfileEffects), ProfileFacade],
     loadComponent: () => import('@gl/feature-profile').then(m => m.ProfileComponent),

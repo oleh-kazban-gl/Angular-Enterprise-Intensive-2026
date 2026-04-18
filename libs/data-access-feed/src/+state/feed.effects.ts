@@ -25,12 +25,12 @@ export class FeedEffects {
         this.feedService.getPosts(page, size).pipe(
           map(response =>
             FeedActions.loadFeedSuccess({
-              posts: response.data,
+              posts: response.posts,
               pagination: {
                 page,
                 size,
-                totalItems: response.items,
-                totalPages: response.pages,
+                totalItems: response.totalItems,
+                totalPages: Math.ceil(response.totalItems / size),
               },
             })
           ),

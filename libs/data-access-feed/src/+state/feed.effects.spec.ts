@@ -62,13 +62,8 @@ describe('FeedEffects', () => {
     it('dispatches loadFeedSuccess with posts and pagination on success', async () => {
       const posts = [makePost('1'), makePost('2')];
       const response: PagedFeedResponse = {
-        data: posts,
-        items: 10,
-        pages: 2,
-        first: 1,
-        prev: null,
-        next: 2,
-        last: 2,
+        posts,
+        totalItems: 10,
       };
       feedService.getPosts.mockReturnValue(of(response));
 
