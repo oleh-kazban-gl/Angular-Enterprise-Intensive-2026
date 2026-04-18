@@ -49,7 +49,9 @@
 
       @if (!isEditing()) {
         <div card-footer>
-          <button mat-raised-button color="primary" (click)="startEdit()">{{ 'profile.editProfile' | translate }}</button>
+          <button mat-raised-button color="primary" (click)="startEdit()">
+            {{ 'profile.editProfile' | translate }}
+          </button>
         </div>
       }
     </gl-card>

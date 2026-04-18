@@ -25,12 +25,7 @@
 
   <div class="edit-profile__actions">
     <button type="button" mat-button (click)="onCancel()">{{ 'common.cancel' | translate }}</button>
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      [disabled]="form.invalid || saving()"
-    >
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid || saving()">
       {{ 'profile.saveChanges' | translate }}
     </button>
   </div>
