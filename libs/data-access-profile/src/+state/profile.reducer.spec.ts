@@ -16,6 +16,7 @@ const mockProfile: UserProfile = {
 const initialState: ProfileState = {
   profile: null,
   callState: 'init',
+  saveState: 'init',
 };
 
 describe('profileReducer', () => {

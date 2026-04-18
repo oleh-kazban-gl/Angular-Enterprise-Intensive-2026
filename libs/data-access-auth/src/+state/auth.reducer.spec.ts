@@ -3,6 +3,7 @@ import { authReducer, AuthState } from './auth.reducer';
 
 const initialState: AuthState = {
   token: null,
+  user: null,
   initialized: false,
   callState: 'init',
 };
@@ -15,7 +16,7 @@ describe('authReducer', () => {
 
   it('handles restoreAuthSuccess: sets token and marks initialized', () => {
     const state = authReducer(initialState, AuthActions.restoreAuthSuccess({ token: 'abc' }));
-    expect(state).toEqual({ token: 'abc', initialized: true, callState: 'init' });
+    expect(state).toEqual({ token: 'abc', user: null, initialized: true, callState: 'init' });
   });
 
   it('handles restoreAuthComplete: marks initialized without token', () => {
@@ -40,7 +41,7 @@ describe('authReducer', () => {
   });
 
   it('handles signUp: sets callState to loading', () => {
-    const state = authReducer(initialState, AuthActions.signUp({ name: 'John', email: 'a@b.com', password: '123' }));
+    const state = authReducer(initialState, AuthActions.signUp({ name: 'John', username: 'john', email: 'a@b.com', password: '123' }));
     expect(state.callState).toBe('loading');
   });
 

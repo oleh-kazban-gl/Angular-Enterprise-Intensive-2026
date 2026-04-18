@@ -23,24 +23,24 @@ describe('AuthService', () => {
   });
 
   describe('signIn', () => {
-    it('POSTs to /auth with email and password', () => {
+    it('POSTs to /login with email and password', () => {
       service.signIn('user@test.com', 'secret').subscribe(res => {
         expect(res).toEqual({ token: 'jwt-token' });
       });
-      const req = httpMock.expectOne('/auth');
+      const req = httpMock.expectOne('/login');
       expect(req.request.method).toBe('POST');
       expect(req.request.body).toEqual({ email: 'user@test.com', password: 'secret' });
-      req.flush({ token: 'jwt-token' });
+      req.flush({ accessToken: 'jwt-token' });
     });
   });
 
   describe('signUp', () => {
-    it('POSTs to /auth/sign-up with name, email and password', () => {
-      service.signUp('Alice', 'alice@test.com', 'pass').subscribe();
-      const req = httpMock.expectOne('/auth/sign-up');
+    it('POSTs to /register with name, username, email and password', () => {
+      service.signUp('Alice', 'alice', 'alice@test.com', 'pass').subscribe();
+      const req = httpMock.expectOne('/register');
       expect(req.request.method).toBe('POST');
-      expect(req.request.body).toEqual({ name: 'Alice', email: 'alice@test.com', password: 'pass' });
-      req.flush(null);
+      expect(req.request.body).toEqual({ name: 'Alice', username: 'alice', email: 'alice@test.com', password: 'pass' });
+      req.flush({ id: 'user-1' });
     });
   });
 

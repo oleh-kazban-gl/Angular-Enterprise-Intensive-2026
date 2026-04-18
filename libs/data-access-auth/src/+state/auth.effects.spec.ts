@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Action } from '@ngrx/store';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Subject } from 'rxjs';
 import { firstValueFrom, of, throwError } from 'rxjs';
 
@@ -16,6 +17,7 @@ describe('AuthEffects', () => {
   let actions$: Subject<Action>;
   let authService: jest.Mocked<AuthService>;
   let navigate: jest.Mock;
+  let store: MockStore;
 
   beforeEach(() => {
     actions$ = new Subject<Action>();
@@ -26,12 +28,14 @@ describe('AuthEffects', () => {
         AuthEffects,
         provideMockActions(() => actions$),
         AuthService,
+        provideMockStore(),
         { provide: Router, useValue: { navigate } },
       ],
     });
 
     effects = TestBed.inject(AuthEffects);
     authService = TestBed.inject(AuthService) as jest.Mocked<AuthService>;
+    store = TestBed.inject(MockStore);
   });
 
   describe('restoreAuth$', () => {
@@ -78,16 +82,17 @@ describe('AuthEffects', () => {
 
   describe('signUp$', () => {
     it('dispatches signUpSuccess on success', async () => {
-      authService.signUp.mockReturnValue(of(undefined));
+      authService.signUp.mockReturnValue(of({ id: 'user-1' }));
+      authService.createAuthor.mockReturnValue(of(undefined));
       const result = firstValueFrom(effects.signUp$);
-      actions$.next(AuthActions.signUp({ name: 'John', email: 'j@test.com', password: 'pass' }));
+      actions$.next(AuthActions.signUp({ name: 'John', username: 'john', email: 'j@test.com', password: 'pass' }));
       expect(await result).toEqual(AuthActions.signUpSuccess());
     });
 
     it('dispatches signUpFailure on HTTP error', async () => {
       authService.signUp.mockReturnValue(throwError(() => new Error('email already exists')));
       const result = firstValueFrom(effects.signUp$);
-      actions$.next(AuthActions.signUp({ name: 'John', email: 'j@test.com', password: 'pass' }));
+      actions$.next(AuthActions.signUp({ name: 'John', username: 'john', email: 'j@test.com', password: 'pass' }));
       expect(await result).toEqual(AuthActions.signUpFailure({ error: 'email already exists' }));
     });
   });
