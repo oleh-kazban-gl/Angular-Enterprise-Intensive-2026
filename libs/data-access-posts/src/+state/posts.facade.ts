@@ -30,9 +30,7 @@ export class PostsFacade {
   readonly pagination$: Observable<PostsPagination | null> = this.store.select(selectPagination);
 
   // ── Comment ───────────────────────────────────────────────────────────────
-  readonly submittingCommentPostId$: Observable<string | null> = this.store.select(
-    selectSubmittingCommentPostId
-  );
+  readonly submittingCommentPostId$: Observable<string | null> = this.store.select(selectSubmittingCommentPostId);
   readonly commentAdded$ = this.actions$.pipe(ofType(PostsActions.addCommentSuccess));
 
   // ── Per-post helpers ──────────────────────────────────────────────────────

@@ -46,9 +46,7 @@ export class PostsEffects {
       switchMap(({ postId }) =>
         this.postsService.getPost(postId).pipe(
           map(post => PostsActions.loadPostSuccess({ post })),
-          catchError(error =>
-            of(PostsActions.loadPostFailure({ postId, error: error.message ?? String(error) }))
-          )
+          catchError(error => of(PostsActions.loadPostFailure({ postId, error: error.message ?? String(error) })))
         )
       )
     )
@@ -97,9 +95,7 @@ export class PostsEffects {
       switchMap(({ postId, content, author }) =>
         this.postsService.addComment(postId, content, author).pipe(
           map(comment => PostsActions.addCommentSuccess({ postId, comment })),
-          catchError(error =>
-            of(PostsActions.addCommentFailure({ postId, error: error.message ?? String(error) }))
-          )
+          catchError(error => of(PostsActions.addCommentFailure({ postId, error: error.message ?? String(error) })))
         )
       )
     )

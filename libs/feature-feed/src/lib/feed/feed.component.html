@@ -7,11 +7,7 @@
   <section class="feed">
     @if (ids.length) {
       @for (id of ids; track id) {
-        <gl-post-card
-          class="feed__card"
-          [postId]="id"
-          (openDetail)="goToPost($event)"
-        />
+        <gl-post-card class="feed__card" [postId]="id" (openDetail)="goToPost($event)" />
       }
     } @else {
       <div>{{ 'feed.noPosts' | translate }}</div>

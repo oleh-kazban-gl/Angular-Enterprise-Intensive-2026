@@ -5,13 +5,7 @@
 } @else if (postData) {
   <gl-card class="post-card">
     <div card-header class="post-card__header">
-      <img
-        class="post-card__avatar"
-        [ngSrc]="postData.avatarUrl"
-        width="36"
-        height="36"
-        [alt]="postData.author"
-      />
+      <img class="post-card__avatar" [ngSrc]="postData.avatarUrl" width="36" height="36" [alt]="postData.author" />
       <div class="post-card__meta">
         <div class="post-card__author">{{ postData.author | uppercase }}</div>
         <div class="post-card__date">{{ postData.createdAt | date: 'dd.MM.yyyy' }}</div>
@@ -81,19 +75,11 @@
       } @else {
         <div class="post-card__action-buttons">
           <div class="post-card__action-group">
-            <button
-              mat-button
-              [attr.aria-pressed]="postData.liked"
-              (click)="toggleLike(); $event.stopPropagation()"
-            >
+            <button mat-button [attr.aria-pressed]="postData.liked" (click)="toggleLike(); $event.stopPropagation()">
               <mat-icon>{{ postData.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
               {{ 'post.like' | translate }}
             </button>
-            <button
-              mat-button
-              [attr.aria-expanded]="false"
-              (click)="commentMode.set(true); $event.stopPropagation()"
-            >
+            <button mat-button [attr.aria-expanded]="false" (click)="commentMode.set(true); $event.stopPropagation()">
               <mat-icon>chat_bubble_outline</mat-icon>
               {{ 'post.comment' | translate }}
             </button>

@@ -8,14 +8,8 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
-      '@angular-eslint/directive-selector': [
-        'error',
-        { type: 'attribute', prefix: 'gl', style: 'camelCase' },
-      ],
-      '@angular-eslint/component-selector': [
-        'error',
-        { type: 'element', prefix: 'gl', style: 'kebab-case' },
-      ],
+      '@angular-eslint/directive-selector': ['error', { type: 'attribute', prefix: 'gl', style: 'camelCase' }],
+      '@angular-eslint/component-selector': ['error', { type: 'element', prefix: 'gl', style: 'kebab-case' }],
     },
   },
   {

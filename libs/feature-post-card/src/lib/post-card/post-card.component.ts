@@ -1,12 +1,5 @@
 import { DatePipe, NgOptimizedImage, UpperCasePipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-  output,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output, signal } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -61,10 +54,9 @@ export class PostCardComponent {
   private readonly facade = inject(PostsFacade);
   private readonly authFacade = inject(AuthFacade);
 
-  protected readonly post = toSignal(
-    toObservable(this.postId).pipe(switchMap(id => this.facade.postById$(id))),
-    { initialValue: null }
-  );
+  protected readonly post = toSignal(toObservable(this.postId).pipe(switchMap(id => this.facade.postById$(id))), {
+    initialValue: null,
+  });
 
   protected readonly loading = toSignal(
     toObservable(this.postId).pipe(switchMap(id => this.facade.isPostLoading$(id))),
@@ -77,10 +69,7 @@ export class PostCardComponent {
 
   protected readonly currentUser = toSignal(this.authFacade.currentUser$);
 
-  protected readonly commentControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(1000),
-  ]);
+  protected readonly commentControl = new FormControl('', [Validators.required, Validators.maxLength(1000)]);
   protected readonly commentMode = signal(false);
 
   constructor() {
