@@ -8,16 +8,20 @@ import { AuthFacade } from '@gl/data-access-auth';
 import { ProfileFacade, UpdateProfilePayload } from '@gl/data-access-profile';
 import { CardComponent } from '@gl/ui-components/card';
 import { LoadingComponent } from '@gl/ui-components/loading';
+import { HasPendingChanges } from '@gl/util-forms';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'gl-profile',
+  host: {
+    '(window:beforeunload)': 'onBeforeUnload($event)',
+  },
   imports: [CardComponent, MatButtonModule, TranslatePipe, LoadingComponent, EditProfileComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, HasPendingChanges {
   private readonly profileFacade = inject(ProfileFacade);
   private readonly authFacade = inject(AuthFacade);
 
@@ -43,6 +47,16 @@ export class ProfileComponent implements OnInit {
 
   protected startEdit(): void {
     this.isEditing.set(true);
+  }
+
+  hasPendingChanges(): boolean {
+    return this.isEditing();
+  }
+
+  protected onBeforeUnload(event: BeforeUnloadEvent): void {
+    if (this.hasPendingChanges()) {
+      event.preventDefault();
+    }
   }
 
   protected cancelEdit(): void {
