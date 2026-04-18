@@ -13,7 +13,11 @@ services:
     image: node:22-alpine
     working_dir: /app
     # --host 0.0.0.0 makes json-server reachable from other containers
-    command: npx --yes json-server db.json --port 3333 --host 0.0.0.0
+    command: >
+      npx --yes
+      --package=json-server-auth@2.1.0
+      --package=json-server@0.17.4
+      json-server-auth db.json --port 3333 --host 0.0.0.0
     ports:
       - "3333:3333"     # expose for direct debugging from the host
     volumes:
