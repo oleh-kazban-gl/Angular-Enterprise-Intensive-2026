@@ -1,0 +1,37 @@
+<form class="edit-profile" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="edit-profile__field">
+    <mat-form-field appearance="outline" class="edit-profile__bio-field">
+      <mat-label>{{ 'profile.bio' | translate }}</mat-label>
+      <textarea
+        matInput
+        formControlName="bio"
+        rows="3"
+        [attr.aria-describedby]="form.controls.bio.errors ? 'bio-error' : null"
+      ></textarea>
+      @if (form.controls.bio.errors?.['maxlength']) {
+        <mat-error id="bio-error">{{ 'profile.bioMaxLength' | translate: { max: 150 } }}</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <div class="edit-profile__field">
+    <p class="edit-profile__label">{{ 'profile.avatar' | translate }}</p>
+    <gl-uploader
+      formControlName="avatar"
+      [fileValidators]="avatarFileValidators"
+      [uploaderValidators]="avatarUploaderValidators"
+    />
+  </div>
+
+  <div class="edit-profile__actions">
+    <button type="button" mat-button (click)="onCancel()">{{ 'common.cancel' | translate }}</button>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid || saving()"
+    >
+      {{ 'profile.saveChanges' | translate }}
+    </button>
+  </div>
+</form>
