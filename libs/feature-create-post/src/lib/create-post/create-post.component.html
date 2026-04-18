@@ -37,7 +37,7 @@
             @if (profile()?.avatar) {
               <img
                 class="create-post__avatar"
-                [ngSrc]="profile()!.avatar"
+                [src]="profile()!.avatar"
                 width="32"
                 height="32"
                 [alt]="currentUser()?.name || ''"

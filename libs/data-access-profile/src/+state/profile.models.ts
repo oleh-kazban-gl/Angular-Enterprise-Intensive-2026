@@ -6,3 +6,8 @@ export interface UserProfile {
   followers: number;
   following: number;
 }
+
+export interface UpdateProfilePayload {
+  bio: string;
+  avatar: File | null;
+}

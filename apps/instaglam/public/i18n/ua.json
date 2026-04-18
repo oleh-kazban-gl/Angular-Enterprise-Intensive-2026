@@ -20,12 +20,18 @@
     "backToFeed": "Назад до стрічки",
     "collaborators": "Позначені люди"
   },
+  "common": {
+    "cancel": "Скасувати"
+  },
   "profile": {
-    "title": "Профіль",
     "posts": "Публікації",
     "followers": "Підписники",
     "following": "Підписки",
-    "editProfile": "Редагувати профіль"
+    "editProfile": "Редагувати профіль",
+    "bio": "Про себе",
+    "avatar": "Аватар",
+    "saveChanges": "Зберегти зміни",
+    "bioMaxLength": "Опис не може перевищувати {{ max }} символів"
   },
   "settings": {
     "title": "Налаштування",

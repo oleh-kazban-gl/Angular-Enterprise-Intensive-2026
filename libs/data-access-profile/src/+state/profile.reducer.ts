@@ -9,11 +9,13 @@ export const PROFILE_FEATURE_KEY = 'profile';
 export interface ProfileState {
   profile: UserProfile | null;
   callState: CallState;
+  saveState: CallState;
 }
 
 const initialState: ProfileState = {
   profile: null,
   callState: 'init',
+  saveState: 'init',
 };
 
 export const profileFeature = createFeature({
@@ -29,6 +31,16 @@ export const profileFeature = createFeature({
     on(ProfileActions.loadProfileFailure, (state, { error }) => ({
       ...state,
       callState: { error },
+    })),
+    on(ProfileActions.updateProfile, state => ({ ...state, saveState: 'loading' as const })),
+    on(ProfileActions.updateProfileSuccess, (state, { profile }) => ({
+      ...state,
+      profile,
+      saveState: 'loaded' as const,
+    })),
+    on(ProfileActions.updateProfileFailure, (state, { error }) => ({
+      ...state,
+      saveState: { error },
     }))
   ),
 });

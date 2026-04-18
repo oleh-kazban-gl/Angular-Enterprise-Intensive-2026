@@ -1,4 +1,3 @@
-import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -29,7 +28,6 @@ import { Author, AuthorSearchService, Location, LocationSearchService } from '@g
     MatAutocompleteModule,
     MatButtonModule,
     MatIconModule,
-    NgOptimizedImage,
     TranslatePipe,
     CardComponent,
     LoadingComponent,

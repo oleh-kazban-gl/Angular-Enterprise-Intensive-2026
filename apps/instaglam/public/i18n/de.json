@@ -20,12 +20,18 @@
     "backToFeed": "Zurück zum Feed",
     "collaborators": "Markierte Personen"
   },
+  "common": {
+    "cancel": "Abbrechen"
+  },
   "profile": {
-    "title": "Profil",
     "posts": "Beiträge",
     "followers": "Follower",
     "following": "Folge ich",
-    "editProfile": "Profil bearbeiten"
+    "editProfile": "Profil bearbeiten",
+    "bio": "Bio",
+    "avatar": "Avatar",
+    "saveChanges": "Änderungen speichern",
+    "bioMaxLength": "Bio darf maximal {{ max }} Zeichen lang sein"
   },
   "settings": {
     "title": "Einstellungen",

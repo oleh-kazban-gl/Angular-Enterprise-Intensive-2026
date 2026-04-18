@@ -6,42 +6,52 @@
       <div card-header>
         <div class="profile__avatar">
           <img
-            [ngSrc]="profile()?.avatar || ''"
+            [src]="profile()?.avatar || ''"
             width="64"
             height="64"
             [alt]="currentUser()?.name || ''"
             class="profile__avatar-img"
-            priority
           />
         </div>
         <div>
           <h2>{{ currentUser()?.name }}</h2>
-          <p class="subtitle">{{ currentUser()?.username }}</p>
+          <p class="profile__subtitle">{{ currentUser()?.username }}</p>
         </div>
       </div>
 
       <div card-content>
-        <p>{{ profile()?.bio }}</p>
+        @if (isEditing()) {
+          <gl-edit-profile
+            [profile]="profile()"
+            [saving]="saving()"
+            (cancelled)="cancelEdit()"
+            (saved)="saveProfile($event)"
+          />
+        } @else {
+          <p>{{ profile()?.bio }}</p>
 
-        <div class="profile-stats">
-          <div>
-            <span class="profile-stat">{{ profile()?.posts }}</span>
-            <span class="profile-label">{{ 'profile.posts' | translate }}</span>
+          <div class="profile__stats">
+            <div>
+              <span class="profile__stat">{{ profile()?.posts }}</span>
+              <span class="profile__label">{{ 'profile.posts' | translate }}</span>
+            </div>
+            <div>
+              <span class="profile__stat">{{ profile()?.followers }}</span>
+              <span class="profile__label">{{ 'profile.followers' | translate }}</span>
+            </div>
+            <div>
+              <span class="profile__stat">{{ profile()?.following }}</span>
+              <span class="profile__label">{{ 'profile.following' | translate }}</span>
+            </div>
           </div>
-          <div>
-            <span class="profile-stat">{{ profile()?.followers }}</span>
-            <span class="profile-label">{{ 'profile.followers' | translate }}</span>
-          </div>
-          <div>
-            <span class="profile-stat">{{ profile()?.following }}</span>
-            <span class="profile-label">{{ 'profile.following' | translate }}</span>
-          </div>
+        }
+      </div>
+
+      @if (!isEditing()) {
+        <div card-footer>
+          <button mat-raised-button color="primary" (click)="startEdit()">{{ 'profile.editProfile' | translate }}</button>
         </div>
-      </div>
-
-      <div card-footer>
-        <button mat-raised-button color="primary">{{ 'profile.editProfile' | translate }}</button>
-      </div>
+      }
     </gl-card>
   </section>
 }
