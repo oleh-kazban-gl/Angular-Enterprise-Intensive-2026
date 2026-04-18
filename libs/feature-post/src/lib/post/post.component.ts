@@ -1,62 +1,38 @@
-import { DatePipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 
+import { getRouterSelectors } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
 import { TranslatePipe } from '@ngx-translate/core';
 
-import { AuthFacade } from '@gl/data-access-auth';
-import { PostFacade } from '@gl/data-access-post';
-import { CardComponent } from '@gl/ui-components/card';
-import { CarouselComponent } from '@gl/ui-components/carousel';
-import { LoadingComponent } from '@gl/ui-components/loading';
+import { PostsFacade, selectPostById } from '@gl/data-access-posts';
+import { PostCardComponent } from '@gl/feature-post-card';
 import { BreadcrumbService } from '@gl/util-services';
-import { CollaboratorsSetComponent } from './collaborators-set.component';
-import { TagsSetComponent } from './tags-set.component';
+
+const { selectRouteParam } = getRouterSelectors();
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DatePipe,
-    UpperCasePipe,
-    ReactiveFormsModule,
-    CardComponent,
-    CarouselComponent,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-    TranslatePipe,
-    LoadingComponent,
-    CollaboratorsSetComponent,
-    TagsSetComponent,
-  ],
+  imports: [TranslatePipe, PostCardComponent],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
 export class PostComponent {
+  private readonly store = inject(Store);
   private readonly router = inject(Router);
-  private readonly facade = inject(PostFacade);
-  private readonly authFacade = inject(AuthFacade);
+  private readonly facade = inject(PostsFacade);
   private readonly breadcrumbService = inject(BreadcrumbService);
 
-  protected readonly postId = toSignal(this.facade.postId$);
-  protected readonly post = toSignal(this.facade.post$, { requireSync: true });
-  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
-  protected readonly submittingComment = toSignal(this.facade.submittingComment$, { initialValue: false });
-  protected readonly currentUser = toSignal(this.authFacade.currentUser$);
-
-  protected readonly commentControl = new FormControl('', [Validators.required, Validators.maxLength(1000)]);
-  protected readonly commentMode = signal(false);
+  protected readonly postId = toSignal(this.store.select(selectRouteParam('id')));
 
   private readonly breadcrumbLabel = computed(() => {
-    const post = this.post();
+    const id = this.postId();
+    if (!id) {
+      return null;
+    }
+    const post = this.store.selectSignal(selectPostById(id))();
     if (!post) {
       return null;
     }
@@ -69,9 +45,9 @@ export class PostComponent {
 
   constructor() {
     effect(() => {
-      const postId = this.postId();
-      if (postId) {
-        this.facade.loadPost();
+      const id = this.postId();
+      if (id) {
+        this.facade.loadPost(id);
       }
     });
 
@@ -81,34 +57,9 @@ export class PostComponent {
         this.breadcrumbService.setDynamicLabel(label);
       }
     });
-
-    this.facade.commentAdded$.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.commentControl.reset();
-      this.commentMode.set(false);
-    });
   }
 
-  protected goBack() {
+  protected goBack(): void {
     this.router.navigate(['/posts']);
-  }
-
-  protected like() {
-    this.facade.toggleLike(!this.post()?.liked);
-  }
-
-  protected discardComment(): void {
-    this.commentControl.reset();
-    this.commentMode.set(false);
-  }
-
-  protected submitComment(): void {
-    if (this.commentControl.invalid || this.submittingComment()) {
-      return;
-    }
-    const author = this.currentUser()?.username;
-    if (!author) {
-      return;
-    }
-    this.facade.addComment(this.commentControl.value!.trim(), author);
   }
 }

@@ -10,8 +10,7 @@ import {
   CREATE_POST_FEATURE_KEY,
   createPostReducer,
 } from '@gl/data-access-create-post';
-import { FeedEffects, FeedFacade, FEED_FEATURE_KEY, feedReducer, FeedDeepLinkService } from '@gl/data-access-feed';
-import { PostEffects, PostFacade, POST_FEATURE_KEY, postReducer } from '@gl/data-access-post';
+import { FeedDeepLinkService, POSTS_FEATURE_KEY, PostsEffects, PostsFacade, postsReducer } from '@gl/data-access-posts';
 import { ProfileEffects, ProfileFacade, PROFILE_FEATURE_KEY, profileReducer } from '@gl/data-access-profile';
 import { SettingsEffects, SettingsFacade, SETTINGS_FEATURE_KEY, settingsReducer } from '@gl/data-access-settings';
 import { canDeactivateGuard } from '@gl/util-services';
@@ -27,9 +26,9 @@ export const appRoutes: Route[] = [
     canActivate: [authGuard],
     data: { breadcrumb: 'nav.posts' },
     providers: [
-      provideState(FEED_FEATURE_KEY, feedReducer),
-      provideEffects(FeedEffects),
-      FeedFacade,
+      provideState(POSTS_FEATURE_KEY, postsReducer),
+      provideEffects(PostsEffects),
+      PostsFacade,
       FeedDeepLinkService,
     ],
     children: [
@@ -41,7 +40,6 @@ export const appRoutes: Route[] = [
       {
         path: ':id',
         data: { pageTitle: 'post.title', breadcrumb: 'post.title' },
-        providers: [provideState(POST_FEATURE_KEY, postReducer), provideEffects(PostEffects), PostFacade],
         loadComponent: () => import('@gl/feature-post').then(m => m.PostComponent),
       },
     ],

@@ -1,5 +1,13 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "postId": "1",
+      "content": "wow, nice shot )",
+      "author": "CyberiXUA",
+      "createdAt": "2026-04-18T16:37:25.344Z",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "oleh.kazban@mail.com",
@@ -130,8 +138,14 @@
       ],
       "caption": "Loving this sunset view!",
       "location": "Santorini, Greece",
-      "collaborators": ["jane_travels", "sunseeker"],
-      "hashtags": ["#sunset", "#photooftheday"],
+      "collaborators": [
+        "jane_travels",
+        "sunseeker"
+      ],
+      "hashtags": [
+        "#sunset",
+        "#photooftheday"
+      ],
       "createdAt": "2026-04-06T16:00:00.000Z",
       "likes": 0,
       "liked": true
@@ -140,11 +154,16 @@
       "id": "2",
       "author": "city_sprinter",
       "avatarUrl": "https://picsum.photos/seed/city_sprinter/200/200",
-      "images": ["https://picsum.photos/seed/2/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/2/1200/800"
+      ],
       "caption": "Morning run through the city keeps me energized 💪",
       "location": "New York, USA",
       "collaborators": [],
-      "hashtags": ["#running", "#fitness"],
+      "hashtags": [
+        "#running",
+        "#fitness"
+      ],
       "createdAt": "2026-04-06T13:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -153,11 +172,17 @@
       "id": "3",
       "author": "coffee.junkie",
       "avatarUrl": "https://picsum.photos/seed/coffee.junkie/200/200",
-      "images": ["https://picsum.photos/seed/3/1200/800", "https://picsum.photos/seed/14/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/3/1200/800",
+        "https://picsum.photos/seed/14/1200/800"
+      ],
       "caption": "Starting the day right — espresso + notebook ☕️📓",
       "location": "Vienna, Austria",
       "collaborators": [],
-      "hashtags": ["#coffee", "#morningvibes"],
+      "hashtags": [
+        "#coffee",
+        "#morningvibes"
+      ],
       "createdAt": "2026-04-06T09:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -175,8 +200,13 @@
       ],
       "caption": "Chasing waterfalls in the forest.",
       "location": "Banff, Canada",
-      "collaborators": ["pixel_hunter"],
-      "hashtags": ["#hiking", "#nature"],
+      "collaborators": [
+        "pixel_hunter"
+      ],
+      "hashtags": [
+        "#hiking",
+        "#nature"
+      ],
       "createdAt": "2026-04-05T14:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -193,8 +223,14 @@
       ],
       "caption": "New gadget drop! Time to dive into the latest SDK. 💻",
       "location": null,
-      "collaborators": ["nightowl", "design_daily"],
-      "hashtags": ["#tech", "#dev"],
+      "collaborators": [
+        "nightowl",
+        "design_daily"
+      ],
+      "hashtags": [
+        "#tech",
+        "#dev"
+      ],
       "createdAt": "2026-04-05T11:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -203,11 +239,19 @@
       "id": "6",
       "author": "foodie_fiona",
       "avatarUrl": "https://picsum.photos/seed/foodie_fiona/200/200",
-      "images": ["https://picsum.photos/seed/6/1200/800", "https://picsum.photos/seed/22/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/6/1200/800",
+        "https://picsum.photos/seed/22/1200/800"
+      ],
       "caption": "Brunch goals. Avocado toast for the win 🥑✨",
       "location": "Melbourne, Australia",
-      "collaborators": ["coffee.junkie"],
-      "hashtags": ["#brunch", "#foodie"],
+      "collaborators": [
+        "coffee.junkie"
+      ],
+      "hashtags": [
+        "#brunch",
+        "#foodie"
+      ],
       "createdAt": "2026-04-04T10:30:00.000Z",
       "likes": 0,
       "liked": false
@@ -224,7 +268,10 @@
       "caption": "Golden hour in the city. Those lights never sleep.",
       "location": "Tokyo, Japan",
       "collaborators": [],
-      "hashtags": ["#goldenhour", "#citylife"],
+      "hashtags": [
+        "#goldenhour",
+        "#citylife"
+      ],
       "createdAt": "2026-04-04T19:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -233,11 +280,16 @@
       "id": "8",
       "author": "petpal",
       "avatarUrl": "https://picsum.photos/seed/petpal/200/200",
-      "images": ["https://picsum.photos/seed/8/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/8/1200/800"
+      ],
       "caption": "Meet my new buddy! 🐶",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#puppylove", "#dogsofinstagram"],
+      "hashtags": [
+        "#puppylove",
+        "#dogsofinstagram"
+      ],
       "createdAt": "2026-04-03T15:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -255,7 +307,10 @@
       "caption": "Playing with gradients today—color is everything.",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#design", "#uidesign"],
+      "hashtags": [
+        "#design",
+        "#uidesign"
+      ],
       "createdAt": "2026-04-03T12:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -264,11 +319,17 @@
       "id": "10",
       "author": "nightowl",
       "avatarUrl": "https://picsum.photos/seed/nightowl/200/200",
-      "images": ["https://picsum.photos/seed/10/1200/800", "https://picsum.photos/seed/28/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/10/1200/800",
+        "https://picsum.photos/seed/28/1200/800"
+      ],
       "caption": "Late night code session: +1 coffee, -1 social life 😅",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#coding", "#nightowl"],
+      "hashtags": [
+        "#coding",
+        "#nightowl"
+      ],
       "createdAt": "2026-04-02T23:00:00.000Z",
       "likes": 0,
       "liked": false
@@ -285,7 +346,9 @@
       "caption": "Some test post",
       "location": "London, UK",
       "collaborators": [],
-      "hashtags": ["#ukraine"],
+      "hashtags": [
+        "#ukraine"
+      ],
       "createdAt": "2026-04-06T17:19:24.676Z",
       "likes": 0,
       "liked": false
@@ -294,11 +357,17 @@
       "id": "12",
       "author": "surfside_sal",
       "avatarUrl": "https://picsum.photos/seed/surfside_sal/200/200",
-      "images": ["https://picsum.photos/seed/31/1200/800", "https://picsum.photos/seed/32/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/31/1200/800",
+        "https://picsum.photos/seed/32/1200/800"
+      ],
       "caption": "Waves, salt, and freedom. 🌊",
       "location": "Bali, Indonesia",
       "collaborators": [],
-      "hashtags": ["#surf", "#ocean"],
+      "hashtags": [
+        "#surf",
+        "#ocean"
+      ],
       "createdAt": "2026-04-02T08:00:00.000Z",
       "likes": 47,
       "liked": false
@@ -314,8 +383,13 @@
       ],
       "caption": "Above the clouds. Worth every step. 🏔️",
       "location": "Zermatt, Switzerland",
-      "collaborators": ["weekend.wanderer"],
-      "hashtags": ["#hiking", "#mountains"],
+      "collaborators": [
+        "weekend.wanderer"
+      ],
+      "hashtags": [
+        "#hiking",
+        "#mountains"
+      ],
       "createdAt": "2026-04-01T10:30:00.000Z",
       "likes": 93,
       "liked": false
@@ -324,11 +398,16 @@
       "id": "14",
       "author": "lens_of_life",
       "avatarUrl": "https://picsum.photos/seed/lens_of_life/200/200",
-      "images": ["https://picsum.photos/seed/36/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/36/1200/800"
+      ],
       "caption": "Street photography is storytelling without words.",
       "location": "Paris, France",
       "collaborators": [],
-      "hashtags": ["#streetphotography", "#blackandwhite"],
+      "hashtags": [
+        "#streetphotography",
+        "#blackandwhite"
+      ],
       "createdAt": "2026-04-01T07:45:00.000Z",
       "likes": 128,
       "liked": true
@@ -337,11 +416,17 @@
       "id": "15",
       "author": "plantmom_pat",
       "avatarUrl": "https://picsum.photos/seed/plantmom_pat/200/200",
-      "images": ["https://picsum.photos/seed/37/1200/800", "https://picsum.photos/seed/38/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/37/1200/800",
+        "https://picsum.photos/seed/38/1200/800"
+      ],
       "caption": "My urban jungle is thriving! 🌿",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#plants", "#indoorjungle"],
+      "hashtags": [
+        "#plants",
+        "#indoorjungle"
+      ],
       "createdAt": "2026-03-31T14:00:00.000Z",
       "likes": 61,
       "liked": false
@@ -350,11 +435,16 @@
       "id": "16",
       "author": "vinyl_vibes",
       "avatarUrl": "https://picsum.photos/seed/vinyl_vibes/200/200",
-      "images": ["https://picsum.photos/seed/39/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/39/1200/800"
+      ],
       "caption": "Dusted off a classic today. There's nothing like analog. 🎵",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#vinyl", "#music"],
+      "hashtags": [
+        "#vinyl",
+        "#music"
+      ],
       "createdAt": "2026-03-31T20:00:00.000Z",
       "likes": 55,
       "liked": false
@@ -371,7 +461,10 @@
       "caption": "2,000 km down. No destination in mind. 🚗",
       "location": "Route 66, USA",
       "collaborators": [],
-      "hashtags": ["#roadtrip", "#travel"],
+      "hashtags": [
+        "#roadtrip",
+        "#travel"
+      ],
       "createdAt": "2026-03-30T16:30:00.000Z",
       "likes": 204,
       "liked": false
@@ -380,11 +473,16 @@
       "id": "18",
       "author": "bookworm_bella",
       "avatarUrl": "https://picsum.photos/seed/bookworm_bella/200/200",
-      "images": ["https://picsum.photos/seed/43/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/43/1200/800"
+      ],
       "caption": "Cozy corner + a great read = perfect Sunday 📚",
       "location": "Edinburgh, Scotland",
       "collaborators": [],
-      "hashtags": ["#books", "#cozyday"],
+      "hashtags": [
+        "#books",
+        "#cozyday"
+      ],
       "createdAt": "2026-03-30T11:00:00.000Z",
       "likes": 39,
       "liked": false
@@ -393,11 +491,17 @@
       "id": "19",
       "author": "skywatch_sam",
       "avatarUrl": "https://picsum.photos/seed/skywatch_sam/200/200",
-      "images": ["https://picsum.photos/seed/44/1200/800", "https://picsum.photos/seed/45/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/44/1200/800",
+        "https://picsum.photos/seed/45/1200/800"
+      ],
       "caption": "Aurora borealis at last. A lifelong dream. 🌌",
       "location": "Tromsø, Norway",
       "collaborators": [],
-      "hashtags": ["#northernlights", "#aurora"],
+      "hashtags": [
+        "#northernlights",
+        "#aurora"
+      ],
       "createdAt": "2026-03-29T22:00:00.000Z",
       "likes": 512,
       "liked": true
@@ -406,11 +510,18 @@
       "id": "20",
       "author": "foodie_fiona",
       "avatarUrl": "https://picsum.photos/seed/foodie_fiona/200/200",
-      "images": ["https://picsum.photos/seed/46/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/46/1200/800"
+      ],
       "caption": "Homemade ramen night — took 4 hours, devoured in 10 minutes 🍜",
       "location": null,
-      "collaborators": ["coffee.junkie"],
-      "hashtags": ["#ramen", "#homecooking"],
+      "collaborators": [
+        "coffee.junkie"
+      ],
+      "hashtags": [
+        "#ramen",
+        "#homecooking"
+      ],
       "createdAt": "2026-03-29T19:30:00.000Z",
       "likes": 77,
       "liked": false
@@ -427,7 +538,10 @@
       "caption": "Red dunes at sunrise. Silence like you've never heard. 🏜️",
       "location": "Wadi Rum, Jordan",
       "collaborators": [],
-      "hashtags": ["#desert", "#landscape"],
+      "hashtags": [
+        "#desert",
+        "#landscape"
+      ],
       "createdAt": "2026-03-28T06:00:00.000Z",
       "likes": 145,
       "liked": false
@@ -436,11 +550,16 @@
       "id": "22",
       "author": "cityscape",
       "avatarUrl": "https://picsum.photos/seed/cityscape/200/200",
-      "images": ["https://picsum.photos/seed/50/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/50/1200/800"
+      ],
       "caption": "Neon reflections after the rain. 🌧️",
       "location": "Hong Kong",
       "collaborators": [],
-      "hashtags": ["#nightphotography", "#neon"],
+      "hashtags": [
+        "#nightphotography",
+        "#neon"
+      ],
       "createdAt": "2026-03-27T23:00:00.000Z",
       "likes": 231,
       "liked": false
@@ -449,11 +568,16 @@
       "id": "23",
       "author": "yoga_yael",
       "avatarUrl": "https://picsum.photos/seed/yoga_yael/200/200",
-      "images": ["https://picsum.photos/seed/51/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/51/1200/800"
+      ],
       "caption": "Morning flow at the edge of the world 🧘‍♀️",
       "location": "Uluwatu, Bali",
       "collaborators": [],
-      "hashtags": ["#yoga", "#mindfulness"],
+      "hashtags": [
+        "#yoga",
+        "#mindfulness"
+      ],
       "createdAt": "2026-03-27T07:00:00.000Z",
       "likes": 88,
       "liked": false
@@ -462,11 +586,16 @@
       "id": "24",
       "author": "techie_tom",
       "avatarUrl": "https://picsum.photos/seed/techie_tom/200/200",
-      "images": ["https://picsum.photos/seed/52/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/52/1200/800"
+      ],
       "caption": "New keyboard, who dis? ⌨️✨",
       "location": null,
       "collaborators": [],
-      "hashtags": ["#mechanicalkeyboard", "#dev"],
+      "hashtags": [
+        "#mechanicalkeyboard",
+        "#dev"
+      ],
       "createdAt": "2026-03-26T15:00:00.000Z",
       "likes": 34,
       "liked": false
@@ -475,11 +604,17 @@
       "id": "25",
       "author": "glitter_girl",
       "avatarUrl": "https://picsum.photos/seed/glitter_girl/200/200",
-      "images": ["https://picsum.photos/seed/53/1200/800", "https://picsum.photos/seed/54/1200/800"],
+      "images": [
+        "https://picsum.photos/seed/53/1200/800",
+        "https://picsum.photos/seed/54/1200/800"
+      ],
       "caption": "Last day of the trip. Leaving my heart here. 💛",
       "location": "Amalfi Coast, Italy",
       "collaborators": [],
-      "hashtags": ["#italy", "#travel"],
+      "hashtags": [
+        "#italy",
+        "#travel"
+      ],
       "createdAt": "2026-03-25T18:00:00.000Z",
       "likes": 176,
       "liked": false

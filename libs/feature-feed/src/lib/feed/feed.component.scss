@@ -4,67 +4,8 @@
     margin: 0 auto;
 
     &__card {
-      margin-bottom: 2rem;
-    }
-
-    &__header {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    &__avatar {
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 50%;
-      flex-shrink: 0;
-      object-fit: cover;
-      background-color: var(--avatarBg, color-mix(in srgb, var(--textColor) 8%, transparent));
-    }
-
-    &__meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.125rem;
-    }
-
-    &__author {
-      font-weight: 600;
-    }
-
-    &__time {
-      font-size: 0.9rem;
-      color: color-mix(in srgb, var(--textColor) 60%, transparent);
-    }
-
-    &__image {
-      width: 100%;
-      height: auto;
       display: block;
-      object-fit: cover;
-      border-radius: 0.75rem;
-      cursor: pointer;
-    }
-
-    &__actions {
-      width: 100%;
-    }
-
-    &__comment-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      width: 100%;
-    }
-
-    &__comment-field {
-      width: 100%;
-    }
-
-    &__comment-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.5rem;
+      margin-bottom: 2rem;
     }
 
     &__paginator {

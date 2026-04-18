@@ -1,0 +1,110 @@
+:host {
+  display: block;
+
+  .post-card {
+    &__header {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    &__avatar {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+      object-fit: cover;
+      background-color: var(--avatarBg, color-mix(in srgb, var(--textColor) 8%, transparent));
+    }
+
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    &__author {
+      font-weight: 600;
+    }
+
+    &__date {
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--textColor) 60%, transparent);
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.75rem;
+      cursor: pointer;
+    }
+
+    &__caption {
+      margin: 0;
+    }
+
+    &__comments {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    &__comment {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    &__comment-author {
+      font-weight: 600;
+      margin-right: 0.375rem;
+    }
+
+    &__comment-text {
+      color: var(--textColor);
+    }
+
+    &__actions {
+      width: 100%;
+    }
+
+    &__action-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__action-group {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    &__comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 100%;
+    }
+
+    &__comment-field {
+      width: 100%;
+    }
+
+    &__comment-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+  }
+}

@@ -1,86 +1,10 @@
-@let postItem = post();
-
-@if (loading()) {
-  <gl-loading />
-} @else {
+@if (postId(); as id) {
   <section class="post">
-    @if (postItem) {
-      <gl-card class="post__card">
-        <div card-header class="post__header">
-          <div class="post__avatar"></div>
-          <div class="post__meta">
-            <div class="post__author">{{ postItem.author | uppercase }}</div>
-            <div class="post__date">
-              {{ postItem.createdAt | date: 'dd.MM.yyyy' }}
-            </div>
-          </div>
-        </div>
-
-        <div card-content class="post__body">
-          <gl-carousel class="post__image" [images]="postItem.images" [label]="'Photos by ' + postItem.author" />
-          <p>{{ postItem.caption }}</p>
-          @if (postItem.collaborators.length) {
-            <gl-collaborators-set [collaborators]="postItem.collaborators" />
-          }
-          @if (postItem.hashtags.length) {
-            <gl-tags-set [tags]="postItem.hashtags" />
-          }
-        </div>
-
-        <div card-footer class="post__actions">
-          @if (commentMode()) {
-            <form
-              class="post__comment-form"
-              (ngSubmit)="submitComment()"
-              aria-label="Add a comment"
-              (click)="$event.stopPropagation()"
-            >
-              <mat-form-field class="post__comment-field" appearance="outline">
-                <mat-label>{{ 'post.commentPlaceholder' | translate }}</mat-label>
-                <textarea
-                  matInput
-                  [formControl]="commentControl"
-                  [attr.aria-label]="'post.commentPlaceholder' | translate"
-                  rows="3"
-                ></textarea>
-              </mat-form-field>
-              <div class="post__comment-actions">
-                <button mat-button type="button" (click)="discardComment()">
-                  {{ 'common.discard' | translate }}
-                </button>
-                <button
-                  mat-flat-button
-                  type="submit"
-                  [disabled]="commentControl.invalid || submittingComment()"
-                  [attr.aria-busy]="submittingComment()"
-                >
-                  {{ 'post.submitComment' | translate }}
-                </button>
-              </div>
-            </form>
-          } @else {
-            <div class="post__actions--buttons">
-              <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
-                <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
-                {{ 'post.like' | translate }}
-              </button>
-              <button mat-button (click)="commentMode.set(true)">
-                <mat-icon>chat_bubble_outline</mat-icon>
-                {{ 'post.comment' | translate }}
-              </button>
-              <button mat-button (click)="goBack()">
-                <mat-icon>arrow_back</mat-icon>
-                {{ 'post.back' | translate }}
-              </button>
-            </div>
-          }
-        </div>
-      </gl-card>
-    } @else {
-      <div class="post__missing">
-        <p>{{ 'post.notFound' | translate }}</p>
-        <button mat-button (click)="goBack()">{{ 'post.backToFeed' | translate }}</button>
-      </div>
-    }
+    <gl-post-card
+      class="post__card"
+      [postId]="id"
+      [showBack]="true"
+      (back)="goBack()"
+    />
   </section>
 }
