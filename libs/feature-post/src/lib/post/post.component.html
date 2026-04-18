@@ -25,39 +25,55 @@
           @if (postItem.hashtags.length) {
             <gl-tags-set [tags]="postItem.hashtags" />
           }
-
-          <form class="post__comment-form" (ngSubmit)="submitComment()" aria-label="Add a comment">
-            <mat-form-field class="post__comment-field" appearance="outline">
-              <mat-label>{{ 'post.commentPlaceholder' | translate }}</mat-label>
-              <textarea
-                matInput
-                [formControl]="commentControl"
-                [attr.aria-label]="'post.commentPlaceholder' | translate"
-                rows="2"
-                cdkTextareaAutosize
-              ></textarea>
-            </mat-form-field>
-            <button
-              mat-flat-button
-              type="submit"
-              class="post__comment-submit"
-              [disabled]="commentControl.invalid || submittingComment()"
-              [attr.aria-busy]="submittingComment()"
-            >
-              {{ 'post.submitComment' | translate }}
-            </button>
-          </form>
         </div>
 
         <div card-footer class="post__actions">
-          <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
-            <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
-            {{ 'post.like' | translate }}
-          </button>
-          <button mat-button (click)="goBack()">
-            <mat-icon>arrow_back</mat-icon>
-            {{ 'post.back' | translate }}
-          </button>
+          @if (commentMode()) {
+            <form
+              class="post__comment-form"
+              (ngSubmit)="submitComment()"
+              aria-label="Add a comment"
+              (click)="$event.stopPropagation()"
+            >
+              <mat-form-field class="post__comment-field" appearance="outline">
+                <mat-label>{{ 'post.commentPlaceholder' | translate }}</mat-label>
+                <textarea
+                  matInput
+                  [formControl]="commentControl"
+                  [attr.aria-label]="'post.commentPlaceholder' | translate"
+                  rows="3"
+                ></textarea>
+              </mat-form-field>
+              <div class="post__comment-actions">
+                <button mat-button type="button" (click)="discardComment()">
+                  {{ 'common.discard' | translate }}
+                </button>
+                <button
+                  mat-flat-button
+                  type="submit"
+                  [disabled]="commentControl.invalid || submittingComment()"
+                  [attr.aria-busy]="submittingComment()"
+                >
+                  {{ 'post.submitComment' | translate }}
+                </button>
+              </div>
+            </form>
+          } @else {
+            <div class="post__actions--buttons">
+              <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
+                <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
+                {{ 'post.like' | translate }}
+              </button>
+              <button mat-button (click)="commentMode.set(true)">
+                <mat-icon>chat_bubble_outline</mat-icon>
+                {{ 'post.comment' | translate }}
+              </button>
+              <button mat-button (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+                {{ 'post.back' | translate }}
+              </button>
+            </div>
+          }
         </div>
       </gl-card>
     } @else {

@@ -28,26 +28,12 @@
             </div>
 
             <div card-footer class="feed__actions">
-              <button mat-button [attr.aria-pressed]="post.liked" (click)="toggleLike(post); $event.stopPropagation()">
-                <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
-                {{ 'feed.like' | translate }}
-              </button>
-              <button
-                mat-button
-                [attr.aria-expanded]="openCommentPostId() === post.id"
-                (click)="toggleComment(post.id); $event.stopPropagation()"
-              >
-                <mat-icon>chat_bubble_outline</mat-icon>
-                {{ 'feed.comment' | translate }}
-              </button>
-            </div>
-
-            @if (openCommentPostId() === post.id) {
-              <div class="feed__comment-form-wrapper" (click)="$event.stopPropagation()">
+              @if (openCommentPostId() === post.id) {
                 <form
                   class="feed__comment-form"
                   (ngSubmit)="submitComment(post.id)"
                   [attr.aria-label]="'feed.commentFormLabel' | translate"
+                  (click)="$event.stopPropagation()"
                 >
                   <mat-form-field class="feed__comment-field" appearance="outline">
                     <mat-label>{{ 'feed.commentPlaceholder' | translate }}</mat-label>
@@ -59,12 +45,8 @@
                     ></textarea>
                   </mat-form-field>
                   <div class="feed__comment-actions">
-                    <button
-                      mat-button
-                      type="button"
-                      (click)="toggleComment(post.id)"
-                    >
-                      {{ 'common.cancel' | translate }}
+                    <button mat-button type="button" (click)="toggleComment(post.id); $event.stopPropagation()">
+                      {{ 'common.discard' | translate }}
                     </button>
                     <button
                       mat-flat-button
@@ -76,8 +58,21 @@
                     </button>
                   </div>
                 </form>
-              </div>
-            }
+              } @else {
+                <button mat-button [attr.aria-pressed]="post.liked" (click)="toggleLike(post); $event.stopPropagation()">
+                  <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
+                  {{ 'feed.like' | translate }}
+                </button>
+                <button
+                  mat-button
+                  [attr.aria-expanded]="false"
+                  (click)="toggleComment(post.id); $event.stopPropagation()"
+                >
+                  <mat-icon>chat_bubble_outline</mat-icon>
+                  {{ 'feed.comment' | translate }}
+                </button>
+              }
+            </div>
           </gl-card>
         }
       } @else {

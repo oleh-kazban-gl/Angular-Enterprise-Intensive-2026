@@ -18,6 +18,7 @@
   "post": {
     "title": "Beitrag",
     "like": "Gefällt mir",
+    "comment": "Kommentieren",
     "back": "Zurück",
     "notFound": "Beitrag nicht gefunden.",
     "backToFeed": "Zurück zum Feed",
@@ -26,7 +27,8 @@
     "submitComment": "Senden"
   },
   "common": {
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "discard": "Verwerfen"
   },
   "profile": {
     "posts": "Beiträge",

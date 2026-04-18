@@ -65,26 +65,34 @@
       overflow-y: auto;
     }
 
-    &__comment-form {
+    &__actions {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      padding-top: 0.25rem;
+      background: inherit;
+      width: 100%;
+
+      &--buttons {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+
+    &__comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 100%;
     }
 
     &__comment-field {
       width: 100%;
     }
 
-    &__comment-submit {
-      align-self: flex-end;
-    }
-
-    &__actions {
+    &__comment-actions {
       display: flex;
-      gap: 0.75rem;
       justify-content: flex-end;
-      background: inherit;
+      gap: 0.5rem;
     }
 
     &__missing {

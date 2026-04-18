@@ -1,5 +1,5 @@
 import { DatePipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -53,6 +53,7 @@ export class PostComponent {
   protected readonly currentUser = toSignal(this.authFacade.currentUser$);
 
   protected readonly commentControl = new FormControl('', [Validators.required, Validators.maxLength(1000)]);
+  protected readonly commentMode = signal(false);
 
   private readonly breadcrumbLabel = computed(() => {
     const post = this.post();
@@ -83,6 +84,7 @@ export class PostComponent {
 
     this.facade.commentAdded$.pipe(takeUntilDestroyed()).subscribe(() => {
       this.commentControl.reset();
+      this.commentMode.set(false);
     });
   }
 
@@ -92,6 +94,11 @@ export class PostComponent {
 
   protected like() {
     this.facade.toggleLike(!this.post()?.liked);
+  }
+
+  protected discardComment(): void {
+    this.commentControl.reset();
+    this.commentMode.set(false);
   }
 
   protected submitComment(): void {
@@ -103,69 +110,5 @@ export class PostComponent {
       return;
     }
     this.facade.addComment(this.commentControl.value!.trim(), author);
-  }
-}
-
-@Component({
-  selector: 'gl-post',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DatePipe,
-    UpperCasePipe,
-    CardComponent,
-    CarouselComponent,
-    MatButtonModule,
-    MatIconModule,
-    TranslatePipe,
-    LoadingComponent,
-    CollaboratorsSetComponent,
-    TagsSetComponent,
-  ],
-  templateUrl: './post.component.html',
-  styleUrl: './post.component.scss',
-})
-export class PostComponent {
-  private readonly router = inject(Router);
-  private readonly facade = inject(PostFacade);
-  private readonly breadcrumbService = inject(BreadcrumbService);
-
-  protected readonly postId = toSignal(this.facade.postId$);
-  protected readonly post = toSignal(this.facade.post$, { requireSync: true });
-  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
-
-  private readonly breadcrumbLabel = computed(() => {
-    const post = this.post();
-    if (!post) {
-      return null;
-    }
-    const d = new Date(post.createdAt);
-    const dd = d.getDate().toString().padStart(2, '0');
-    const mm = (d.getMonth() + 1).toString().padStart(2, '0');
-    const yyyy = d.getFullYear();
-    return `${post.author} ${dd}.${mm}.${yyyy} post`;
-  });
-
-  constructor() {
-    effect(() => {
-      const postId = this.postId();
-      if (postId) {
-        this.facade.loadPost();
-      }
-    });
-
-    effect(() => {
-      const label = this.breadcrumbLabel();
-      if (label) {
-        this.breadcrumbService.setDynamicLabel(label);
-      }
-    });
-  }
-
-  protected goBack() {
-    this.router.navigate(['/posts']);
-  }
-
-  protected like() {
-    this.facade.toggleLike(!this.post()?.liked);
   }
 }
