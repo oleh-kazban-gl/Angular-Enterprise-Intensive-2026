@@ -10,6 +10,8 @@ import { UpdateProfilePayload, UserProfile } from './profile.models';
 export class ProfileService {
   private readonly http = inject(HttpClient);
 
+  private readonly AVATAR_SIZE = 128;
+
   getProfile(userId: string): Observable<UserProfile> {
     return this.http.get<UserProfile>(`/profile/${userId}`);
   }
@@ -27,8 +29,6 @@ export class ProfileService {
       })
     );
   }
-
-  private readonly AVATAR_SIZE = 128;
 
   private fileToDataUrl(file: File): Observable<string> {
     return new Observable<string>(observer => {
