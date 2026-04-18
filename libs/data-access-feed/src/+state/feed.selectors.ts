@@ -3,7 +3,7 @@ import { createSelector } from '@ngrx/store';
 import { getError } from '@gl/util-ngrx';
 import { feedAdapter, feedFeature } from './feed.reducer';
 
-export const { selectFeedState, selectCallState } = feedFeature;
+export const { selectFeedState, selectCallState, selectSubmittingCommentPostId } = feedFeature;
 
 const { selectAll, selectEntities } = feedAdapter.getSelectors();
 

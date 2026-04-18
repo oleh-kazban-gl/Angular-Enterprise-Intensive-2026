@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 
 import { map } from 'rxjs';
 
-import { PagedFeedResponse, FeedPost } from './feed.models';
+import { FeedComment, PagedFeedResponse, FeedPost } from './feed.models';
 
 @Injectable({ providedIn: 'root' })
 export class FeedService {
@@ -28,5 +28,9 @@ export class FeedService {
 
   toggleLike(postId: string, liked: boolean) {
     return this.http.patch<FeedPost>(`/posts/${postId}`, { liked });
+  }
+
+  addComment(postId: string, content: string, author: string) {
+    return this.http.post<FeedComment>('/comments', { postId, content, author, createdAt: new Date().toISOString() });
   }
 }

@@ -10,6 +10,9 @@
     "noPosts": "Поки що немає публікацій :(",
     "like": "Подобається",
     "comment": "Коментувати",
+    "commentPlaceholder": "Додати коментар…",
+    "commentFormLabel": "Додати коментар",
+    "submitComment": "Опублікувати",
     "collaborators": "Позначені люди"
   },
   "post": {
@@ -18,7 +21,9 @@
     "back": "Назад",
     "notFound": "Публікацію не знайдено.",
     "backToFeed": "Назад до стрічки",
-    "collaborators": "Позначені люди"
+    "collaborators": "Позначені люди",
+    "commentPlaceholder": "Додати коментар…",
+    "submitComment": "Опублікувати"
   },
   "common": {
     "cancel": "Скасувати"
@@ -133,7 +138,8 @@
   },
   "notifications": {
     "liked": "Публікацію вподобано!",
-    "unliked": "Вподобання скасовано."
+    "unliked": "Вподобання скасовано.",
+    "commentAdded": "Коментар опубліковано!"
   },
   "confirmLeave": {
     "title": "Незбережені зміни",

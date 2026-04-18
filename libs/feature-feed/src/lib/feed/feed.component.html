@@ -32,11 +32,52 @@
                 <mat-icon>{{ post.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
                 {{ 'feed.like' | translate }}
               </button>
-              <button mat-button (click)="$event.stopPropagation()">
+              <button
+                mat-button
+                [attr.aria-expanded]="openCommentPostId() === post.id"
+                (click)="toggleComment(post.id); $event.stopPropagation()"
+              >
                 <mat-icon>chat_bubble_outline</mat-icon>
                 {{ 'feed.comment' | translate }}
               </button>
             </div>
+
+            @if (openCommentPostId() === post.id) {
+              <div class="feed__comment-form-wrapper" (click)="$event.stopPropagation()">
+                <form
+                  class="feed__comment-form"
+                  (ngSubmit)="submitComment(post.id)"
+                  [attr.aria-label]="'feed.commentFormLabel' | translate"
+                >
+                  <mat-form-field class="feed__comment-field" appearance="outline">
+                    <mat-label>{{ 'feed.commentPlaceholder' | translate }}</mat-label>
+                    <textarea
+                      matInput
+                      [formControl]="getCommentControl(post.id)"
+                      [attr.aria-label]="'feed.commentPlaceholder' | translate"
+                      rows="2"
+                    ></textarea>
+                  </mat-form-field>
+                  <div class="feed__comment-actions">
+                    <button
+                      mat-button
+                      type="button"
+                      (click)="toggleComment(post.id)"
+                    >
+                      {{ 'common.cancel' | translate }}
+                    </button>
+                    <button
+                      mat-flat-button
+                      type="submit"
+                      [disabled]="getCommentControl(post.id).invalid || submittingCommentPostId() === post.id"
+                      [attr.aria-busy]="submittingCommentPostId() === post.id"
+                    >
+                      {{ 'feed.submitComment' | translate }}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            }
           </gl-card>
         }
       } @else {

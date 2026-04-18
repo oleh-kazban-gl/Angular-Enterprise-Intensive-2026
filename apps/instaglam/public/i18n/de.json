@@ -10,6 +10,9 @@
     "noPosts": "Noch keine Beiträge :(",
     "like": "Gefällt mir",
     "comment": "Kommentieren",
+    "commentPlaceholder": "Kommentar hinzufügen…",
+    "commentFormLabel": "Kommentar hinzufügen",
+    "submitComment": "Senden",
     "collaborators": "Markierte Personen"
   },
   "post": {
@@ -18,7 +21,9 @@
     "back": "Zurück",
     "notFound": "Beitrag nicht gefunden.",
     "backToFeed": "Zurück zum Feed",
-    "collaborators": "Markierte Personen"
+    "collaborators": "Markierte Personen",
+    "commentPlaceholder": "Kommentar hinzufügen…",
+    "submitComment": "Senden"
   },
   "common": {
     "cancel": "Abbrechen"
@@ -133,7 +138,8 @@
   },
   "notifications": {
     "liked": "Beitrag gefällt dir!",
-    "unliked": "Gefällt dir nicht mehr."
+    "unliked": "Gefällt dir nicht mehr.",
+    "commentAdded": "Kommentar veröffentlicht!"
   },
   "confirmLeave": {
     "title": "Ungespeicherte Änderungen",

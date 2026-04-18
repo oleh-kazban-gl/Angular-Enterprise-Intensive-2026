@@ -11,3 +11,11 @@ export interface Post {
   liked: boolean;
   createdAt: string;
 }
+
+export interface Comment {
+  id: string;
+  postId: string;
+  author: string;
+  content: string;
+  createdAt: string;
+}

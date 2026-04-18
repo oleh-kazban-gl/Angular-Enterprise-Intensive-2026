@@ -6,7 +6,7 @@ import { postFeature } from './post.reducer';
 
 const { selectRouteParam } = getRouterSelectors();
 
-export const { selectPostState, selectPost, selectCallState } = postFeature;
+export const { selectPostState, selectPost, selectCallState, selectSubmittingComment } = postFeature;
 
 export const selectPostId = selectRouteParam('id');
 

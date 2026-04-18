@@ -10,6 +10,9 @@
     "noPosts": "No posts yet :(",
     "like": "Like",
     "comment": "Comment",
+    "commentPlaceholder": "Add a comment…",
+    "commentFormLabel": "Add a comment",
+    "submitComment": "Post",
     "collaborators": "Tagged people"
   },
   "post": {
@@ -18,7 +21,9 @@
     "back": "Back",
     "notFound": "Post not found.",
     "backToFeed": "Back to feed",
-    "collaborators": "Tagged people"
+    "collaborators": "Tagged people",
+    "commentPlaceholder": "Add a comment…",
+    "submitComment": "Post"
   },
   "common": {
     "cancel": "Cancel"
@@ -134,7 +139,8 @@
   },
   "notifications": {
     "liked": "Post liked!",
-    "unliked": "Post unliked."
+    "unliked": "Post unliked.",
+    "commentAdded": "Comment posted!"
   },
   "confirmLeave": {
     "title": "Unsaved Changes",

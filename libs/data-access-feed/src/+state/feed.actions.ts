@@ -11,5 +11,8 @@ export const FeedActions = createActionGroup({
     'Toggle Like': props<{ postId: string; liked: boolean }>(),
     'Toggle Like Success': props<{ postId: string; likes: number; liked: boolean }>(),
     'Toggle Like Failure': props<{ postId: string; previousLikes: number; previousLiked: boolean; error: string }>(),
+    'Add Comment': props<{ postId: string; content: string; author: string }>(),
+    'Add Comment Success': props<{ postId: string }>(),
+    'Add Comment Failure': props<{ postId: string; error: string }>(),
   },
 });

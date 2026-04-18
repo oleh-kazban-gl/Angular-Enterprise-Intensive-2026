@@ -46,6 +46,26 @@
       cursor: pointer;
     }
 
+    &__comment-form-wrapper {
+      padding: 0 1rem 1rem;
+    }
+
+    &__comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    &__comment-field {
+      width: 100%;
+    }
+
+    &__comment-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+
     &__paginator {
       display: flex;
       justify-content: center;

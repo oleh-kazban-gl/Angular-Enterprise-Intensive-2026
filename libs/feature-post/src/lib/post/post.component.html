@@ -25,6 +25,28 @@
           @if (postItem.hashtags.length) {
             <gl-tags-set [tags]="postItem.hashtags" />
           }
+
+          <form class="post__comment-form" (ngSubmit)="submitComment()" aria-label="Add a comment">
+            <mat-form-field class="post__comment-field" appearance="outline">
+              <mat-label>{{ 'post.commentPlaceholder' | translate }}</mat-label>
+              <textarea
+                matInput
+                [formControl]="commentControl"
+                [attr.aria-label]="'post.commentPlaceholder' | translate"
+                rows="2"
+                cdkTextareaAutosize
+              ></textarea>
+            </mat-form-field>
+            <button
+              mat-flat-button
+              type="submit"
+              class="post__comment-submit"
+              [disabled]="commentControl.invalid || submittingComment()"
+              [attr.aria-busy]="submittingComment()"
+            >
+              {{ 'post.submitComment' | translate }}
+            </button>
+          </form>
         </div>
 
         <div card-footer class="post__actions">

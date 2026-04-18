@@ -9,11 +9,13 @@ export const POST_FEATURE_KEY = 'post';
 export interface PostState {
   post: Post | null;
   callState: CallState;
+  submittingComment: boolean;
 }
 
 const initialState: PostState = {
   post: null,
   callState: 'init',
+  submittingComment: false,
 };
 
 export const postFeature = createFeature({
@@ -37,7 +39,10 @@ export const postFeature = createFeature({
     on(PostActions.toggleLikeFailure, (state, { previousLikes, previousLiked }) => ({
       ...state,
       post: state.post ? { ...state.post, likes: previousLikes, liked: previousLiked } : null,
-    }))
+    })),
+    on(PostActions.addComment, state => ({ ...state, submittingComment: true })),
+    on(PostActions.addCommentSuccess, state => ({ ...state, submittingComment: false })),
+    on(PostActions.addCommentFailure, state => ({ ...state, submittingComment: false }))
   ),
 });
 

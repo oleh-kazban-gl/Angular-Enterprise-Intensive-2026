@@ -30,3 +30,11 @@ export interface FeedFilters {
   page: number;
   size: number;
 }
+
+export interface FeedComment {
+  id: string;
+  postId: string;
+  author: string;
+  content: string;
+  createdAt: string;
+}

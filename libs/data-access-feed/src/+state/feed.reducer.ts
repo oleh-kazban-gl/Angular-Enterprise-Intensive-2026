@@ -10,6 +10,7 @@ export const FEED_FEATURE_KEY = 'feed';
 export interface FeedState extends EntityState<FeedPost> {
   callState: CallState;
   pagination: FeedPagination | null;
+  submittingCommentPostId: string | null;
 }
 
 export const feedAdapter: EntityAdapter<FeedPost> = createEntityAdapter<FeedPost>();
@@ -17,6 +18,7 @@ export const feedAdapter: EntityAdapter<FeedPost> = createEntityAdapter<FeedPost
 const initialState: FeedState = feedAdapter.getInitialState({
   callState: 'init',
   pagination: null,
+  submittingCommentPostId: null,
 });
 
 export const feedFeature = createFeature({
@@ -46,7 +48,10 @@ export const feedFeature = createFeature({
     // Roll back on failure
     on(FeedActions.toggleLikeFailure, (state, { postId, previousLikes, previousLiked }) =>
       feedAdapter.updateOne({ id: postId, changes: { likes: previousLikes, liked: previousLiked } }, state)
-    )
+    ),
+    on(FeedActions.addComment, (state, { postId }) => ({ ...state, submittingCommentPostId: postId })),
+    on(FeedActions.addCommentSuccess, state => ({ ...state, submittingCommentPostId: null })),
+    on(FeedActions.addCommentFailure, state => ({ ...state, submittingCommentPostId: null }))
   ),
 });
 
