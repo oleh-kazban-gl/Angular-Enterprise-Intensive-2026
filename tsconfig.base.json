@@ -34,8 +34,6 @@
       "@gl/util-forms": ["libs/util-forms/src/index.ts"],
       "@gl/util-ngrx": ["libs/util-ngrx/src/index.ts"],
       "@gl/data-access-profile": ["libs/data-access-profile/src/index.ts"],
-      "@gl/data-access-feed": ["libs/data-access-feed/src/index.ts"],
-      "@gl/data-access-post": ["libs/data-access-post/src/index.ts"],
       "@gl/data-access-posts": ["libs/data-access-posts/src/index.ts"],
       "@gl/feature-post-card": ["libs/feature-post-card/src/index.ts"],
       "@gl/data-access-auth": ["libs/data-access-auth/src/index.ts"],

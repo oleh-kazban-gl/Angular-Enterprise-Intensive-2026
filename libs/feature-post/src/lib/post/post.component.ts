@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { getRouterSelectors } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
-import { TranslatePipe } from '@ngx-translate/core';
 
 import { PostsFacade, selectPostById } from '@gl/data-access-posts';
 import { PostCardComponent } from '@gl/feature-post-card';
@@ -15,7 +14,7 @@ const { selectRouteParam } = getRouterSelectors();
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslatePipe, PostCardComponent],
+  imports: [PostCardComponent],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })

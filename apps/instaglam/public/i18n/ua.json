@@ -7,22 +7,13 @@
   },
   "feed": {
     "title": "Публікації",
-    "noPosts": "Поки що немає публікацій :(",
-    "like": "Подобається",
-    "comment": "Коментувати",
-    "commentPlaceholder": "Додати коментар…",
-    "commentFormLabel": "Додати коментар",
-    "submitComment": "Опублікувати",
-    "collaborators": "Позначені люди"
+    "noPosts": "Поки що немає публікацій :("
   },
   "post": {
     "title": "Публікація",
     "like": "Подобається",
     "comment": "Коментувати",
     "back": "Назад",
-    "notFound": "Публікацію не знайдено.",
-    "backToFeed": "Назад до стрічки",
-    "collaborators": "Позначені люди",
     "commentPlaceholder": "Додати коментар…",
     "submitComment": "Опублікувати"
   },

@@ -7,22 +7,13 @@
   },
   "feed": {
     "title": "Beiträge",
-    "noPosts": "Noch keine Beiträge :(",
-    "like": "Gefällt mir",
-    "comment": "Kommentieren",
-    "commentPlaceholder": "Kommentar hinzufügen…",
-    "commentFormLabel": "Kommentar hinzufügen",
-    "submitComment": "Senden",
-    "collaborators": "Markierte Personen"
+    "noPosts": "Noch keine Beiträge :("
   },
   "post": {
     "title": "Beitrag",
     "like": "Gefällt mir",
     "comment": "Kommentieren",
     "back": "Zurück",
-    "notFound": "Beitrag nicht gefunden.",
-    "backToFeed": "Zurück zum Feed",
-    "collaborators": "Markierte Personen",
     "commentPlaceholder": "Kommentar hinzufügen…",
     "submitComment": "Senden"
   },
