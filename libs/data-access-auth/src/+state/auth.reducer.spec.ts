@@ -41,7 +41,10 @@ describe('authReducer', () => {
   });
 
   it('handles signUp: sets callState to loading', () => {
-    const state = authReducer(initialState, AuthActions.signUp({ name: 'John', username: 'john', email: 'a@b.com', password: '123' }));
+    const state = authReducer(
+      initialState,
+      AuthActions.signUp({ name: 'John', username: 'john', email: 'a@b.com', password: '123' })
+    );
     expect(state.callState).toBe('loading');
   });
 
