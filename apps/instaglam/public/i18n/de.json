@@ -7,21 +7,19 @@
   },
   "feed": {
     "title": "Beiträge",
-    "noPosts": "Noch keine Beiträge :(",
-    "like": "Gefällt mir",
-    "comment": "Kommentieren",
-    "collaborators": "Markierte Personen"
+    "noPosts": "Noch keine Beiträge :("
   },
   "post": {
     "title": "Beitrag",
     "like": "Gefällt mir",
+    "comment": "Kommentieren",
     "back": "Zurück",
-    "notFound": "Beitrag nicht gefunden.",
-    "backToFeed": "Zurück zum Feed",
-    "collaborators": "Markierte Personen"
+    "commentPlaceholder": "Kommentar hinzufügen…",
+    "submitComment": "Senden"
   },
   "common": {
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "discard": "Verwerfen"
   },
   "profile": {
     "posts": "Beiträge",
@@ -133,7 +131,8 @@
   },
   "notifications": {
     "liked": "Beitrag gefällt dir!",
-    "unliked": "Gefällt dir nicht mehr."
+    "unliked": "Gefällt dir nicht mehr.",
+    "commentAdded": "Kommentar veröffentlicht!"
   },
   "confirmLeave": {
     "title": "Ungespeicherte Änderungen",

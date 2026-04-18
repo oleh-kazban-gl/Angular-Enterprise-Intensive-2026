@@ -1,0 +1,99 @@
+@let postData = post();
+
+@if (loading()) {
+  <gl-loading />
+} @else if (postData) {
+  <gl-card class="post-card">
+    <div card-header class="post-card__header">
+      <img class="post-card__avatar" [ngSrc]="postData.avatarUrl" width="36" height="36" [alt]="postData.author" />
+      <div class="post-card__meta">
+        <div class="post-card__author">{{ postData.author | uppercase }}</div>
+        <div class="post-card__date">{{ postData.createdAt | date: 'dd.MM.yyyy' }}</div>
+      </div>
+    </div>
+
+    <div card-content class="post-card__body">
+      <gl-carousel
+        class="post-card__image"
+        [images]="postData.images"
+        [label]="'Photos by ' + postData.author"
+        (click)="onCarouselClick()"
+      />
+
+      <p class="post-card__caption">{{ postData.caption }}</p>
+
+      @if (postData.collaborators.length) {
+        <gl-collaborators-set [collaborators]="postData.collaborators" />
+      }
+      @if (postData.hashtags.length) {
+        <gl-tags-set [tags]="postData.hashtags" />
+      }
+
+      @if (postData.comments.length) {
+        <ul class="post-card__comments" aria-label="Comments">
+          @for (comment of postData.comments; track comment.id) {
+            <li class="post-card__comment">
+              <span class="post-card__comment-author">{{ comment.author }}</span>
+              <span class="post-card__comment-text">{{ comment.content }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div card-footer class="post-card__actions">
+      @if (commentMode()) {
+        <form
+          class="post-card__comment-form"
+          (submit)="$event.preventDefault(); submitComment()"
+          aria-label="Add a comment"
+          (click)="$event.stopPropagation()"
+        >
+          <mat-form-field class="post-card__comment-field" appearance="outline">
+            <mat-label>{{ 'post.commentPlaceholder' | translate }}</mat-label>
+            <textarea
+              matInput
+              [formControl]="commentControl"
+              [attr.aria-label]="'post.commentPlaceholder' | translate"
+              rows="2"
+            ></textarea>
+          </mat-form-field>
+          <div class="post-card__comment-actions">
+            <button mat-button type="button" (click)="discardComment()">
+              {{ 'common.discard' | translate }}
+            </button>
+            <button
+              mat-flat-button
+              type="submit"
+              [disabled]="commentControl.invalid || submittingCommentPostId() === postData.id"
+              [attr.aria-busy]="submittingCommentPostId() === postData.id"
+            >
+              {{ 'post.submitComment' | translate }}
+            </button>
+          </div>
+        </form>
+      } @else {
+        <div class="post-card__action-buttons">
+          <div class="post-card__action-group">
+            <button mat-button [attr.aria-pressed]="postData.liked" (click)="toggleLike(); $event.stopPropagation()">
+              <mat-icon>{{ postData.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
+              {{ 'post.like' | translate }}
+            </button>
+            <button mat-button [attr.aria-expanded]="false" (click)="commentMode.set(true); $event.stopPropagation()">
+              <mat-icon>chat_bubble_outline</mat-icon>
+              {{ 'post.comment' | translate }}
+            </button>
+          </div>
+          @if (showBack()) {
+            <div class="post-card__action-group">
+              <button mat-button (click)="back.emit()">
+                <mat-icon>arrow_back</mat-icon>
+                {{ 'post.back' | translate }}
+              </button>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </gl-card>
+}

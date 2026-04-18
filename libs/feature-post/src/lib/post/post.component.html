@@ -1,48 +1,5 @@
-@let postItem = post();
-
-@if (loading()) {
-  <gl-loading />
-} @else {
+@if (postId(); as id) {
   <section class="post">
-    @if (postItem) {
-      <gl-card class="post__card">
-        <div card-header class="post__header">
-          <div class="post__avatar"></div>
-          <div class="post__meta">
-            <div class="post__author">{{ postItem.author | uppercase }}</div>
-            <div class="post__date">
-              {{ postItem.createdAt | date: 'dd.MM.yyyy' }}
-            </div>
-          </div>
-        </div>
-
-        <div card-content class="post__body">
-          <gl-carousel class="post__image" [images]="postItem.images" [label]="'Photos by ' + postItem.author" />
-          <p>{{ postItem.caption }}</p>
-          @if (postItem.collaborators.length) {
-            <gl-collaborators-set [collaborators]="postItem.collaborators" />
-          }
-          @if (postItem.hashtags.length) {
-            <gl-tags-set [tags]="postItem.hashtags" />
-          }
-        </div>
-
-        <div card-footer class="post__actions">
-          <button mat-button [attr.aria-pressed]="postItem.liked" (click)="like()">
-            <mat-icon>{{ postItem.liked ? 'favorite' : 'favorite_border' }}</mat-icon>
-            {{ 'post.like' | translate }}
-          </button>
-          <button mat-button (click)="goBack()">
-            <mat-icon>arrow_back</mat-icon>
-            {{ 'post.back' | translate }}
-          </button>
-        </div>
-      </gl-card>
-    } @else {
-      <div class="post__missing">
-        <p>{{ 'post.notFound' | translate }}</p>
-        <button mat-button (click)="goBack()">{{ 'post.backToFeed' | translate }}</button>
-      </div>
-    }
+    <gl-post-card class="post__card" [postId]="id" [showBack]="true" (back)="goBack()" />
   </section>
 }

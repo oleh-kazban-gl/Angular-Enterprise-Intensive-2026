@@ -7,21 +7,20 @@
   },
   "feed": {
     "title": "Posts",
-    "noPosts": "No posts yet :(",
-    "like": "Like",
-    "comment": "Comment",
-    "collaborators": "Tagged people"
+    "noPosts": "No posts yet :("
   },
   "post": {
     "title": "Post",
     "like": "Like",
+    "comment": "Comment",
     "back": "Back",
-    "notFound": "Post not found.",
-    "backToFeed": "Back to feed",
-    "collaborators": "Tagged people"
+
+    "commentPlaceholder": "Add a comment…",
+    "submitComment": "Post"
   },
   "common": {
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "discard": "Discard"
   },
   "profile": {
     "title": "Profile",
@@ -134,7 +133,8 @@
   },
   "notifications": {
     "liked": "Post liked!",
-    "unliked": "Post unliked."
+    "unliked": "Post unliked.",
+    "commentAdded": "Comment posted!"
   },
   "confirmLeave": {
     "title": "Unsaved Changes",

@@ -1,4 +1,13 @@
 {
+  "comments": [
+    {
+      "postId": "1",
+      "content": "wow, nice shot )",
+      "author": "CyberiXUA",
+      "createdAt": "2026-04-18T16:37:25.344Z",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "oleh.kazban@mail.com",

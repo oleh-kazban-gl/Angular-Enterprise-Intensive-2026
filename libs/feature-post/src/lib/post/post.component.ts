@@ -1,49 +1,37 @@
-import { DatePipe, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
-import { TranslatePipe } from '@ngx-translate/core';
+import { getRouterSelectors } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
 
-import { PostFacade } from '@gl/data-access-post';
-import { CardComponent } from '@gl/ui-components/card';
-import { CarouselComponent } from '@gl/ui-components/carousel';
-import { LoadingComponent } from '@gl/ui-components/loading';
+import { PostsFacade, selectPostById } from '@gl/data-access-posts';
+import { PostCardComponent } from '@gl/feature-post-card';
 import { BreadcrumbService } from '@gl/util-services';
-import { CollaboratorsSetComponent } from './collaborators-set.component';
-import { TagsSetComponent } from './tags-set.component';
+
+const { selectRouteParam } = getRouterSelectors();
 
 @Component({
   selector: 'gl-post',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DatePipe,
-    UpperCasePipe,
-    CardComponent,
-    CarouselComponent,
-    MatButtonModule,
-    MatIconModule,
-    TranslatePipe,
-    LoadingComponent,
-    CollaboratorsSetComponent,
-    TagsSetComponent,
-  ],
+  imports: [PostCardComponent],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
 export class PostComponent {
+  private readonly store = inject(Store);
   private readonly router = inject(Router);
-  private readonly facade = inject(PostFacade);
+  private readonly facade = inject(PostsFacade);
   private readonly breadcrumbService = inject(BreadcrumbService);
 
-  protected readonly postId = toSignal(this.facade.postId$);
-  protected readonly post = toSignal(this.facade.post$, { requireSync: true });
-  protected readonly loading = toSignal(this.facade.loading$, { requireSync: true });
+  protected readonly postId = toSignal(this.store.select(selectRouteParam('id')));
 
   private readonly breadcrumbLabel = computed(() => {
-    const post = this.post();
+    const id = this.postId();
+    if (!id) {
+      return null;
+    }
+    const post = this.store.selectSignal(selectPostById(id))();
     if (!post) {
       return null;
     }
@@ -56,9 +44,9 @@ export class PostComponent {
 
   constructor() {
     effect(() => {
-      const postId = this.postId();
-      if (postId) {
-        this.facade.loadPost();
+      const id = this.postId();
+      if (id) {
+        this.facade.loadPost(id);
       }
     });
 
@@ -70,11 +58,7 @@ export class PostComponent {
     });
   }
 
-  protected goBack() {
+  protected goBack(): void {
     this.router.navigate(['/posts']);
-  }
-
-  protected like() {
-    this.facade.toggleLike(!this.post()?.liked);
   }
 }
