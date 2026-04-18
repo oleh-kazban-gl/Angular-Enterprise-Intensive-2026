@@ -1,14 +1,13 @@
 import { DatePipe, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, output, signal } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toSignal, toObservable } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { switchMap } from 'rxjs';
-import { toObservable } from '@angular/core/rxjs-interop';
 
+import { switchMap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { AuthFacade } from '@gl/data-access-auth';
@@ -87,7 +86,9 @@ export class PostCardComponent {
 
   protected toggleLike(): void {
     const post = this.post();
-    if (!post) return;
+    if (!post) {
+      return;
+    }
     this.facade.toggleLike(post.id, !post.liked);
   }
 
@@ -98,9 +99,13 @@ export class PostCardComponent {
 
   protected submitComment(): void {
     const postId = this.postId();
-    if (this.commentControl.invalid || this.submittingCommentPostId() === postId) return;
+    if (this.commentControl.invalid || this.submittingCommentPostId() === postId) {
+      return;
+    }
     const author = this.currentUser()?.username;
-    if (!author) return;
+    if (!author) {
+      return;
+    }
     this.facade.addComment(postId, this.commentControl.value!.trim(), author);
   }
 }
