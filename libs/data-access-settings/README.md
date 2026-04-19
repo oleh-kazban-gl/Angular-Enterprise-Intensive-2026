@@ -4,14 +4,14 @@ NgRx state slice for application settings. Loads available languages from the AP
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `SettingsFacade` | Service | Exposes `languages$`, `isLoading$`, `error$` |
+| Symbol            | Type         | Description                                                  |
+| ----------------- | ------------ | ------------------------------------------------------------ |
+| `SettingsFacade`  | Service      | Exposes `languages$`, `isLoading$`, `error$`                 |
 | `SettingsActions` | NgRx Actions | `loadSettings`, `loadSettingsSuccess`, `loadSettingsFailure` |
-| `settingsReducer` | Reducer | Manages `SettingsState` |
-| `SettingsEffects` | Effects | Fetches settings from the `/settings` endpoint |
-| `Language` | Model | `{ code, label }` |
-| `AppSettings` | Model | `{ languages: Language[] }` |
+| `settingsReducer` | Reducer      | Manages `SettingsState`                                      |
+| `SettingsEffects` | Effects      | Fetches settings from the `/settings` endpoint               |
+| `Language`        | Model        | `{ code, label }`                                            |
+| `AppSettings`     | Model        | `{ languages: Language[] }`                                  |
 
 ## Dependencies
 

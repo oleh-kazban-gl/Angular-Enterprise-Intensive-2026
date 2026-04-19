@@ -10,14 +10,14 @@ NgRx state slice for user profile. Handles loading and updating the authenticate
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `ProfileFacade` | Service | Exposes `profile$`, `loading$`, `saving$`, `saved$`, `error$`, `saveError$` |
-| `ProfileActions` | NgRx Actions | `loadProfile`, `updateProfile` with success/failure variants |
-| `profileReducer` | Reducer | Manages `ProfileState` |
-| `ProfileEffects` | Effects | Load/save profile, triggered off `selectCurrentUserId` from auth |
-| `UserProfile` | Model | `{ id, username, bio, avatarUrl, followers, following }` |
-| `UpdateProfilePayload` | Model | Partial profile update shape |
+| Symbol                 | Type         | Description                                                                 |
+| ---------------------- | ------------ | --------------------------------------------------------------------------- |
+| `ProfileFacade`        | Service      | Exposes `profile$`, `loading$`, `saving$`, `saved$`, `error$`, `saveError$` |
+| `ProfileActions`       | NgRx Actions | `loadProfile`, `updateProfile` with success/failure variants                |
+| `profileReducer`       | Reducer      | Manages `ProfileState`                                                      |
+| `ProfileEffects`       | Effects      | Load/save profile, triggered off `selectCurrentUserId` from auth            |
+| `UserProfile`          | Model        | `{ id, username, bio, avatarUrl, followers, following }`                    |
+| `UpdateProfilePayload` | Model        | Partial profile update shape                                                |
 
 ## Dependencies
 

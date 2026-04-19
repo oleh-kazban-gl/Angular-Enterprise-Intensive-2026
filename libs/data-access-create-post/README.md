@@ -10,14 +10,14 @@ NgRx state slice for post creation. Handles the async flow of submitting a new p
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `CreatePostFacade` | Service | Exposes `isSubmitting$`, `error$`, and `createPost()` |
-| `CreatePostActions` | NgRx Actions | `createPost`, `createPostSuccess`, `createPostFailure`, `reset` |
-| `createPostReducer` | Reducer | Manages `CreatePostState` |
-| `CreatePostEffects` | Effects | Submits post, dispatches success/failure, handles navigation |
-| `CreatePostPayload` | Model | Post submission shape (caption, location, collaborators, image blobs) |
-| `Post` | Model | Full post entity shape |
+| Symbol              | Type         | Description                                                           |
+| ------------------- | ------------ | --------------------------------------------------------------------- |
+| `CreatePostFacade`  | Service      | Exposes `isSubmitting$`, `error$`, and `createPost()`                 |
+| `CreatePostActions` | NgRx Actions | `createPost`, `createPostSuccess`, `createPostFailure`, `reset`       |
+| `createPostReducer` | Reducer      | Manages `CreatePostState`                                             |
+| `CreatePostEffects` | Effects      | Submits post, dispatches success/failure, handles navigation          |
+| `CreatePostPayload` | Model        | Post submission shape (caption, location, collaborators, image blobs) |
+| `Post`              | Model        | Full post entity shape                                                |
 
 ## Dependencies
 

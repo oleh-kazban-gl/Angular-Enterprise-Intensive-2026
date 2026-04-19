@@ -4,10 +4,10 @@ Shared NgRx utilities used across all `data-access-*` libraries.
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `CallState` | Type | `'init' \| 'loading' \| 'loaded' \| { error: string }` |
-| `getError` | Function | Extracts the error string from a `CallState`, or `null` if not in an error state |
+| Symbol      | Type     | Description                                                                      |
+| ----------- | -------- | -------------------------------------------------------------------------------- |
+| `CallState` | Type     | `'init' \| 'loading' \| 'loaded' \| { error: string }`                           |
+| `getError`  | Function | Extracts the error string from a `CallState`, or `null` if not in an error state |
 
 ## Usage
 

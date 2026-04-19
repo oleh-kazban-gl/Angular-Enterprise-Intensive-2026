@@ -4,8 +4,8 @@ Standalone Angular pipes for common formatting tasks.
 
 ## Public API
 
-| Symbol | Selector | Description |
-|---|---|---|
+| Symbol            | Selector      | Description                                                  |
+| ----------------- | ------------- | ------------------------------------------------------------ |
 | `FormatBytesPipe` | `formatBytes` | Converts a byte count to a human-readable string (B, KB, MB) |
 
 ## Usage

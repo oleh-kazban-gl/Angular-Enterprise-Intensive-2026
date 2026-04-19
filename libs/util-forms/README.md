@@ -36,11 +36,11 @@ export class MyFormComponent extends FormSnapshotBase implements HasPendingChang
 }
 ```
 
-| Member | Description |
-|---|---|
-| `takeSnapshot()` | Saves the current form value as the baseline |
-| `hasPendingChanges()` | Returns `true` if the current value differs from the snapshot |
-| `formSnapshot()` (abstract) | Must return the serializable form value to compare against |
+| Member                      | Description                                                   |
+| --------------------------- | ------------------------------------------------------------- |
+| `takeSnapshot()`            | Saves the current form value as the baseline                  |
+| `hasPendingChanges()`       | Returns `true` if the current value differs from the snapshot |
+| `formSnapshot()` (abstract) | Must return the serializable form value to compare against    |
 
 ---
 

@@ -10,8 +10,8 @@ Smart feature component for the paginated posts feed. Coordinates pagination sta
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol          | Type      | Description              |
+| --------------- | --------- | ------------------------ |
 | `FeedComponent` | Component | Routable smart component |
 
 ## Dependencies

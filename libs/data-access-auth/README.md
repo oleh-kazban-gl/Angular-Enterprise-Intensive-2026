@@ -11,20 +11,20 @@ NgRx state slice for authentication. Manages login, signup, signout, and current
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `AuthFacade` | Service | Reactive access to auth state: `isLoggedIn$`, `isLoading$`, `error$`, `currentUser$` |
-| `authGuard` | Guard | Redirects to `/auth/sign-in` if not authenticated |
-| `guestGuard` | Guard | Redirects to `/feed` if already authenticated |
-| `authInterceptor` | Interceptor | Attaches Bearer token to outgoing HTTP requests |
-| `AuthActions` | NgRx Actions | `restoreAuth`, `signIn`, `signUp`, `signOut`, `loadUser` |
-| `authReducer` | Reducer | Manages `AuthState` |
-| `AuthEffects` | Effects | Handles async auth operations with localStorage persistence |
-| `selectCurrentUser` | Selector | Currently authenticated `User` |
-| `selectCurrentUserId` | Selector | ID of the currently authenticated user |
-| `selectIsLoggedIn` | Selector | Boolean login status |
-| `User` | Model | `{ id, username, email, avatarUrl }` |
-| `AuthResponse` | Model | `{ token }` |
+| Symbol                | Type         | Description                                                                          |
+| --------------------- | ------------ | ------------------------------------------------------------------------------------ |
+| `AuthFacade`          | Service      | Reactive access to auth state: `isLoggedIn$`, `isLoading$`, `error$`, `currentUser$` |
+| `authGuard`           | Guard        | Redirects to `/auth/sign-in` if not authenticated                                    |
+| `guestGuard`          | Guard        | Redirects to `/feed` if already authenticated                                        |
+| `authInterceptor`     | Interceptor  | Attaches Bearer token to outgoing HTTP requests                                      |
+| `AuthActions`         | NgRx Actions | `restoreAuth`, `signIn`, `signUp`, `signOut`, `loadUser`                             |
+| `authReducer`         | Reducer      | Manages `AuthState`                                                                  |
+| `AuthEffects`         | Effects      | Handles async auth operations with localStorage persistence                          |
+| `selectCurrentUser`   | Selector     | Currently authenticated `User`                                                       |
+| `selectCurrentUserId` | Selector     | ID of the currently authenticated user                                               |
+| `selectIsLoggedIn`    | Selector     | Boolean login status                                                                 |
+| `User`                | Model        | `{ id, username, email, avatarUrl }`                                                 |
+| `AuthResponse`        | Model        | `{ token }`                                                                          |
 
 ## Dependencies
 

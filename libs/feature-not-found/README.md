@@ -8,8 +8,8 @@ Simple card-based layout with a localized error message and a back-navigation bu
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol              | Type      | Description                   |
+| ------------------- | --------- | ----------------------------- |
 | `NotFoundComponent` | Component | Routable standalone component |
 
 ## Dependencies

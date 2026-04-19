@@ -13,18 +13,18 @@ NgRx state slice for the posts feed. Manages paginated feed loading, individual 
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `PostsFacade` | Service | Primary interface for all post state and dispatching |
-| `PostsActions` | NgRx Actions | `loadFeedPage`, `loadPost`, `toggleLike`, `addComment`, `clearFeed` |
-| `postsReducer` | Reducer | Manages normalized `PostsState` via `@ngrx/entity` adapter |
-| `PostsEffects` | Effects | Async operations: HTTP calls, notifications, i18n |
-| `FeedDeepLinkService` | Service | Syncs `page`/`size` query params ↔ NgRx pagination state |
-| `Post` | Model | Full post entity |
-| `Comment` | Model | `{ id, authorId, body, createdAt }` |
-| `PostsPagination` | Model | `{ page, size, total }` |
-| `PostsFilters` | Model | Active feed filter shape |
-| `PagedPostsResponse` | Model | HTTP response shape including pagination headers |
+| Symbol                | Type         | Description                                                         |
+| --------------------- | ------------ | ------------------------------------------------------------------- |
+| `PostsFacade`         | Service      | Primary interface for all post state and dispatching                |
+| `PostsActions`        | NgRx Actions | `loadFeedPage`, `loadPost`, `toggleLike`, `addComment`, `clearFeed` |
+| `postsReducer`        | Reducer      | Manages normalized `PostsState` via `@ngrx/entity` adapter          |
+| `PostsEffects`        | Effects      | Async operations: HTTP calls, notifications, i18n                   |
+| `FeedDeepLinkService` | Service      | Syncs `page`/`size` query params ↔ NgRx pagination state           |
+| `Post`                | Model        | Full post entity                                                    |
+| `Comment`             | Model        | `{ id, authorId, body, createdAt }`                                 |
+| `PostsPagination`     | Model        | `{ page, size, total }`                                             |
+| `PostsFilters`        | Model        | Active feed filter shape                                            |
+| `PagedPostsResponse`  | Model        | HTTP response shape including pagination headers                    |
 
 ## Dependencies
 

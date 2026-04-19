@@ -6,17 +6,17 @@ Presentational feature component for a single post. Handles image carousel, meta
 
 ### Inputs
 
-| Input | Type | Description |
-|---|---|---|
-| `postId` | `string` (required) | Used to select the post from the NgRx store |
-| `showBack` | `boolean` | Shows a back-navigation button when `true` |
+| Input      | Type                | Description                                 |
+| ---------- | ------------------- | ------------------------------------------- |
+| `postId`   | `string` (required) | Used to select the post from the NgRx store |
+| `showBack` | `boolean`           | Shows a back-navigation button when `true`  |
 
 ### Outputs
 
-| Output | Description |
-|---|---|
+| Output       | Description                                 |
+| ------------ | ------------------------------------------- |
 | `openDetail` | Emitted when the post title/link is clicked |
-| `back` | Emitted when the back button is clicked |
+| `back`       | Emitted when the back button is clicked     |
 
 ### Features
 
@@ -28,8 +28,8 @@ Presentational feature component for a single post. Handles image carousel, meta
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol              | Type      | Description                               |
+| ------------------- | --------- | ----------------------------------------- |
 | `PostCardComponent` | Component | Standalone, input/output-driven post card |
 
 ## Dependencies

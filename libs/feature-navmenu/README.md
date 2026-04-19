@@ -9,10 +9,10 @@ Main application layout shell. Provides the responsive sidebar navigation and br
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `NavmenuComponent` | Component | Top-level app shell layout |
-| `BreadcrumbComponent` | Component | Breadcrumb navigation bar |
+| Symbol                | Type      | Description                |
+| --------------------- | --------- | -------------------------- |
+| `NavmenuComponent`    | Component | Top-level app shell layout |
+| `BreadcrumbComponent` | Component | Breadcrumb navigation bar  |
 
 ## Dependencies
 

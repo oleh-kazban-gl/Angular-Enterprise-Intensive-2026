@@ -11,8 +11,8 @@ Smart feature component for the single post detail view. Resolves the post from 
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol          | Type      | Description              |
+| --------------- | --------- | ------------------------ |
 | `PostComponent` | Component | Routable smart component |
 
 ## Dependencies

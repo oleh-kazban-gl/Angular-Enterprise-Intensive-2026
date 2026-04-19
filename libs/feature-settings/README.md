@@ -11,8 +11,8 @@ Smart feature component for application settings: language selection and theme t
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol              | Type      | Description              |
+| ------------------- | --------- | ------------------------ |
 | `SettingsComponent` | Component | Routable smart component |
 
 ## Dependencies

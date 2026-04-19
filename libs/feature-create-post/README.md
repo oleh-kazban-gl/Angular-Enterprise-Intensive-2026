@@ -13,8 +13,8 @@ Smart feature component for creating a new post. Supports image upload, caption 
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol                | Type      | Description              |
+| --------------------- | --------- | ------------------------ |
 | `CreatePostComponent` | Component | Routable smart component |
 
 ## Dependencies

@@ -4,13 +4,13 @@ Shared dumb UI component library. Organized into secondary entry points for opti
 
 ## Entry Points
 
-| Entry Point | Selector | Description |
-|---|---|---|
-| `@gl/ui-components/card` | `gl-card` | Generic content wrapper with consistent padding and margin |
-| `@gl/ui-components/carousel` | `gl-carousel` | Keyboard-navigable image carousel with dot indicators |
-| `@gl/ui-components/confirm-dialog` | — | Material confirmation dialog used by `canDeactivateGuard` |
-| `@gl/ui-components/loading` | `gl-loading` | Material spinner wrapper with configurable `diameter` input |
-| `@gl/ui-components/uploader` | `gl-uploader` | `ControlValueAccessor` file picker with built-in validation |
+| Entry Point                        | Selector      | Description                                                 |
+| ---------------------------------- | ------------- | ----------------------------------------------------------- |
+| `@gl/ui-components/card`           | `gl-card`     | Generic content wrapper with consistent padding and margin  |
+| `@gl/ui-components/carousel`       | `gl-carousel` | Keyboard-navigable image carousel with dot indicators       |
+| `@gl/ui-components/confirm-dialog` | —             | Material confirmation dialog used by `canDeactivateGuard`   |
+| `@gl/ui-components/loading`        | `gl-loading`  | Material spinner wrapper with configurable `diameter` input |
+| `@gl/ui-components/uploader`       | `gl-uploader` | `ControlValueAccessor` file picker with built-in validation |
 
 ## Usage
 
@@ -26,12 +26,12 @@ import { UploaderComponent } from '@gl/ui-components/uploader';
 
 The `@gl/ui-components/uploader` entry point also exports reusable file validators:
 
-| Validator | Description |
-|---|---|
+| Validator                | Description                                     |
+| ------------------------ | ----------------------------------------------- |
 | `fileType(...mimeTypes)` | Rejects files not matching the given MIME types |
-| `maxFileSize(bytes)` | Rejects files exceeding the given size |
-| `requiredFiles()` | Requires at least one file to be selected |
-| `maxFiles(n)` | Limits the number of selected files |
+| `maxFileSize(bytes)`     | Rejects files exceeding the given size          |
+| `requiredFiles()`        | Requires at least one file to be selected       |
+| `maxFiles(n)`            | Limits the number of selected files             |
 
 ```typescript
 import { UploaderComponent, fileType, maxFileSize, requiredFiles } from '@gl/ui-components/uploader';

@@ -4,11 +4,11 @@ Smart feature library for authentication flows. Provides lazy-loaded routes for 
 
 ## Routes
 
-| Path | Component | Guard |
-|---|---|---|
-| `/auth/sign-in` | `SignInComponent` | `guestGuard` |
-| `/auth/sign-up` | `SignUpComponent` | `guestGuard` |
-| `/auth/sign-out` | `SignOutComponent` | `authGuard` |
+| Path             | Component          | Guard        |
+| ---------------- | ------------------ | ------------ |
+| `/auth/sign-in`  | `SignInComponent`  | `guestGuard` |
+| `/auth/sign-up`  | `SignUpComponent`  | `guestGuard` |
+| `/auth/sign-out` | `SignOutComponent` | `authGuard`  |
 
 ## Components
 
@@ -18,8 +18,8 @@ Smart feature library for authentication flows. Provides lazy-loaded routes for 
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
+| Symbol       | Type   | Description               |
+| ------------ | ------ | ------------------------- |
 | `authRoutes` | Routes | Lazy-loadable route array |
 
 ## Dependencies

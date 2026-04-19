@@ -9,9 +9,9 @@ Smart feature component for viewing and editing the authenticated user's profile
 
 ## Public API
 
-| Symbol | Type | Description |
-|---|---|---|
-| `ProfileComponent` | Component | Routable smart component |
+| Symbol                 | Type      | Description                   |
+| ---------------------- | --------- | ----------------------------- |
+| `ProfileComponent`     | Component | Routable smart component      |
 | `EditProfileComponent` | Component | Input/output-driven edit form |
 
 ## Dependencies
