@@ -84,6 +84,42 @@ Typical workspace structure:
 
 Applications act as entry points, while most of the functionality is implemented inside reusable libraries.
 
+## Library Documentation
+
+### Data Access
+
+| Library | Description |
+| --- | --- |
+| [data-access-auth](libs/data-access-auth/README.md) | NgRx auth state: login, signup, token, user |
+| [data-access-create-post](libs/data-access-create-post/README.md) | NgRx state for post creation |
+| [data-access-posts](libs/data-access-posts/README.md) | NgRx feed state: pagination, likes, comments |
+| [data-access-profile](libs/data-access-profile/README.md) | NgRx profile state: load and update |
+| [data-access-settings](libs/data-access-settings/README.md) | NgRx settings state: available languages |
+
+### Features
+
+| Library | Description |
+| --- | --- |
+| [feature-auth](libs/feature-auth/README.md) | Sign-in, sign-up, and sign-out pages |
+| [feature-create-post](libs/feature-create-post/README.md) | Post creation form with image upload |
+| [feature-feed](libs/feature-feed/README.md) | Paginated posts feed |
+| [feature-navmenu](libs/feature-navmenu/README.md) | App shell: sidebar nav and breadcrumbs |
+| [feature-not-found](libs/feature-not-found/README.md) | 404 page |
+| [feature-post](libs/feature-post/README.md) | Single post detail view |
+| [feature-post-card](libs/feature-post-card/README.md) | Post card component (likes, comments, carousel) |
+| [feature-profile](libs/feature-profile/README.md) | Profile view and edit page |
+| [feature-settings](libs/feature-settings/README.md) | Language and theme settings page |
+
+### UI & Utilities
+
+| Library | Description |
+| --- | --- |
+| [ui-components](libs/ui-components/README.md) | Shared dumb components: card, carousel, uploader, dialog, spinner |
+| [pipes](libs/pipes/README.md) | Custom Angular pipes (`formatBytes`) |
+| [util-forms](libs/util-forms/README.md) | Reactive form helpers: error extraction, change detection |
+| [util-ngrx](libs/util-ngrx/README.md) | Shared NgRx types: `CallState`, `getError` |
+| [util-services](libs/util-services/README.md) | App-wide services: HTTP, storage, theme, i18n, notifications |
+
 ---
 
 # Development Environment
@@ -103,6 +139,10 @@ See the setup guide:
 See the NX commands:
 
 [nx.md](nx.md)
+
+See the Nx workspace guide:
+
+[readme-workspace.md](readme-workspace.md)
 
 ---
 
@@ -140,6 +180,10 @@ pnpm start
 | `pnpm lint:affected` | Lint affected projects only          |
 | `pnpm analyze`       | Build and open bundle size treemap   |
 | `pnpm dep-graph`     | Open Nx dependency graph             |
+| `pnpm docker:build`  | Build the Docker image               |
+| `pnpm docker:run`    | Run the Docker container on port 4200|
+| `pnpm docker:up`     | Build and start with Docker Compose  |
+| `pnpm docker:down`   | Stop and remove Docker Compose stack |
 
 ---
 
