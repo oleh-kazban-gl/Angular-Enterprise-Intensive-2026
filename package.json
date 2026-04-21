@@ -14,6 +14,7 @@
     "format": "nx format:write --all",
     "format:uncommitted": "nx format:write --uncommitted",
     "format:check": "nx format:check --all",
+    "build": "nx run-many -t build",
     "dep-graph": "nx dep-graph",
     "analyze": "nx build instaglam --source-map && npx source-map-explorer dist/apps/instaglam/*.js --no-border-checks",
     "docker:build": "docker build -t instaglam .",
