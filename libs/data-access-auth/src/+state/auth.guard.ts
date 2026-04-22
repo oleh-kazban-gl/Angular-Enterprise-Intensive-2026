@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-import { filter, map, take } from 'rxjs';
+import { combineLatest, filter, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { selectInitialized, selectIsLoggedIn } from './auth.selectors';
@@ -10,10 +10,10 @@ import { selectInitialized, selectIsLoggedIn } from './auth.selectors';
 export const authGuard: CanActivateFn = () => {
   const store = inject(Store);
   const router = inject(Router);
-  return store.select(selectInitialized).pipe(
-    filter(Boolean),
+  return combineLatest([store.select(selectInitialized), store.select(selectIsLoggedIn)]).pipe(
+    filter(([initialized]) => initialized),
     take(1),
-    map(() => (store.selectSignal(selectIsLoggedIn)() ? true : router.createUrlTree(['/auth/sign-in'])))
+    map(([, isLoggedIn]) => (isLoggedIn ? true : router.createUrlTree(['/auth/sign-in'])))
   );
 };
 
@@ -21,9 +21,9 @@ export const authGuard: CanActivateFn = () => {
 export const guestGuard: CanActivateFn = () => {
   const store = inject(Store);
   const router = inject(Router);
-  return store.select(selectInitialized).pipe(
-    filter(Boolean),
+  return combineLatest([store.select(selectInitialized), store.select(selectIsLoggedIn)]).pipe(
+    filter(([initialized]) => initialized),
     take(1),
-    map(() => (!store.selectSignal(selectIsLoggedIn)() ? true : router.createUrlTree(['/posts'])))
+    map(([, isLoggedIn]) => (!isLoggedIn ? true : router.createUrlTree(['/posts'])))
   );
 };
