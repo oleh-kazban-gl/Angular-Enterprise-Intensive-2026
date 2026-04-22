@@ -7,12 +7,12 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "dist/apps/instaglam",
+        "outputPath": { "base": "dist/apps/instaglam", "browser": "" },
         "index": "apps/instaglam/src/index.html",
-        "main": "apps/instaglam/src/main.ts",
+        "browser": "apps/instaglam/src/main.ts",
         "tsConfig": "apps/instaglam/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -40,12 +40,9 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
